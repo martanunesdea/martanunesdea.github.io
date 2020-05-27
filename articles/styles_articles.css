@@ -110,6 +110,7 @@ article {
 }
 
 .wrapper > div {
+    background: white;
        text-align: center;
        padding: 0;
    }
