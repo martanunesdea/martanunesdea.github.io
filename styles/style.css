@@ -1,0 +1,127 @@
+
+/* || General setup */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 12px;
+  background-color: #ebf2fa;
+}
+
+body {
+  width: 65%;
+  margin: 0 auto;
+}
+
+/* || typography */
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  color: #8A817C;
+}
+
+p, li {
+  font-family: 'Oxygen', sans-serif;
+  color: #2a2a2a;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+h1 {
+  color: #22223B;
+  font-size: 3rem;
+  text-align: center;
+}
+
+h2 {
+  color: #22223B;
+  font-size: 2rem;
+  text-align: left;
+  border-bottom: 1px solid gray;
+}
+
+h3 {
+  color: #22223B;
+  font-size: 1.5rem;
+}
+
+/* || backgrounds */
+
+nav, main, aside, footer {
+  background-color: #ebf2fa;
+}
+
+header {
+  background-color: #ebf2fa;
+}
+
+/* || header layout */
+
+nav {
+  background-color: #f1ddcfff;
+  margin-bottom: 10px;
+  display: flex;
+  padding: 0px;
+}
+
+nav ul {
+  padding: 0px;
+  list-style-type: none;
+  display: inline-flex;
+  flex: 1;
+}
+
+nav li {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  display: inline-flex;
+  flex: 1;
+}
+
+.topbar {
+  height: 2rem;
+  width: auto;
+  background-color: #ebf2fa;
+}
+
+
+/* Links properties */
+
+a {
+  text-decoration: none;
+  color: black;
+  flex: 1;
+}
+
+a:hover {
+  background-color: #e7d5c9;
+  text-emphasis: bold;
+}
+
+a:active {
+  background-color: #e7d5c9;
+}
+
+/* || main layout */
+
+main {
+  border-style: solid;
+  border-color: #C1D4E4;
+}
+
+article {
+  padding: 0.5%;
+  margin-bottom: 1%;
+  text-align: left;
+
+}
+
+/* footer */
+
+footer {
+  margin-top: 10px;
+}
