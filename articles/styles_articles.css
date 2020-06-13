@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  width: 65%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -26,7 +26,7 @@ h1, h2, h3, h4 {
 p, li {
   font-family: 'Oxygen', sans-serif;
   color: #2a2a2a;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1.5;
 }
 
@@ -38,8 +38,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  text-align: left;
-  border-bottom: 1px solid gray;
+  text-align: center;
 }
 
 h3 {
@@ -97,9 +96,7 @@ main {
 }
 
 article {
-  padding: 0.5%;
-  margin-bottom: 1%;
-  text-align: left;
+  padding: 1%;
 }
 
 .wrapper {
@@ -110,7 +107,6 @@ article {
 }
 
 .wrapper > div {
-    background: white;
        text-align: center;
        padding: 0;
    }
@@ -135,6 +131,27 @@ img {
   object-fit: cover;
 }
 
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 700px) {
+  .wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 300px 300px;
+      grid-gap: 10px;
+  }
+
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+/*
 aside {
   flex: 1;
   margin-left: 10px;
@@ -143,8 +160,7 @@ aside {
 
 aside li {
   padding-bottom: 10px;
-}
-
+}*/
 
 footer {
   margin-top: 10px;
