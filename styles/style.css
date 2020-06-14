@@ -23,16 +23,18 @@ h2, h3, h4 {
 }
 h1{
   font-size: 30px;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Playfair Display', serif;
   color: #8A817C;
 }
 
 p, li {
   font-family: 'Oxygen', sans-serif;
   color: #2A2A2A;
+  font-size: 14px;
+  line-height: 24px;
 }
 a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Oxygen', sans-serif;
   text-decoration: none;
   color: #000000;
 }
@@ -68,7 +70,7 @@ ul{
 }
 .item.title{
   flex:6;
-  font-size:28px;
+  font-size:20px;
   text-align: center;
 }
 .item.secondary{
@@ -84,20 +86,22 @@ ul{
 
 main {
   margin: 10px auto;
-  width: 60%;
+  width: 50%;
 }
 
 .heading {
-  margin: 20px 0px;
-  padding: 10px;
-  text-align:center;
   display:block;
-  border: 5px solid #8A817C;
+  text-align:center;
+  padding: 5px 0px;
+  border: 3px solid #8A817C;
   border-radius: 4px;
+  margin: 25px 0px;
 }
-
 .article{
-  margin: 20px 0px;
   padding: 5px;
-  border: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.sub-heading{
+  padding-bottom: 10px;
 }
