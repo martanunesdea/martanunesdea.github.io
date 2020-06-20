@@ -105,3 +105,10 @@ main {
 .sub-heading{
   padding-bottom: 10px;
 }
+
+.main-title{
+  padding: 20px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  text-align:center;
+}
