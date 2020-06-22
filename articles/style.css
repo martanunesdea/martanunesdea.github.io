@@ -7,7 +7,7 @@
 }
 html {
   font-size: 12px;
-  background-color: #F4F3EE;
+  background-color: #FFFBF6;
 }
 body {
   width: 100%;
@@ -43,7 +43,7 @@ a {
 /* ------------- MENU --------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
 nav{
-  background-color: #F1DDCFFF;
+  background-color: #EAE6E0;
 }
 ul{
    list-style-type: none;
