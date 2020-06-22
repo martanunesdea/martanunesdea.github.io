@@ -26,6 +26,9 @@ h1{
   font-family: 'Playfair Display', serif;
   color: #8A817C;
 }
+h3 {
+  font-size: 16px;
+}
 
 p, li {
   font-family: 'Oxygen', sans-serif;
@@ -108,8 +111,7 @@ main {
 
 .main-title{
   padding: 20px;
-  border-bottom: 1px solid black;
-  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
   text-align:center;
   background-color: #F1DDCFFF;
 }
@@ -119,8 +121,9 @@ main {
 ------------------------------------------------- */
 
 main h2 {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   border-bottom: 0.5px solid gray;
+  text-align: center;
 }
 
 .wrapper {
@@ -147,4 +150,16 @@ main h2 {
     font-size: 1rem;
     line-height: 1.2;
     margin: 1%;
+}
+
+.about{
+}
+
+.about_page{
+  margin-bottom: 30px;
+}
+
+.about_author{
+  margin-top: 5px;
+  margin-bottom: 30px;
 }
