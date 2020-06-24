@@ -92,15 +92,6 @@ main {
 }
 
 
-.article{
-  padding: 5px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-.sub-heading{
-  padding-bottom: 10px;
-}
-
 .main-title{
   padding: 20px;
   border-bottom: 1px solid gray;
@@ -108,51 +99,18 @@ main {
   background-color: #EAE6E0;
 }
 
-/* -----------------------------------------------------------------------
---------------- MAIN -----------
-------------------------------------------------- */
+/* ----------------------------------------------------------------
+---------------- MAIN ---------------------------------------------
+------------------------------------------------------------------- */
 
-main h2 {
-  margin-bottom: 15px;
-  border-bottom: 0.5px solid gray;
-  text-align: center;
+.about{
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 200px;
-    grid-gap: 10px;
+.about_page{
+  margin-bottom: 30px;
 }
 
-.wrapper > div {
-       text-align: center;
-       padding: 0;
-   }
-
-.post-title {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: bold;
-  line-height: 1.2;
-  margin: 10px 5px 5px 5px;
-}
-
-.post-subtitle {
-    font-size: 1rem;
-    line-height: 1.2;
-    margin: 5px 6px 10px 6px;
-}
-
-
-img {
-  width: 70%;
-  height: 50%;
-  object-fit: cover;
-  text-align: center;
-}
-
-
-.technological {
-  margin-top: 60px;
+.about_author{
+  margin-top: 5px;
+  margin-bottom: 30px;
 }
