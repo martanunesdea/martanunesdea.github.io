@@ -1,5 +1,6 @@
-
-/* || General setup */
+/*
+ * General setup
+ */
 
 *{
   box-sizing: border-box;
@@ -19,25 +20,21 @@ body {
 main {
   width: 50%;
   margin: 0 auto;
+  margin-bottom: 300px;
 }
-main a {
-  text-decoration: none;
-  font-size: 2rem;
-}
+
 main article{
-  padding:20px 0px 5px 0px;
-}
-footer{
-  margin-top:20px;
-  border-top: solid #bac5d9;
+  padding:20px 0px 20px 0px;
 }
 
-
-/* || typography */
+/*
+ * Typography
+ */
 
 h1, h2, h3, h4 {
   font-family: 'Oxygen', sans-serif;
-  color: #8A817C;
+  color: #22223B;
+  padding-top: 10px;
 }
 
 p, li, a {
@@ -48,23 +45,22 @@ p, li, a {
 }
 
 h1 {
-  color: #22223B;
   font-size: 2rem;
   text-align: center;
 }
 
 h2 {
-  color: #22223B;
   font-size: 2rem;
   text-align: left;
 }
 
 h3 {
-  color: #22223B;
-  font-size: 1.5rem;
-  margin: 0;
+  font-size: 1.6rem;
 }
 
+h4 {
+  font-size: 1.3rem;
+}
 /* || Nav layout */
 nav{
   padding: 0px 20px;
@@ -210,12 +206,13 @@ a:hover{
 .heading{
   border-bottom: 1px solid gray;
 }
-.heading a{
+.heading a {
   display:block;
+  text-decoration: none;
+  font-size: 2rem;
 
 }
 .heading a:hover{
-  border:1px solid gray;
-  border-bottom:0;
+  border-bottom:2px solid gray;
   text-decoration:none;
 }
