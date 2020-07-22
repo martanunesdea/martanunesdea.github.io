@@ -20,6 +20,8 @@ h2, h3, h4 {
   font-family: 'Oxygen', sans-serif;
   color: #8A817C;
   font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 h1{
   font-size: 30px;
