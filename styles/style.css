@@ -123,6 +123,11 @@ main {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+.section-D
+{
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
 
 .wrapper {
     display: grid;
