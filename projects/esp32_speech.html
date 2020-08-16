@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <link href="styles/style.css" rel="stylesheet">
+    <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav>
+      <ul class="menu">
+        <li class="item logo"><a href="#">Marta Nunes de Abreu</a></li>
+        <li class="item secondary"><a href="#">About</a></li>
+        <li class="item  secondary"><a href="#">Contact</a></li>
+        <li class="toggle"><span class="bars"></span></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- <div class="topbar">
+      </div> -->
+
+      <section>
+        <h1 class="heading"><a href="#">Speech processing with ESP32</a></h2>
+
+        <h2>Project Rationale</h2>
+        <p>This project idea came to possibly in my second year of university and so many things have got in the way that I kept on postponing it. Perhaps the ambition behind the idea was a bit too big to simply start working on it during my down time. Perhaps not. In essence, I am hoping to connect a microphone to an esp32 board, perhaps do a bit of pre-processing from the board and then send the data wirelessly. Once the data is in a bit of a more powerful machine, I will try to use more advanced filtering and algorithms to process the audio. If all goes well, I will try to use the final speech output as the input for a future NLP project (this would be separately implemented to avoid complications, and to enable me to work on different things concurrently). Sounds simple, right? Well, let's get working then!</p>
+      </section>
+      <section>
+        <h2 class="subheading">Development diaries</h2>
+        <h3>Getting started</h3>
+        <p>The esp32 is setup and running. <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#step-10-monitor">The instructions provided by Espressif</a> are fairly simple to understand, and it helps that I'm not looking to do anything more complicated other than, program the esp32 using the command line tools on Mac OS.</p>
+        <h3>Getting the board to flash</h3>
+        <p>Using a few of the examples from the esp-idf library, I was able to check that the development board I have from 3 years ago it's still functional! (I shouldn't really be surprised, but I have travelled with the box containing these components back and forth a few times now...). </p>
+        <h3>Getting a blink and digitalised voltage</h3>
+        <p>It's another day and a bit more of complexity creeping in slowly!</p>
+        <p>I've implemented the classic LED circuit, once again just to check the I/O of the board is working well. For a few minutes, I got a bit frustrated as I remembered that my dev board has a very obscure pinout mapping (ie. it's not from an established manufacturer so I had no way to check which pins corresponded to the ESP32 module datasheet). However, thankfully, someone on the internet has the same module (it may not be that obscure after all), with the mapping for the pinout for this board, as well as some other handy info. Link is <a href="https://randomnerdtutorials.com/esp32-pinout-reference-gpios/"here</a>, in case anyone wants to see the board I've got. Although, I will always reference the pins used as per the official esp32 datasheet (e.g. GPIOXX, etc.).  </p>
+        <p>I've also managed to get the output from the microphone read by the board, and printed on the monitor in "debugging style". This feels like a tiny victory as yet again, I wasn't even sure if the microphone was going to be functional. However, on the other hand, now that I've got the microphone output's reading, I've got a big job ahead. In fact I've got two jobs that I could do in no different order:</p>
+        <ul>
+          <li>Sort out the microphone settings and ADC settings in the board. The voltage readings I'm getting are somewhat non-sense at the moment. And I know that regardless, it'll be a LONG way until the audio signal is all nice and pretty. So perhaps I may skip to my second job instead...</li>
+          <li>Setup a WiFi connection and send the audio signal through this connection. This shouldn't be too hard, as I've done it before. And at least, once I've got the data on my laptop, it will be easier to evaluate the signal visually and what really needs to be done. </li>
+        </ul>
+        <p>Ok, so next up! Establishing a WiFi connection between the board and my computer. One may ask why not use bluetooth low energy, for power saving reasons and because it is so widely used nowadays that you really feel like you're missing out if you're not using it. Well, my really ambitious plans for the project are to actually get the audio processed through cloud storage, most likely python scripts hosted in an instance of AWS. But this is very ambitious, and I might not get to this stage before I get distracted with a new idea.</p>
+      </section>
+
+
+
+    </main>
+
+
+    <footer>
+      <p></p>
+    </footer>
+
+  </body>
+</html>
