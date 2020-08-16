@@ -1,5 +1,5 @@
-# blog
-developing a website/blog
+# Website
+developing a website/blog/portfolio
 
 
 File structure:
