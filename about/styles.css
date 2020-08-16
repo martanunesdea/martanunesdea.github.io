@@ -1,116 +1,135 @@
+/*
+ * General setup
+ */
 
-/* || General setup */
 *{
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
+
 html {
   font-size: 12px;
-  background-color: #FFFBF6;
+  background-color: #E4E7EA;
 }
+
 body {
   width: 100%;
   margin: 0 auto;
 }
-
-/* ----------- TYPOGRAPHY ---------------------------------------------- */
-
-h2, h3, h4 {
-  font-family: 'Oxygen', sans-serif;
-  color: #8A817C;
-  font-size: 20px;
-}
-h1{
-  font-size: 30px;
-  font-family: 'Playfair Display', serif;
-  color: #8A817C;
-}
-h3 {
-  font-size: 16px;
+main {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 300px;
 }
 
+main article{
+  padding:20px 0px 20px 0px;
+}
+
+/*
+ * Typography
+ */
+
+h1, h2, h3, h4 {
+  font-family: 'Ubuntu', sans-serif;
+  color: black;
+  padding-top: 10px;
+}
 p, li {
   font-family: 'Oxygen', sans-serif;
-  color: #2A2A2A;
-  font-size: 14px;
-  line-height: 24px;
+  color: black;
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 a {
-  color: #8A817C;
+  text-decoration: none;
+  color: black;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+h2 {
+  font-size: 2rem;
+  text-align: left;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+a {
   text-decoration: none;
 }
 
-/* ---------------------------------------------------------------------- */
-/* ------------- MENU --------------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-nav{
-  background-color: #EAE6E0;
-}
+/* ------------------------------------------------------------------
+  ------------------- NAV BAR
+  ------------------------------------------------------------------ */
 ul{
-   list-style-type: none;
-}
+    list-style-type: none;
+ }
 .menu {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  align-items:center;
-  padding: 5px 0px 5px 0px;
-}
-.menu li a {
-  display: block;
-  color: #8A817C;
-}
-.item{
-  display:block;
-  width:auto;
-}
-.item.logo{
-  flex:2;
-  font-size:16px;
-  margin-left: 20px;
-}
-.item.title{
-  flex:6;
-  font-size:20px;
-  text-align: center;
-}
-.item.secondary{
-  flex:1;
-  text-align:center;
-  font-size:16px;
-}
+   display:flex;
+   flex-wrap:wrap;
+   justify-content:space-between;
+   align-items:center;
+   padding: 10px 0px 10px 0px;
+ }
+ .menu li a {
+   display: block;
+   color: white;
+   text-decoration: none;
+   color: black;
+   font-family: 'Ubuntu', sans-serif;
+
+ }
+ .item{
+   display:block;
+   width:auto;
+ }
+ .item.logo{
+   flex:8;
+   font-size:16px;
+   margin-left: 20px;
+ }
+ .item.secondary{
+   flex:1;
+   text-align:center;
+   font-size:16px;
+ }
 
 
 /* ---------------------------------------------------------------------- */
 /* ------------- TITLE -------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
 
-main {
-  margin: 40px auto;
-  width: 50%;
-}
-
-
-.main-title{
-  padding: 20px;
-  border-bottom: 1px solid gray;
+.title{
+  padding: 10px;
+  margin-bottom: 20px;
   text-align:center;
-  background-color: #EAE6E0;
+  text-decoration: none;
 }
 
-/* ----------------------------------------------------------------
----------------- MAIN ---------------------------------------------
-------------------------------------------------------------------- */
 
-.about{
+/* ------------------------------------------------------------------
+  ------------------- BODY
+  ------------------------------------------------------------------ */
+
+.heading{
+  border-bottom: 1px solid gray;
 }
+.heading a {
+  display:block;
+  text-decoration: none;
+  font-size: 2rem;
 
-.about_page{
-  margin-bottom: 30px;
 }
-
-.about_author{
-  margin-top: 5px;
-  margin-bottom: 30px;
+.heading a:hover{
+  border-bottom:2px solid gray;
+  text-decoration:none;
 }
