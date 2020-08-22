@@ -49,6 +49,13 @@
           <li>Setup a WiFi connection and send the audio signal through this connection. This shouldn't be too hard, as I've done it before. And at least, once I've got the data on my laptop, it will be easier to evaluate the signal visually and what really needs to be done. </li>
         </ul>
         <p>Ok, so next up! Establishing a WiFi connection between the board and my computer. One may ask why not use bluetooth low energy, for power saving reasons and because it is so widely used nowadays that you really feel like you're missing out if you're not using it. Well, my really ambitious plans for the project are to actually get the audio processed through cloud storage, most likely python scripts hosted in an instance of AWS. But this is very ambitious, and I might not get to this stage before I get distracted with a new idea.</p>
+        <h3>Communications via WiFi with ESP32</h3>
+        <p>The WiFi stack in the ESP32 and is fairly simple and well documented. The chip is able to act as a station (e.g. connecting to a home router) or to act as an access point (i.e. accepting connections from clients). It can also be set to a dual-mode, where it can handle both roles.</p>
+        <p>In my case, I'm not looking to conenct the esp32 to a website to display the news, or the weather. And, for the time being, I'm also not looking to post new information in a dedicated website. Instead, I want to establish a WiFi connection so I can then communicate data packets from the esp32 to my computer. This involves the usage of a transmission protocol (TCP/IP or UDP/IP).</p>
+        <p>The UDP protocol relies on a more asynchronous communication and for this reason this a higher probability of getting mixed up samples. This isn't the end of the world, and in fact I've worked on a wearable tech device that used UDP as the protocol, since this also provides less latency. I'll be trying the TCP/IP implemention using lwIP (lightweight IP) that is compatible with the ESP-IDF environment.</p>
+        <h4>Client and server roles</h4>
+        <p>The terminology for client and server is widely used around the Internet development sector. In the case of TCP/IP protocol, I'll be setting up the esp32 as the "host" that is providing information to the computer (which acts as the "client".).</p>
+        <p>To setup my computer as a client, I have to run either a python script or a couple of netcat commands to tune in to the correct address and listen to the port.</p>
       </section>
 
 
