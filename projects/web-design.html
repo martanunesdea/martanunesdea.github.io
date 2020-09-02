@@ -42,7 +42,62 @@
         <p>So far, I have mostly seen that Javascript uses "let" as a means to avoid having to define a specific data type. Very broadly, Javascript will categorise the variables declared into: Number, Boolean, String, Arrays or Objects.</p>
         <p>When it comes to numbers, Javascript is agnostic to integers, float, double, long double, it's all a "Number". I'm very onboard with this. The numerical operators work in similar ways to C and C++ (or, when differing, in simpler ways). The operational precedence follows the actual math rules (multiply and divide before addition and subtraction) and parantheses will be considered before anything. Apart from that, Javascript has dedicated methods for each data type, which are particularly useful for "strings" and "arrays". To identify the data type, the function "typeof()" will provide the answer.</p>
         <h4>Conditionals and loops</h4>
-        <p>With regards to syntax and usage, Javascript employs similar conditional functions (if/else, switch/break statements) as well as loops (for, while, do while). It has a few other loops, such as for...in and for...of and the labeled statement. Apart from that, the syntax and behaviours are as one would expect. I suppose the discerning part is the usage for some of these functions but so far so good.</p>
+        <p>With regards to syntax and usage, Javascript employs similar conditionals (if/else, switch/break statements) as well as loops (for, while, do while). It has a few other loops, such as for...in and for...of and the labeled statement. Apart from that, the syntax and behaviours are as one would expect. I suppose the discerning part is the usage they employ but so far so good.</p>
+        <h3>Functions</h3>
+        <p>One different thing from C or C++, or less usual, is that there is such a thing as an "anonymous function" that essentially doesn't require a declaraction per se. It won't act as a function unless it is called by something, most likely an event handler or defined as a variable which is later called. I'll add an example here soon.</p>
+        <h4>Scope</h4>
+        <p>Functions have their own local scope and whatever is outside a function is in a global scope. Take caution because loops and conditionals are not considered functions and therefore these scoping rules do not apply. Take further caution with functions within functions, these will not have access to the variables of the "parent" function since it is outside scope, in order to bypass this, the "child" function should have that variable passed as an argument. </p>
+        <!--    const myButton = document.querySelector('button');
+
+    myButton.onclick = function() {
+      alert('hello');
+    } -->
+        <h4>Using built-in function handlers</h4>
+        <p>A basic function script example includes function calls such as: </p>
+        <ul>
+          <li>document.querySelector('html') - To store a reference to html in a constant.</li>
+          <li>document.createElement('div') - To create a new element within the DOM and store a reference to it. </li>
+          <li>Element.setAttribute() - To set attribute (i.e. class) to a new element. </li>
+          <li>Node.appendChild() - To associate the a new element to a parent node.</li>
+          <li>Node.textContent() - To fill in the object with some text.</li>
+          <li>GlobalEventHandlers.onclick() - To set a function call upon an user action. The onclick property is available to any element on the page. The property is set to a function to specify what code to run when the button (or element) is clicked.</li>
+          <li>Node.removeChild() - Same thing as appendChild but to remove it from the page.</li>
+        </ul>
+        <h4>Calling the function</h4>
+        <p>When calling a function in the javascript file, if it is followed the by the parantheses (e.g. "displayMessage()") it will be called immediately and only once. Even if written after an onclick handler, the function will only run once even if the button is clicked on multiple times. It should be declared without the parentheses so that the function is called only when the button is clicked.</p>
+        <p>When calling a function with multiple parameters, in order to prevent it from running immediately, we can't call it directly. Instead we should write the function call with the desired parameters under an anonymous function. This way, it will be within that function's scope and won't be called immediately when the file is run.</p>
+      <!--
+          btn.onclick = function() {
+          displayMessage('Woo, this is a different message!');
+        }; -->
+        <h3>Events</h3>
+        <p>First thing to note is that, event calls and event handlers don't work equally across all Javascript usages. In other words, in the web environment, event calls work as it is interpreted by looking at the code but for instance, in Node.js which is based on Javascript, event handlers work in a sligthly different method. Similarly for web extensions, event handlers have to be managed a bit differently. I'm not sure it's very relevent at the moment but it's nice to know.</p>
+        <p>A few of the more recurrent event handlers are:</p>
+        <ul>
+          <li>btn.onfocus and btn.onblur</li>
+          <li>btn.ondblclick</li>
+          <li>window.onkeypress, window.onkeydown, window.onkeyup</li>
+          <li>btn.onmouseover, btn.onmouseout</li>
+        </ul>
+        <p>Some are available to any element (e.g. onclick) and some to a specific element (window.onkeypress).</p>
+        <h4>HTML inline event handlers</h4>
+        <p>Don't use event handlers in an html file. Put all the JS code in one file and that can easily be applied to several elements and to several HTML files.</p>
+        <p>Especially like so: buttons= document.querySelectorAll('button'); </p>
+        <p>And "buttons.forEach(function(button)  " </p>
+  <!-- const buttons = document.querySelectorAll('button');
+
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].onclick = bgChange;
+} -->
+        <h4>DOM 2 Level Events</h4>
+        <p>This is a different way of registering an event that we want to handle and to specify how to do so.</p>.
+        <p>"Inside the addEventListener() function, we specify two parameters — the name of the event we want to register this handler for, and the code that comprises the handler function we want to run in response to it."</p>
+        <p>The added advantage is that we can clear up the defined event listeners with the antagonistic function call removeEventListener(). This could improve efficiency as we clear memory from previous (maybe unused) event handlers, and also allows for reusing buttons for different actions, we just need to ensure that the associated events registered with them are removed. This method also lets us register multiple handlers to one listener; ie. the same button can lead to two different function calls on being clicked. Whereas with btn.onclick() the last function handlers would override any previous handlers declared.</p>
+        <p>Whilst this method has more power and options, the downsides are that these can get a bit more complex and less well supported (e.g. not compatible across different browsers) compared to the event handler properties.</p>
+        <h4>Event objects</h4>
+        <p>Allow us to refer to the object with which the event handler is registered to. For instance, if we want to change the background color of a button when it is clicked we could use "e.target.style.backgroundColor = purple;". Using e.target (or evt/event) is a really useful way to refer to the object listening to the event (in a way, it's a bit like the "self" keyword in C++ for dealing with the class object that we are using).</p>
+        <p>e.preventDefault() is used as a way to catch an exception</p>
+        <p>e.stopPropagation() will prevent the event handlers of parent nodes to be activated when an event is registered to a child node (e.g. an event registered with a video inside a div).</p>
       </section>
 
 
