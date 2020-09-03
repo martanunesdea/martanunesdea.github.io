@@ -98,6 +98,38 @@ for (let i = 0; i < buttons.length; i++) {
         <p>Allow us to refer to the object with which the event handler is registered to. For instance, if we want to change the background color of a button when it is clicked we could use "e.target.style.backgroundColor = purple;". Using e.target (or evt/event) is a really useful way to refer to the object listening to the event (in a way, it's a bit like the "self" keyword in C++ for dealing with the class object that we are using).</p>
         <p>e.preventDefault() is used as a way to catch an exception</p>
         <p>e.stopPropagation() will prevent the event handlers of parent nodes to be activated when an event is registered to a child node (e.g. an event registered with a video inside a div).</p>
+
+        <h3>Object-oriented Javascript</h3>
+        <h4>Creating objects</h4>
+        <p>The form of an object in Javascript is pretty simple. In essence, the variables associated with the object are referred to as the object's "properties" and the functions associated with the object are referred to as the "methods" of said object. The definition of an object is relatively interchangeable with the definition of a class in C++, except a bit easier in the syntax and code maintainability.</p>
+        <h4>Constructors</h4>
+        <p>There seems to be a few ways to allocate memory to create an object.</p>
+        <ul>
+          <li>A constructor that takes parameters: A simple function that will allocate the parameters to the properties/methods of the object.</li>
+          <li>The Object() constructor: This is Javascript's built-in method to allocate memory and store it under the name of the variable used by the programmer. Then, the properties and methods given will add the real value to the instance of the object created.</li>
+          <li>The create() method: This replicates an existing instance of the object and stores it under the name of the new variable.</li>
+        </ul>
+        <h4>Object prototypes</h4>
+        <p>From Mozilla reference page: "To provide inheritance, objects can have a prototype object, which acts as a template object that it inherits methods and properties from.". In essence, any instance of a user-created object will have access to the methods and properties inhereted from the Object prototype. It is not all of the methods and properties defined within Object that are available, only those defined within the method "prototype". In other words, "prototype" will encapsulate all of the properties or methods that children objects may inherit.</p>
+        <p>When a method from an instance of an object is called, the browser will check if it is defined within its constructor, if it isn´t, the browser will check if it is available in it, as defined in its constructor. If that's not the case, it will check the object prototype of this object, and if that doesn't have it, then it will look at the object prototype's object prototype, which will have it. In essence, it goes up in this "chain" of object prototypes until it either finds the method, or runs out of properties and quits.</p>
+        <p>Here we see that, actually the create() method is simply using an object prototype to create a second instance of the object. From Mozilla reference page: "create() creates a new object from a specified prototype object."</p>
+        <p>"Every constructor function has a prototype property whose value is an object containing a constructor property. This constructor property points to the original constructor function." In other words, every object can create another instance of the same object with the constructor method available to it by the object's prototype.</p>
+        <p>It is possible to modify the object's prototype by adding methods and properties to it. This can provide some added flexibility, since the object was initially created with less content and can be added more things to it. However, adding properties may not prove very sensible since it giving the same value to all the instances of the object may not be the desired outcome. Equally with methods that use the element "this" outside a function, then it will be referencing the global scope, not a function scope. Calling this property would return undefined. Using "this" worked fine on the when it is defined inside a function scope, which will be transferred successfully to the object instance scope.</p>
+        <p>As stated in Mozilla's reference page: "a fairly common pattern for more object definitions is to define the properties inside the constructor, and the methods on the prototype. This makes the code easier to read, as the constructor only contains the property definitions, and the methods are split off into separate blocks." Which makes sense to me.</p>
+        <h4>Object member summary</h4>
+        <p>Depending on the origin, there are four types of properties and methods that an instance of an object may have:</p>
+        <ul>
+          <li>Those defined inside a constructor function that are given to object instances.</li>
+          <li>Those defined directly on the constructor themselves, that are available only on the constructor. These are commonly only available on built-in browser objects, and are recognized by being chained directly onto a constructor, not an instance. For example, Object.keys(). These are also known as static properties/methods.</li>
+          <li>Those defined in the constructor's prototype, which are available to all instances of the object, and inheriting objects.</li>
+          <li>Those defined as part of the instance definition. For example: "let person1 = new Person('Chris');". In this case, Chris was defined just for this instance of the object.</li>
+        </ul>
+        <h4>ECMAScript 2015 Classes</h4>
+        <p>There's apparently an easier way to define objects by way of using a new syntax that borrows from C++ and Java by defining objects as classes. And here was I thinking that Javascript was ahead by keeping things really flexible. I suppose the concept of Class may make some other things easier to implement, for instance for polymorphism and abstraction.</p>
+        <p>To create inheritance using the Class functionality. We would say: "class Teacher extends Person". And inside the constructor we need to call the super() operator to get a reference to an instance of a person object in memory. This would then allow us to fill this instance with the parameters for teacher.</p>
+        <p>Getters and Setters</p>
+        <p>Javascript has an interesting way to define the helper functions within classes, when comparing it with the C++ syntax and structure. By naming a function after the "get" and "set" keywords to label the functions that "get" or "set" property dynamically. The underlying principle behind these functions is of course the same as in C++'s OOP.</p>
+        <p>A note from Mozilla's page: "the sharing of functionality between objects is often called delegation. Specialized objects delegate functionality to a generic object type."</p>
       </section>
 
 
