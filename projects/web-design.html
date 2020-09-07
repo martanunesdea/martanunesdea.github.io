@@ -130,6 +130,14 @@ for (let i = 0; i < buttons.length; i++) {
         <p>Getters and Setters</p>
         <p>Javascript has an interesting way to define the helper functions within classes, when comparing it with the C++ syntax and structure. By naming a function after the "get" and "set" keywords to label the functions that "get" or "set" property dynamically. The underlying principle behind these functions is of course the same as in C++'s OOP.</p>
         <p>A note from Mozilla's page: "the sharing of functionality between objects is often called delegation. Specialized objects delegate functionality to a generic object type."</p>
+        <h4>Objects practice run</h4>
+
+        <h3>Asynchronous Javascript</h3>
+        <p>Javascript is single-threaded by nature, so external functionality needs to be used to establish Asynchronous code. There two ways of calling asynchronous code.</p>
+        <h4>Async callbacks</h4>
+        <p>These are the more outdated method of performoing asynchronous programming in Javascript but can still be found in commonly used but older APIs. It manifests itself, for instance, when callback functions are used as parameters of functions. In these cases, we are only passing a reference to the function, for it to be run later (asynchronously) somewhere in the function's body. Note that, not all callback functions will run asynchronously (e.g. the forEach() function).</p>
+        <h4>Promises</h4>
+        <p>Some types of functions (e.g. fetch()) are asynchronous functions and let you attach a chain of .then() code to it. This will essentially create a block of asynchronous code, that will run depending on the resources available to it (e.g. if making an HTTP request then its completion time may depend on internet bandwith). This block of asynchronous code does not prevent the completion of the remaining synchronous code in the javascript file. For this reason, if we're attempting to reach a file in cloud storage, the asynchronous nature of that request, will still allow for the rest of the page to render while the file is being requested.</p>
       </section>
 
 
