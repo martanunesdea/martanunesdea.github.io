@@ -34,11 +34,6 @@ const IndexPage = () => (
       <li>Advocate for circular economics</li>
       <li>Avid reader and amateur writer</li>
     </ul>
-    <br />
-
-    <Link to="/page-2/">Projects</Link> <br />
-    <Link to="/using-typescript/">Blog</Link> <br />
-    <Link to="/">About</Link>
 
   </Layout>
 )

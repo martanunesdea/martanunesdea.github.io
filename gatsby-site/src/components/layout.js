@@ -19,6 +19,7 @@ const CustomMain = styled.main`
   max-width: 500px;
   text-align: center;
   padding: 0;
+  font-family: "Hind";
 
   ul, li {
     padding: 0;
@@ -45,6 +46,10 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          menuLinks {
+            name
+            link
+          }
         }
       }
     }
@@ -52,7 +57,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={data.site.siteMetadata.title} menuLinks={data.site.siteMetadata.menuLinks}  />
       <div>
         <CustomMain>{children}</CustomMain>
         <Footer />

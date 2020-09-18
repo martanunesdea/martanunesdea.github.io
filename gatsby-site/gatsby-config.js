@@ -3,6 +3,20 @@ module.exports = {
     title: `Marta Nunes de Abreu`,
     description: `Hi, I'm Marta. A tech and business enthusiast, currently working as a full-time software engineer.`,
     author: `@gatsbyjs`,
+    menuLinks:[
+      {
+         name:'Projects',
+         link:'/projects'
+      },
+      {
+         name:'Blog',
+         link:'/blog'
+      },
+      {
+        name: 'About',
+        link: '/about'
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -28,6 +42,16 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+            `ubuntu`,
+            `hind`
+        ],
+        display: 'swap'
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
