@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Button, Collapse } from "react-bootstrap";
+import { Button, Collapse} from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -15,6 +15,7 @@ const CustomList = styled.div`
   max-width: 400px;
   text-align: center;
 `
+
 
 function EmbeddedSystemsText() {
   const [open, setOpen] = useState(false);
@@ -101,7 +102,8 @@ function PersonalInterestsText() {
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h3>Hi, I'm Marta. A tech and business enthusiast currently working as a full-time software engineer.</h3>
+    <h2>Hi, I'm Marta.</h2>
+    <h3>A tech and business enthusiast currently working as a full-time software engineer.</h3>
     <EmbeddedSystemsText />
     <SoftwareEngineeringText />
     <PersonalInterestsText />

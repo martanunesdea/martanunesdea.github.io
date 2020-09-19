@@ -11,45 +11,36 @@ import "./layout.css"
 
 const CustomHeader = styled.header`
     margin: 0 auto;
-    padding-top: 2rem;
-    margin-bottom: 3rem;
+    padding: 3px 10px;
     text-align: center;
-`
-
-const Section = styled.div`
-    padding: 1rem 0.2rem;
-    display: flex;
-    justify-content: center;
+    background-color: black;
+    display:flex;
+    justify-content: space-between;
     align-items: center;
 `
-
-const MenuOptions = styled.ul`
-    margin: 0;
-    margin-left: auto;
+const CustomTitle = styled.div`
+  h2 {
+    color: white;
+  }
 `
 
-const IndividualMenuOption = styled.li`
-    margin: 0;
-    width: auto;
-    list-style-type: none;
-    display: block;
-    padding: 0 1rem;
-    color: black;
+const CustomMenu = styled.div`
+  font-family: "Ubuntu";
 `
 
-const CleanLink = styled(props => <Link {...props} />)`
-    color: black;
-    text-decoration: none;
-`;
+const StyledLink = styled.a`
+  color: white;
+  text-decoration: none;
 
+`
 const CustomLink = styled(props => <Link {...props} />)`
-    color: #008fb3;
+    color: black;
     text-decoration: none;
     font-family: "Hind";
 `;
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-  <a
+  <StyledLink
     href=""
     ref={ref}
     onClick={(e) => {
@@ -58,13 +49,18 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     }}
   >
     {children}
-  </a>
+  </StyledLink>
 ));
+
 
 const Header = ({ siteTitle, menuLinks }) => (
   <CustomHeader>
-  <Section>
-      <MenuOptions>
+  <CustomTitle>
+      <h2>
+          {siteTitle}
+      </h2>
+  </CustomTitle>
+  <CustomMenu>
       <Dropdown>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-basic-button">
         More
@@ -79,14 +75,7 @@ const Header = ({ siteTitle, menuLinks }) => (
           ))}
         </Dropdown.Menu>
       </Dropdown>
-      </MenuOptions>
-
-  </Section>
-    <div>
-      <h1>
-          {siteTitle}
-      </h1>
-    </div>
+  </CustomMenu>
   </CustomHeader>
 )
 

@@ -32,7 +32,7 @@ const CustomMain = styled.main`
     margin: 0;
   }
 
-  h3 {
+  h2 {
     padding: 0;
     margin: 10vh 0;
   }
