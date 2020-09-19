@@ -2,6 +2,12 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
+import 'bootstrap/dist/css/bootstrap.css';
+
+import { Button, DropdownButton, Dropdown } from "react-bootstrap";
+import { useState, useEffect } from 'react';
+import "./layout.css"
+
 
 const CustomHeader = styled.header`
     margin: 0 auto;
@@ -20,7 +26,6 @@ const Section = styled.div`
 const MenuOptions = styled.ul`
     margin: 0;
     margin-left: auto;
-    display: flex;
 `
 
 const IndividualMenuOption = styled.li`
@@ -43,25 +48,43 @@ const CustomLink = styled(props => <Link {...props} />)`
     font-family: "Hind";
 `;
 
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+  <a
+    href=""
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  >
+    {children}
+  </a>
+));
 
 const Header = ({ siteTitle, menuLinks }) => (
   <CustomHeader>
   <Section>
       <MenuOptions>
+      <Dropdown>
+        <Dropdown.Toggle as={CustomToggle} id="dropdown-basic-button">
+        More
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
           {menuLinks.map(link => (
-            <CustomLink to={link.link}>
-              <IndividualMenuOption>
+              <Dropdown.Item>
+              <CustomLink to={link.link}>
                 {link.name}
-              </IndividualMenuOption>
-            </CustomLink>
+              </CustomLink>
+              </Dropdown.Item>
           ))}
-        </MenuOptions>
+        </Dropdown.Menu>
+      </Dropdown>
+      </MenuOptions>
+
   </Section>
     <div>
       <h1>
-        <CleanLink to="/">
           {siteTitle}
-        </CleanLink>
       </h1>
     </div>
   </CustomHeader>

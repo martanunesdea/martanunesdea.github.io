@@ -1,4 +1,11 @@
-html {
+html{
+  font-family: "Hind";
+}
+h1, h2, h3, h4, h5 {
+  font-family: "Ubuntu";
+}
+
+/* html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font: 112.5%/1.45em georgia, serif, sans-serif;
@@ -581,3 +588,4 @@ pre tt:after {
     font-size: 100%;
   }
 }
+*/

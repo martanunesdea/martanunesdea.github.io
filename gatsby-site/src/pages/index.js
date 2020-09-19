@@ -10,6 +10,12 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 
 
+const CustomList = styled.div`
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
+`
+
 function EmbeddedSystemsText() {
   const [open, setOpen] = useState(false);
 
@@ -24,7 +30,7 @@ function EmbeddedSystemsText() {
         <h4>Embedded Systems Experience</h4>
       </Button>
       <Collapse in={open}>
-        <div id="example-collapse-text">
+        <CustomList id="example-collapse-text">
           <ul>
             <li>Environments: Command line tools, Code Composer Studio, IAR Embedded Workbench</li>
             <li>Processors: ESP32, TI-CC2650, ARM Cortex M</li>
@@ -32,7 +38,7 @@ function EmbeddedSystemsText() {
             <li>Operating systems: FreeRTOS, Bare-metal</li>
             <li>Standards: MISRA C 2004, ISO 13485 and ISO 14972</li>
           </ul>
-        </div>
+        </CustomList>
       </Collapse>
     </>
   );
@@ -52,13 +58,13 @@ function SoftwareEngineeringText() {
         <h4>Software Engineering skills</h4>
       </Button>
       <Collapse in={open}>
-        <div id="example-collapse-text">
+        <CustomList id="example-collapse-text">
           <ul>
               <li>Languages: C++, Python, Go, Javascript</li>
               <li>Paradigms: Procedural programming, Object-oriented, Test-driven development</li>
               <li>Tools: MySQL, AWS, React, Docker, Enterprise Architect</li>
           </ul>
-        </div>
+        </CustomList>
       </Collapse>
     </>
   );
@@ -79,14 +85,14 @@ function PersonalInterestsText() {
         <h4>I don't only talk to machines!</h4>
       </Button>
       <Collapse in={open}>
-        <div id="example-collapse-text">
+        <CustomList id="example-collapse-text">
           <ul>
             <li>Fluent in Spanish and Portuguese</li>
             <li>Sailor, skiier and tennis aficionado</li>
             <li>Advocate for circular economics</li>
             <li>Avid reader and amateur writer</li>
           </ul>
-        </div>
+        </CustomList>
       </Collapse>
     </>
   );

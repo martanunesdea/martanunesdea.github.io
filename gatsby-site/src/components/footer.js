@@ -4,9 +4,11 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 
+import "./layout.css"
+
 const StyledFooter = styled.footer`
   font-size: 12px;
-  margin: 10vh 5vw;
+  margin: 7vh 5vw;
   border-top: 1px solid black;
   text-align: center;
 `
