@@ -29,13 +29,16 @@ const CustomMain = styled.main`
 
   h4 {
     padding: 0;
-    margin: 1vh 0;
-    margin-top: 5vh;
+    margin: 0;
   }
 
   h3 {
     padding: 0;
     margin: 10vh 0;
+  }
+
+  button {
+    margin: 2vh 0;
   }
 
 `
