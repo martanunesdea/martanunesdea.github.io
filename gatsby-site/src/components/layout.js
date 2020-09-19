@@ -16,29 +16,12 @@ import "./layout.css"
 
 const CustomMain = styled.main`
   margin: 0 auto;
-  max-width: 500px;
   text-align: center;
-  padding: 0;
   font-family: "Hind";
 
-  ul, li {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-  }
-
-  h4 {
-    padding: 0;
-    margin: 0;
-  }
-
-  h2 {
-    padding: 0;
-    margin: 10vh 0;
-  }
-
-  button {
-    margin: 2vh 0;
+  h1, h2, h3, h4, h5 {
+    font-family: "Ubuntu";
+    margin: 5vh 0;
   }
 
 `

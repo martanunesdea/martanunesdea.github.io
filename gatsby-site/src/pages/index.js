@@ -1,21 +1,51 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
-import 'bootstrap/dist/css/bootstrap.css';
 
-import { Button, Collapse} from "react-bootstrap";
-import { useState, useEffect } from 'react';
+// other components
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
+// bootstrap
+import 'bootstrap/dist/css/bootstrap.css';
+import { Button, Collapse} from "react-bootstrap";
+import { useState, useEffect } from 'react';
+
+// Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+
+const CustomMain = styled.main`
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 0;
+  text-align: center;
+  h1 {
+    padding: 0;
+    margin: 10vh 0 2vh 0;
+  }
+  h3 {
+    padding: 0;
+    margin: 2vh 0 7vh 0;
+  }
+  h4 {
+    padding: 0;
+    margin: 0;
+  }
+  button {
+    margin: 2vh 0;
+  }
+  ul, li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+`
 
 const CustomList = styled.div`
   margin: 0 auto;
   max-width: 400px;
   text-align: center;
 `
-
 
 function EmbeddedSystemsText() {
   const [open, setOpen] = useState(false);
@@ -102,11 +132,13 @@ function PersonalInterestsText() {
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h2>Hi, I'm Marta.</h2>
-    <h3>A tech and business enthusiast currently working as a full-time software engineer.</h3>
+    <CustomMain>
+    <h1>Hi, I'm Marta.</h1>
+    <h3>A software engineer with an interest in Internet of Things and data security.</h3>
     <EmbeddedSystemsText />
     <SoftwareEngineeringText />
     <PersonalInterestsText />
+    </CustomMain>
   </Layout>
 )
 

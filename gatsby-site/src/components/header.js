@@ -8,10 +8,12 @@ import { Button, DropdownButton, Dropdown } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import "./layout.css"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 const CustomHeader = styled.header`
     margin: 0 auto;
-    padding: 3px 10px;
+    padding: 3px 15px;
     text-align: center;
     background-color: black;
     display:flex;
@@ -31,12 +33,16 @@ const CustomMenu = styled.div`
 const StyledLink = styled.a`
   color: white;
   text-decoration: none;
-
 `
 const CustomLink = styled(props => <Link {...props} />)`
     color: black;
     text-decoration: none;
     font-family: "Hind";
+`;
+
+const CleanLink = styled(props => <Link {...props} />)`
+    color: white;
+    text-decoration: none;
 `;
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
@@ -57,21 +63,21 @@ const Header = ({ siteTitle, menuLinks }) => (
   <CustomHeader>
   <CustomTitle>
       <h2>
-          {siteTitle}
+          <CleanLink to="/">{siteTitle}</CleanLink>
       </h2>
   </CustomTitle>
   <CustomMenu>
       <Dropdown>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-basic-button">
-        More
+        <FontAwesomeIcon icon={faBars} color="white" size="lg"/>
         </Dropdown.Toggle>
-        <Dropdown.Menu>
+        <Dropdown.Menu styled={{maxWidth: "10px",}}>
           {menuLinks.map(link => (
-              <Dropdown.Item>
-              <CustomLink to={link.link}>
+            <CustomLink to={link.link}>
+            <Dropdown.Item>
                 {link.name}
-              </CustomLink>
-              </Dropdown.Item>
+            </Dropdown.Item>
+            </CustomLink>
           ))}
         </Dropdown.Menu>
       </Dropdown>
