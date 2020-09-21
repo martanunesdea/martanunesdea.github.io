@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/website",
   siteMetadata: {
     title: `Marta Nunes de Abreu`,
     description: `Hi, I'm Marta. A tech and business enthusiast, currently working as a full-time software engineer.`,
