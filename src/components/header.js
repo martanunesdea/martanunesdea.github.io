@@ -77,12 +77,13 @@ const Header = ({ siteTitle, menuLinks }) => (
         <FontAwesomeIcon icon={faBars} color="white" size="lg"/>
         </Dropdown.Toggle>
         <Dropdown.Menu>
-        <Dropdown.Item href="../projects">Projects</Dropdown.Item>
-        <Dropdown.Item href="../blog">Articles</Dropdown.Item>
-        <Dropdown.Item href="../contact">Contact</Dropdown.Item>
+        <Dropdown.Item as={Link} to={"/projects/"}>Projects</Dropdown.Item>
+        <Dropdown.Item as={Link} to={"/blog"}>Articles</Dropdown.Item>
+        <Dropdown.Item as={Link} to={"/contact"}>Contact</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
   </CustomMenu>
+
   </CustomHeader>
 )
 
