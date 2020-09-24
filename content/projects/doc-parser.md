@@ -2,9 +2,10 @@
 title: "Password manager with C++"
 date: "2017-08-10"
 tags: ["C++", "MySQL", "encryption"]
+description: Password generator and manager, that stores the passwords for accounts created on a MySQL schema
+type: projects
 ---
 
-# Processing text in C++
 ## Project Rationale
 
 Writing this program in C++ is partially driven by the enthusiasm to have more flexibility in software design (as compared to C), and partially because I am curious to see the differences from C++ to Python libraries. I used SpaCy about two years ago, and it was already very user-friendly back in the day. However, since it was based on Cython, I was left with the curiosity to try NLP in the C++ environment.
@@ -21,9 +22,9 @@ I have managed to get a text file onto a vector data structure. For the time bei
 
 At the moment, I have only just done a print check that the vector contents include all the text content. I have now outlined a few things I would like to do with this vector structure:
 
-    Rank words by the frequency of use: I am expecting a lot of linking words at the top but would also expect the words ranking just below to be about the topic of the document.
-    Rank words by the length of word: This would be useful if it is an academic text. And sometimes the longest words don't get repeated often (ie. not appearing in the first rank) but could be quite important... This is only a theory and if I don't get promising results I will probably discard this feature.
-    Categorise words: This will categorise words based on their nature, for instance noun, verb, adjective, etc. I will probably need a third party library at this point. And I am not sure the results will be very repeatable but I'm curious to see the outcome. It's all about the learning experience, really.
+- Rank words by the frequency of use: I am expecting a lot of linking words at the top but would also expect the words ranking just below to be about the topic of the document.
+- Rank words by the length of word: This would be useful if it is an academic text. And sometimes the longest words don't get repeated often (ie. not appearing in the first rank) but could be quite important... This is only a theory and if I don't get promising results I will probably discard this feature.
+- Categorise words: This will categorise words based on their nature, for instance noun, verb, adjective, etc. I will probably need a third party library at this point. And I am not sure the results will be very repeatable but I'm curious to see the outcome. It's all about the learning experience, really.
 
 I have also decided to add two extra options in this document parser program. The second option will be to categorise the document based on the contents (this would involve looking at the words used and seeing of what nature they are, this will definitely rely on third-party algorithms as my time is sadly not infinte). The third option will be to encrypt the document, this will involve outputting a file that is encrypted, perhaps with the encryption key in a different text based file. Still have to consider a few things, so it all might change.
 

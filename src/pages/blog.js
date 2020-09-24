@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -16,51 +17,34 @@ const CustomMain = styled.main`
   margin: 0 auto;
   max-width: 70vw;
 `
+const CleanLink = styled(props => <Link {...props} />)`
+    color: black;
+    text-decoration: none;
+    box-shadow: none;
+    :hover{
+      text-decoration: underline;
+      color: black;
+    }
+`
 
-const ArticlesPage = () => (
+const ArticlesPage = ({data}) => (
   <Layout>
     <SEO title="Blog" />
     <CustomMain>
     <h1>Articles</h1>
-
     <CardDeck>
+    {data.allMarkdownRemark.edges.map(({ node }) => (
       <Card>
+        <CleanLink to={node.fields.slug}>
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
+          <Card.Title>{node.frontmatter.title}</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in to
-            additional content. This content is a little bit longer.
+            {node.frontmatter.description}
           </Card.Text>
         </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">#JavaScript #WebDesign</small>
-        </Card.Footer>
+        </CleanLink>
       </Card>
-      <Card>
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This card has supporting text below as a natural lead-in to additional
-            content.{' '}
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">#IoT #MedTech</small>
-        </Card.Footer>
-      </Card>
-      <Card>
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in to
-            additional content. This card has even longer content than the first to
-            show that equal height action.
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">#IoT #SmartCities</small>
-        </Card.Footer>
-      </Card>
+    ))}
     </CardDeck>
 
     </CustomMain>
@@ -68,3 +52,32 @@ const ArticlesPage = () => (
 )
 
 export default ArticlesPage
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      sort: {
+        fields: [frontmatter___date],
+        order: DESC },
+      filter: {
+        frontmatter: {type: {eq: "blog"}}
+      }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+            tags
+            description
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`

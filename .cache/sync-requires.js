@@ -10,6 +10,7 @@ exports.components = {
   "component---src-pages-blog-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/blog.js"))),
   "component---src-pages-contact-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/contact.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/index.js"))),
-  "component---src-pages-projects-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/projects.js")))
+  "component---src-pages-projects-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/pages/projects.js"))),
+  "component---src-templates-project-page-js": hot(preferDefault(require("/Users/martanunesdeabreu/website/src/templates/project-page.js")))
 }
 

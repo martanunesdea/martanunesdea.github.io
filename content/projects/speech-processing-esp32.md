@@ -2,8 +2,9 @@
 title: "Speech processing with ESP32"
 date: "2017-08-21"
 tags: ["embedded", "sensors"]
+description: Making a speech processor with ESP32 that outputs commands to my laptop
+type: projects
 ---
-# Speech processing with ESP32
 ## Project Rationale
 
 This project idea came to possibly in my second year of university and so many things have got in the way that I kept on postponing it. Perhaps the ambition behind the idea was a bit too big to simply start working on it during my down time. Perhaps not. In essence, I am hoping to connect a microphone to an esp32 board, perhaps do a bit of pre-processing from the board and then send the data wirelessly. Once the data is in a bit of a more powerful machine, I will try to use more advanced filtering and algorithms to process the audio. If all goes well, I will try to use the final speech output as the input for a future NLP project (this would be separately implemented to avoid complications, and to enable me to work on different things concurrently). Sounds simple, right? Well, let's get working then!

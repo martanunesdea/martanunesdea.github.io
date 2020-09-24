@@ -30,6 +30,17 @@ const CustomCard = styled(Card)`
   margin-bottom: 10px;
 `
 
+const CleanLink = styled(props => <Link {...props} />)`
+    color: black;
+    text-decoration: none;
+    box-shadow: none;
+    :hover{
+      text-decoration: none;
+      color: white;
+      background-color: gray;
+    }
+`
+
 const ProjectsPage = ({ data }) => (
   <Layout>
     <SEO title="Projects" />
@@ -37,12 +48,14 @@ const ProjectsPage = ({ data }) => (
     <h1>Projects Repository</h1>
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <CustomCard>
+      <CleanLink to={node.fields.slug}>
         <Card.Body>
         <Card.Title>{node.frontmatter.title}</Card.Title>
           <Card.Text>
-            {node.excerpt}
+            {node.frontmatter.description}
           </Card.Text>
         </Card.Body>
+        </CleanLink>
       </CustomCard>
       ))}
 
@@ -53,10 +66,15 @@ const ProjectsPage = ({ data }) => (
 
 
 export default ProjectsPage
-
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(
+      sort: {
+        fields: [frontmatter___date],
+        order: DESC },
+      filter: {
+        frontmatter: {type: {eq: "projects"}}
+      }) {
       totalCount
       edges {
         node {
@@ -65,6 +83,10 @@ export const query = graphql`
             title
             date(formatString: "DD MMMM, YYYY")
             tags
+            description
+          }
+          fields {
+            slug
           }
           excerpt
         }

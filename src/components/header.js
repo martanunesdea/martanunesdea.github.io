@@ -30,28 +30,18 @@ const CustomMenu = styled.div`
   font-family: "Ubuntu";
 `
 
-const StyledLink = styled.a`
-  color: white;
-  text-decoration: none;
-  a:hover {
-    text-decoration: none;
-    color: black;
-  }
-`
-const CustomLink = styled(props => <Link {...props} />)`
-    color: black;
-    text-decoration: none;
-    font-family: "Hind";
-`;
-
 const CleanLink = styled(props => <Link {...props} />)`
     color: white;
     text-decoration: none;
     box-shadow: none;
-`;
+    :hover{
+      text-decoration: none;
+      color: white;
+    }
+`
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-  <StyledLink
+  <a
     href=""
     ref={ref}
     onClick={(e) => {
@@ -60,7 +50,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     }}
   >
     {children}
-  </StyledLink>
+  </a>
 ));
 
 
@@ -68,7 +58,7 @@ const Header = ({ siteTitle, menuLinks }) => (
   <CustomHeader>
   <CustomTitle>
       <h2>
-      <StyledLink href="/">{siteTitle}</StyledLink>
+      <CleanLink to="/">{siteTitle}</CleanLink>
       </h2>
   </CustomTitle>
   <CustomMenu>
