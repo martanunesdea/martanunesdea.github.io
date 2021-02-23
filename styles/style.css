@@ -53,7 +53,7 @@ ul{
   flex-wrap:wrap;
   justify-content:space-between;
   align-items:center;
-  padding: 5px 0px 5px 0px;
+  padding: 15px 5px;
 }
 .menu li a {
   display: block;
@@ -66,7 +66,7 @@ ul{
 .item.logo{
   flex:2;
   font-size:16px;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .item.title{
   flex:6;
@@ -81,7 +81,7 @@ ul{
 
 
 /* ---------------------------------------------------------------------- */
-/* ------------- TITLE -------------------------------------------------- */
+/* ------------- MAIN -------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
 
 main {
@@ -89,62 +89,24 @@ main {
   width: 50%;
 }
 
-.heading {
-  display:block;
-  text-align:center;
-  padding: 5px 0px;
-  border: 3px solid #8A817C;
-  border-radius: 4px;
-  margin: 25px 0px;
-}
-.article{
-  padding: 5px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-.sub-heading{
-  padding-bottom: 10px;
-}
-
-.main-title{
-  padding: 20px;
-  border-bottom: 1px solid black;
-  border-top: 1px solid gray;
-  text-align:center;
-  background-color: #F1DDCFFF;
-}
-
-/* -----------------------------------------------------------------------
---------------- MAIN -----------
-------------------------------------------------- */
-
-main h2 {
+.section {
   margin-bottom: 30px;
+}
+
+.section h2{
+  margin-bottom: 20px;
   border-bottom: 0.5px solid gray;
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 200px 300px;
-    grid-gap: 10px;
+.section .project {
+  margin-bottom: 20px;
 }
 
-.wrapper > div {
-       text-align: center;
-       padding: 0;
-   }
-
-.post-title {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: bold;
-  line-height: 1.2;
-  margin: 1%;
+.section .project-title {
+  font-size: 15px;
 }
 
-.post-subtitle {
-    font-size: 1rem;
-    line-height: 1.2;
-    margin: 1%;
+/*------ footer ------ */
+footer {
+  text-align: center;
 }
