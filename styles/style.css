@@ -1,0 +1,117 @@
+
+/* || General setup */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 12px;
+  background-color: #F4F3EE;
+}
+body {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ----------- TYPOGRAPHY ---------------------------------------------- */
+
+h2, h3, h4 {
+  font-family: 'Oxygen', sans-serif;
+  color: #8A817C;
+  font-size: 20px;
+}
+h1{
+  font-size: 30px;
+  font-family: 'Playfair Display', serif;
+  color: #8A817C;
+}
+
+p, li {
+  font-family: 'Oxygen', sans-serif;
+  color: #2A2A2A;
+  font-size: 14px;
+  line-height: 28px;
+}
+a {
+  font-family: 'Oxygen', sans-serif;
+  text-decoration: none;
+  color: #000000;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------- MENU --------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+nav{
+  background-color: #F1DDCFFF;
+}
+ul{
+   list-style-type: none;
+}
+.menu {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  padding: 15px 5px;
+}
+.menu li a {
+  display: block;
+  color: #8A817C;
+}
+.item{
+  display:block;
+  width:auto;
+}
+.item.logo{
+  flex:2;
+  font-size:16px;
+  margin-left: 10px;
+}
+.item.title{
+  flex:6;
+  font-size:20px;
+  text-align: center;
+}
+.item.secondary{
+  flex:1;
+  text-align:center;
+  font-size:16px;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------- MAIN -------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+
+main {
+  margin: 40px auto;
+  width: 50%;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h2{
+  font-size: 28px;
+  margin-bottom: 20px;
+  border-bottom: 0.5px solid gray;
+}
+
+.section .project {
+  margin-bottom: 20px;
+}
+
+.section .title {
+  font-size: 20px;
+}
+
+.section .description {
+  margin-top: 2px; /* remove */
+}
+
+/*------ footer ------ */
+footer {
+  text-align: center;
+}
