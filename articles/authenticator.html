@@ -19,8 +19,8 @@
       <div class="container">
         <a class="navbar-brand text-white">Marta Nunes de Abreu</a>
         <div class="navbar-nav d-flex flex-row">
-          <a class="nav-link p-2 text-white" aria-current="page" href="#">Home</a>
-          <a class="nav-link active p-2 text-white" href="#">Articles</a>
+          <a class="nav-link p-2 text-white" aria-current="page" href="../index.html">Home</a>
+          <a class="nav-link active p-2 text-white" href="../articles.html">Articles</a>
         </div>
       </div>
     </nav>
@@ -43,16 +43,37 @@
         <p>For this, I first used the standard's hash library but, upon realising that it does not guarantee the hash to be unbreakable, I got a bit dissappointed. The most popular solution for cryptography-related functions in C++ is Crypto++.</p>
         <h3>Install and add Crypto++ to Cpp files</h3>
         <p>The first impression is that the documentation for Crypto++ is a bit sparse but, there seems to be enough people working on it that the installation process has been made quite simple.</p>
-        <p>1. Download the zip folder and decompress it.</p>
-        <p>2. From the command line, it should be installable by first running the make command and then the install command.</p>
-        <p>3. Once it's installed, you've got to reference the crypto++ folder in your makefile, and you've got to link the actual compiled library file (libcryptopp.a) into the makefile. I'll attach a version of mine right below.</p>
+        <p>1. Download the zip folder and extract the contents.</p>
+        <p>2. Once installed, from the command line run: </p>
+        <div class="code">
+          <p>> make</p>
+          <p>> make test</p>
+          <p>> install</p>
+        </div>
+        <p>3. Once it's installed, you've got to reference the crypto++ folder in your makefile, and you've got to link the actual compiled library file (libcryptopp.a) into the makefile.</p>
+        <div class="code">
+          <p class="comment"># Makefile</p>
+          <p>CXX=clang++</p>
+          <p>CXXFLAGS = -Wall -std=c++17</p>
+          <p class="comment"># Use the directory that contains the boost directory</p>
+          <p>CRYPTO_LIBRARIES = ./cryptopp840</p>
+          <p>LFLAGS += -L$(CRYPTO_LIBRARIES)</p>
+          <p>all: main</p>
+          <p>main: main.cpp</p>
+          <p> $(CXX) $(CXXFLAGS) main.cpp -o main $(LFLAGS) -lcryptopp</p>
+          <p>clean: </p>
+          <p> rm -rf main</p>
+        </div>
         <p>Then, the correct header files need to be included from your cpp source file. And of course, you've got to work out how to generate a hash using Crypto++.</p>
         <h3>Implement the hashing function for strings</h3>
         <p>I went through a couple of examples from the Crypto++ documentation wiki and ended up with this as the final code: </p>
 
         <h2>Step 3. Validate hashed password with stored hashes.</h2>
         <p>Ok, this is sort of like two steps really.</p>
-
+        <div class="code">
+        <p>Hello;</p>
+        <p>std::cout << "this is how you write C++ code" << std::endl</p>
+        </div>
 
     </main>
 

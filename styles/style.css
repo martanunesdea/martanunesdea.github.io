@@ -21,18 +21,21 @@ h1, h2, h3, h4 {
 }
 h1{
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 h2 {
   font-size: 24px;
   border-bottom: 0.5px solid gray;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 p, li {
   font-family: 'Oxygen', sans-serif;
   color: #2A2A2A;
-  font-size: 14px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 32px;
 }
 a {
   font-family: 'Oxygen', sans-serif;
@@ -47,7 +50,7 @@ a:hover {
 /* ------------- NAVBAR --------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
 .navbar {
-  background-color: rgb(80, 13, 45);
+  background-color: rgb(89, 34, 41);
   font-size: 20px;
 }
 
@@ -92,8 +95,25 @@ main {
 }
 
 .btn, .btn-primary, .btn-lg {
-  background-color:rgb(80, 13, 45);
-  border-color: rgb(80, 13, 45);
+  background-color:rgb(89, 34, 41);
+  border-color: rgb(89, 34, 41);
+}
+
+.code {
+  background-color: lightgray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 5px auto;
+  margin-bottom: 10px;
+}
+
+.code p {
+  font-family: "Consolas", monospace;
+  margin-bottom: 0px;
+}
+
+.code .comment {
+  color:gray;
 }
 
 
