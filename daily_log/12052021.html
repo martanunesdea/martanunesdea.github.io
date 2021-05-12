@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="../styles/style.css" rel="stylesheet">
+
+    <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+
+    <nav class="navbar navbar-expand-sm">
+      <div class="container">
+        <a class="navbar-brand text-white">Marta Nunes de Abreu</a>
+        <div class="navbar-nav d-flex flex-row">
+          <a class="nav-link p-2 text-white" aria-current="page" href="../index.html">Home</a>
+          <a class="nav-link active p-2 text-white" href="../articles.html">Articles</a>
+        </div>
+      </div>
+    </nav>
+    
+  </head>
+
+  <body>
+
+    <!-- Main content -->
+    <main>
+  
+        <h1>Wednesday, 12th May 2021</h1>
+        <h3>AM:</h3>
+        <p>Completed all outstanding flashcards and added a few more on to the deck. Slowly and steady. I'm hoping to do a LinkedIn course this weekend and adding quite a lot of flashcards in one go.</p>
+        <h3>PM:</h3>
+        <p>Researched a bit on the issue with fetching from VueJS. I was having a problem with a JSON parse error and I wasn't quite sure why. My immediate first thought was that the JSON on the MongoDB was incorrect but I triple checked and it was all fine. Ok, so the issue must be issue that the response is not being sent correctly from ExpressJS? Not that either, I've double checked with Postman and simply on a normal browser. So, after going backwards and forwards I can confirm the problem is that the fetch request from within Vue is not actually reaching the local host for the ExpressJS server. Ugghh!!! Here we go again, different ports and their incompatibility I thought I had been there and done that but I clearly didn't understood it well enough when I did it so I'll have a proper look tomorrow. I must admit I am a bit fed up with VueJS.</p>
+        <p>More excitingly, I did a bunch of research (more like due diligence) on how to upcycle a metallic chest of drawers that I got second hand to make it blend with our home office setup, which is kind of industrial style.</p>
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+      <p>©Copyright 2020. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
