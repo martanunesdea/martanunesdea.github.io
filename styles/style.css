@@ -20,15 +20,12 @@ h1, h2, h3, h4 {
   color: #8A817C;
 }
 h1{
-  font-size: 2.5rem;
+  font-size: 2.1rem;
   margin-top: 20px;
   margin-bottom: 10px;
 }
 h2 {
-  font-size: 2rem;
-  border-bottom: 0.5px solid gray;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
 }
 
 p, li {
@@ -85,12 +82,14 @@ main {
 
 .section .section-header {
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-top: 2.5rem;
+  margin-bottom: .5rem;
   border-bottom: 0.5px solid gray;
 }
 
 .section .article-title {
-  margin: .3rem auto;
+  margin: .5rem auto;
+  border-bottom: 0;
 }
 
 .section .article-description {
@@ -99,11 +98,19 @@ main {
 }
 
 .section .list p {
-  line-height: 24px;
+  line-height: 1.5rem;
   color: #8A817C;
-  font-size: 18px;
+  font-size: 1.4rem;
 }
 
+.article-title {
+  margin-top: 3rem;
+  margin-bottom: .5rem;
+}
+
+.article-title2 {
+  border-bottom: 0.5px solid gray;
+}
 
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */

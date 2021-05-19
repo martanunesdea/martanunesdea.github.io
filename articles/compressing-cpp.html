@@ -32,17 +32,16 @@
     <!-- Main content -->
     <main>
   
-        <h1>File compression with zlib in C++</h1>
-        <h3>A portable program for bigger projects</h3>
+        <h1 class="article-title">File compression with zlib in C++</h1>
         
         <p>This article belongs to a series that I've labelled "portable programs for bigger projects". There are things that do not come built-in with C++ but that are nice to have in the programs you develop. In this article, I'll be looking at how to compress a file with C++.</p>
-        <h2>Step 1. Research on third-party library</h2>
+        <h3 class="article-title2">Step 1. Research on third-party library</h3>
         <p>There are a few libraries based on C that are nicely compatible with C++ and are reliable and well maintained. I think there's also a Boost library that enables compression. However, I went with zlib, which is a library written in C but compatible with C++, as I thought using a compact library that is enclosed within a header file would be nicer.</p>
 
-        <h2>Step 2. Download library and test it</h2>
+        <h3 class="article-title2">Step 2. Download library and test it</h3>
         <p>Downloading the binary files for the library is quite straightforward. Once you have the correct binary files for your machine, you can compile the library using Make. Once this is done, I run the make test command on my terminal to check it was working. </p>
         
-        <h2>Step 3. Run a simple command within a source file</h3>
+        <h3 class="article-title2">Step 3. Run a simple command within a source file</h3>
         <p>Now that the files are downloaded and accessible through one file, we can link that file onto our own Makefile and compile our program whilst using functions from zlib.</p>
         <p>Instructions for Makefile: </p>
         <div class="code">
@@ -65,7 +64,7 @@
             <p>some c code here</p>
         </div>
 
-        <h2>Step 4. Read in a file, adn compress it.</h2>
+        <h3 class="article-title2" >Step 4. Read in a file, adn compress it.</h3>
         <p>Ok, this is sort of like two steps really.</p>
         <h3>a. Read in a file</h3>
         <div class="code">
