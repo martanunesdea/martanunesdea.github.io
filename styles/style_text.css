@@ -1,6 +1,0 @@
-.container {
-    display: grid;
-    grid-template-columns: 50px 800px 50px; /* space main space */
-    grid-template-rows: 50px 800px 50px; /* nav main footer */
-    grid-gap: 5px; /* can put two values for horizontal and vertical gaps */
-}
