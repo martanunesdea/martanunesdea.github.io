@@ -7,14 +7,13 @@ def my_render_jinja_html(template_loc,file_name, **context):
     ).get_template(file_name).render(context)
 
 def main():
-    filename = input("Enter filename")
-    filename += ".html"
+    filename = input("Enter name of output file: ")
+    filepath = "articles/" + filename + ".html"
 
-    input_text = open("content.txt", "r").read()
-    print(input_text)
+    article = open("content.txt", "r").read()
 
-    html_file = my_render_jinja_html("app", "template.html", content=input_text)
-    with open(filename, 'w+') as f_out:
+    html_file = my_render_jinja_html("app", "template.html", content=article)
+    with open(filepath, 'w+') as f_out:
         print(html_file, file=f_out)
 
 
