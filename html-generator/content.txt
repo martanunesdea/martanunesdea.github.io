@@ -1,0 +1,11 @@
+<h1>A text file parser for recipe management</h1>
+<h3>Automation of meal prepping</h3>
+
+<p>Since cooking most of our meals during the past months, we've managed to prepare 80 different recipes. I am using this as the start of a recipe helper bot to decide the meals to make for the week.</p>
+<h2>Step 1. Accumulate recipe data</h2>
+<p>We used google sheets for this. See below for how our calendar of meal planning looks like: </p>
+<div class="box-rectangle"><img src="meal_plan.png" alt="meal planning" class="contain"></div>
+<h2>Step 2. Parse it through a C++ or Python</h2>
+    
+<h2>Step 3. Distinguish between ingredients.</h2>
+   
