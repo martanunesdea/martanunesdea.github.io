@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title>Marta Nunes de Abreu</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@700&family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
@@ -14,44 +16,67 @@
     <!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
-
-    <nav class="navbar navbar-expand-sm">
-      <div class="container">
-        <a class="navbar-brand text-white" href="./index.html">Marta Nunes de Abreu</a>
-        <div class="navbar-nav d-flex flex-row">
-          <a class="nav-link text-white" href="./articles.html">Articles</a>
-          <a class="nav-link text-white" href="./daily_log.html">Daily Log</a>
-        </div>
-      </div>
-    </nav>
-    
   </head>
 
   <body>
-
-    <!-- Main content -->
-    <main>
+      <div class="container">
+        <div class="side-l">
+        </div>
+        <nav class="navigation">
+          <ul>
+            <li class="item1">
+                <a href="../index.html">Marta Nunes de Abreu</a>
+            </li>
+            <li class="item2">
+                <a href="./articles.html">Articles</a>
+            </li>
+            <li class="item3">
+                <a href="./about.html">About</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="side-r">
+        </div>
+      
+      
+      
+        <!-- BODY -->
+        <div class="links">
+        </div>
+      
+        <div class="content">
         <h1>Website design choices</h1>
         <h2>The lifecycle of my personal site</h2>
         <h3>HTML, CSS, Javascript</h3>
-        <p>Last summer, I got a bit too much FOMO from all the enthusiasm for shiny front-end websites and decided to learn how to do it myself. I had learnt HTML and CSS at a short course whilst at university, and I knew a bit about back end development from working at a start-up, so I was keen to delve a bit deeper and understand how websites work, from front to back.
+        <p>Last summer, I got a bit too much FOMO from all the enthusiasm for shiny front-end websites and decided to learn how to do it myself. I had learnt HTML and CSS at a short course whilst at university, and I knew a bit about back end development from previous work experience, so I was keen to delve a bit deeper and understand how websites work, from front to back.
         </p>
-        <p>On I went, going through the whole list of posts on Mozilla's Foundation webiste, from the very basics of HTML (although going a bit quickly through these posts), up until I got to React, Vue and Ember.</p>
-        <p>Once I got to the front-end frameworks, I figured I didn't actually have to learn all three of them, as I had already set my mind on using GatsbyJS. A framework that uses React to generate static sites. I thought that would be a good use of my time, rather than learning React and using it to build a static site generator, I may as well use an existing framework that seems to have reliable documentation and online support.</p>
-        <h3>GatsbyJS</h3>
+        <p>On I went, going through the whole list of posts on <a href="https://developer.mozilla.org/en-US/docs/Learn">Mozilla's Web Developer guide</a>, from the very basics of HTML (although going a bit quickly through these posts), up until I got to React, Vue and Ember.</p>
+        <p>Once I got to the front-end frameworks, I figured I didn't actually have to learn all three of them, as I had already set my mind on using GatsbyJS. It's framework that uses React to generate static sites. I thought that would be a good use of my time, rather than learning React and using it to build a static site generator, I may as well use an existing framework that seems to have reliable documentation and online support.</p>
+        <h3>React and GatsbyJS</h3>
         <p>And so it went. I learned quite a bit of the Gatsby processes, only to realise that once the websites got deployed, there was a weird zooming effect that happened with the Gatsby sites. As someone who had spent quite a lot of time trusting that things in Gatsby just worked magically, I was a bit frustrated. Anyway, I later came to realise that this is an issue that can be solved, but as mentioned above, I wasn't the most Javascript-savvy person and I was sure that there were many other alternatives to me sorting out some obscure zooming problem.</p>
-        <p>So, I trashed out that Gatsby project and attempted to borrow existing Gatsby templates (that is a thing). That went adequately but, in the end, I was still a bit frustrated with how GraphQL worked.In hindsight, maybe I should have allocated a solid week or two to understand the basics of how to interact with GraphQL, or how to work with React. But, I'm a full-time employed developer myself, I had other things taking up my time and energy.</p>
+        <p>So, I trashed out that Gatsby project and attempted to borrow existing Gatsby templates (that is a thing). This worked surpringly well actually. I was using a template from Netlify, which was constantly deploying the website after a commit was pushed on Github. Pretty cool!</p>
+        <p>Because I got a bit obsessed with styling and ensure my website is responsive, I eventually stumbled onto a nasty error with Netlify not finding certain files needed to compile. This was a bit frustrating, and at this point I realised that I should understand React a bit better, before deploying a website with GatsbyJS. </p> 
+        <p>When it came to learning React, a couple of other priorities got in the way and this just kept being pushed back in the pile of to-do's. In the meantime, I learnt about a few issues with indexing static site generators, along some other drawbacks on these fairly loaded programs. I took a pause from developing my site, since I was also getting demand to provide some help on the subject...</p>
         <h3>VueJS</h3>
-        <p>On a funny twist of fate, a couple of months down the line, I got asked by a few students to help them with some web development coursework using Vue. I thought I would be able to know, from my long weeks crash coursing on how the DOM works, asynchronous Javascript, and other bits and bobs. So I looked up Vue and read about how it works. It's really actually quite simple!</p>
-        <p>So I learned it myself, and then I tutor the students who needed help to create a web app.</p>
+        <p>On a funny twist of fate, a couple of months down the line, I got asked by a few students to help them with some web development coursework using Vue. I thought I would be able to help, from my long weeks crash coursing on how the DOM works, asynchronous Javascript, and other bits and bobs. So I looked up Vue and read about how it works. It's really actually quite simple!</p>
+        <p>So I learned it myself, and then I tutored the students who needed help to create a web app.</p>
         <h3>Full circle: Bare bones HTML and CSS, again</h3>
-    </main>
+        <p>I recognise a lot of potential in static site generators, from their ease of use to their flexibility. If I was hoping to shift my career towards a full-stack role, I would've dedicated a couple of weeks to learn React and build a great site with either GatsbyJS or just bare bones React.</p>
+        <p>However, as much as I enjoy seeing website come to life, I'm not looking to get a job in the industry since it is looking very crowded and competitive, and it's not really my most favourite thing to work on.</p>
+        <p>Hence, I went back to basics with using just simple HTML, CSS and bootstrap. The main motivation that led me to discard static site generators, is that they're not necessarily that great in terms of accessibility, load times and indexing on search engines. I know there's ways around all three of those but as mentioned above, this isn't my full-time job or main hobby. I just want to document my work online, in a simple and hassle-free way.</p>       
+        </div>
+      
+        <div class="ads">
+        </div>
+      
+      </div>
+    
 
 
     <!-- Footer -->
-    <footer>
-      <p>©Copyright 2020. All rights reversed.</p>
-    </footer>
+    <div class="footer">
+      <p>© Copyright 2020. All rights reversed.</p>
+    </div>
 
   </body>
 </html>
