@@ -204,9 +204,9 @@ nav ul {
   }
 }
 
-/* --------------
-  --- MAIN SECTION ------
-  ------- */
+/* ----------------------------
+  --- MAIN SECTION ------------
+  ---------------------------- */
 .section {
   margin-bottom: 30px;
 }
@@ -246,7 +246,17 @@ nav ul {
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */
 /* ---------------------------------------------------------------------- */
-
+pre {
+  font-size: 100%;
+}
+pre code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: inherit;
+  line-height: 22px;
+}
+/*
 
 .code {
   background-color: lightgray;
@@ -254,9 +264,12 @@ nav ul {
   border-radius: 5px;
   margin: 5px auto;
   margin-bottom: 10px;
+}*/
+code {
+  font-size: 120%;
 }
 
-.code p {
+code p {
   font-family: "Consolas", monospace;
   font-size: 1rem;
   margin-bottom: 0px;
