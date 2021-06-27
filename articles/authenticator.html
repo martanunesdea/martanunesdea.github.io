@@ -50,8 +50,36 @@
         
         <p>As authentication starts to become an essential requirement for most projects, I decided to make a quick program that allows this in C++. I'm aware it needs a few less lines of code in other languages, but ultimately the idea is that the program would be associated with a C++ project.</p>
         <h2>Step 1. Get input username and password</h2>
-        <p>First, open up your editor and add the boilercode needed to get going with C++. Get an username and password from the user.</p>
+        <p>First, open up your editor and add the boilercode needed to get going with C++. Get an username and password from the user. My program looked a bit like this: </p>
+        <div class="code">
+          <p>#include &lt;cstdlib&gt; </p>
+          <p>#include &lt;cstdio&gt;</p>
+          <p>#include &lt;iostream&gt;</p>
+          <p>#include &lt;string&gt;</p>
+          <p>int main(){ </p>
+          <p>/* Ask user for credentials */ </p>
+          <p> 
+            std::string password;
+            std::string username;
+          </p>
+          <p>
+            std::cout << "\nEnter username: ";
+            std::cin >> username;
+          </p>
+          <p>
+            std::cout << "\nEnter password: \n";
+            std::cin >> password;
+          </p>
+          <p>
+              if (valid_credentials(username, hash)) 
+                  std::cout << "You're in\n\n";
+          </p>
+          <p>
+              else 
+                  std::cout << "Sorry, no\n\n";
 
+            }
+        </div>
         <h2>Step 2. Generate a hash from the password</h2>
         <p>For this, I first used the standard's hash library but, upon realising that it does not guarantee the hash to be unbreakable, I got a bit dissappointed. The most popular solution for cryptography-related functions in C++ is Crypto++.</p>
         <h3>Install and add Crypto++ to Cpp files</h3>
@@ -80,7 +108,22 @@
         <p>Then, the correct header files need to be included from your cpp source file. And of course, you've got to work out how to generate a hash using Crypto++.</p>
         <h3>Implement the hashing function for strings</h3>
         <p>I went through a couple of examples from the Crypto++ documentation wiki and ended up with this as the final code: </p>
-
+        <div class="code">
+          <p>std::string hash_credentials(std::string password) </p>
+          <p>  { </p>
+          <p>CryptoPP::SHA256 hash;</p>
+          <p> CryptoPP::byte digest[ CryptoPP::SHA256::DIGESTSIZE ];</p>
+          <p>std::string msg = password;</p>
+          <p>hash.CalculateDigest( digest, (CryptoPP::byte*) msg.c_str(), msg.length() );</p>
+          <p>CryptoPP::HexEncoder encoder;</p>
+          <p>std::string output;</p>
+          <p>encoder.Attach( new CryptoPP::StringSink( output ) );</p>
+          <p>encoder.Put( digest, sizeof(digest) );</p>    
+          <p>encoder.MessageEnd();</p>  
+          <p>// std::cout << "hashed password: " << output << std::endl; </p>
+          <p>return output; </p>
+          <p>}</p>
+        </div>
         <h2>Step 3. Validate hashed password with stored hashes.</h2>
         <p>Ok, this is sort of like two steps really.</p>
         <div class="code">
