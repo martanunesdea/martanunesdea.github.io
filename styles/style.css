@@ -57,18 +57,17 @@ a:hover {
 /* ---------------------------------------------------------------------- */
 /* ------------- NAVBAR ------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
-.navigation, .side-l, .side-r {
+.header {
   background-color: rgb(89, 34, 41);
 }
-
 .navigation ul a {
   color: white;
   font-size: 18px;
 }
 
-.side-l, .side-r {
-  padding: 0px;
-  margin: 0px;
+.navigation .item2, .item3 {
+  visibility: hidden;
+  line-height: 0px;
 }
 
 nav ul {
@@ -98,6 +97,12 @@ nav ul {
 
 
 @media (min-width: 600px) {
+  /*HEADER */
+  .navigation .item2, .item3 {
+    visibility: visible;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+  }
   /* GRID */
   .links {
       grid-column: 1 / span 1;
@@ -109,22 +114,15 @@ nav ul {
 
   }
   .content {
-      grid-column: 2 / span 8;
+      max-width: 900px;
+      margin: auto;
   }
   .footer {
       grid-column: 1 / span 10;
   }
-  .side-l {
-      grid-column: 1 / span 1;
-      grid-row: 1;
-  }
-  .side-r {
-      grid-column: 10 / span 1;
-      grid-row: 1;
-  }
   .navigation {
-      grid-column: 2 / span 8;
-      grid-row: 1;
+      max-width: 900px;
+      margin: auto;
   }
   /* FLEX BOX */
   nav ul {
@@ -151,34 +149,24 @@ nav ul {
   
 }
 @media (min-width: 900px) {
+  /*HEADER */
+  .navigation .item2, .item3 {
+    visibility: visible;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+  }
   /* GRID */
-  .links {
-      grid-column: 1 / span 2;
-      grid-row: 2;
-  }
   .content {
-      grid-column: 3 / span 6;
-      grid-row: 2;
-  }
-  .ads {
-      grid-column: 9 / span 2;
-      grid-row: 2;
+      max-width: 900px;
+      margin: auto;
   }
   .footer {
       grid-column: 1 / span 10;
       grid-row: 3;
   }
-  .side-l {
-      grid-column: 1 / span 2;
-      grid-row: 1;
-  }
-  .side-r {
-      grid-column: 9 / span 2;
-      grid-row: 1;
-  }
   .navigation {
-      grid-column: 3 / span 6;
-      grid-row: 1;
+    width: 100%;
+    margin: auto;
   }
   /* FLEX BOX */
   nav ul {
