@@ -1,0 +1,22 @@
+---
+layout: base.njk
+templateClass: tmpl-homepage
+---
+<!-- 
+<h1>All articles</h1>
+<ul>
+{%- for post in collections.post | reverse -%}
+  <li>{{post.data.tags}} - {{ post.data.title }}</li>
+{%- endfor -%}
+</ul> 
+-->
+
+<h1>Latest articles</h1>
+{% set latestposts = collections.post | limit(3) %}
+<ul>
+{% for post in latestposts %}
+  <li>{{ post.data.title }}</li>
+{% endfor %}
+</ul>
+
+{{ content | safe }}

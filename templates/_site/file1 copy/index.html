@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="./style/style.css" rel="stylesheet">
+    
+<style>
+    
+        
+    /* ------- GENERAL SETUP --------------------------------------------- */
+html {
+  font-size: 12px;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+body {
+  width: 100%;
+}
+.container {
+  max-width: 100%;
+  padding: 0px;
+}
+.container > * {
+	padding: 10px;
+}
+
+/* ----------- TYPOGRAPHY ---------------------------------------------- */
+
+h1, h2, h3, h4 {
+  font-family: 'Oxygen', sans-serif;
+  color: #8A817C;
+}
+h1{
+  font-size: 2.1rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 1.8rem;
+}
+
+p, li {
+  font-family: 'Oxygen', sans-serif;
+  color: #2A2A2A;
+  font-size: 1.4rem;
+  line-height: 2.8rem;
+}
+a {
+  font-family: 'Oxygen', sans-serif;
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------- NAVBAR ------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+.header {
+  background-color: rgb(89, 34, 41);
+}
+.navigation ul a {
+  color: white;
+  font-size: 18px;
+}
+
+.navigation .item2, .item3 {
+  visibility: hidden;
+  line-height: 0px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------- CONTAINER - GRID --------------------------------------- */
+/* ---------------------------------------------------------------------- */
+.container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 0px;
+}
+
+.container > * {
+  grid-column: 1 / span 10;
+}
+
+.links, .ads {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+@media (min-width: 600px) {
+  /*HEADER */
+  .navigation .item2, .item3 {
+    visibility: visible;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+  }
+  /* GRID */
+  .links {
+      grid-column: 1 / span 1;
+      grid-row: 2;
+  }
+  .ads {
+      grid-column: 10 / span 1;
+      grid-row: 2;
+
+  }
+  .content {
+      max-width: 900px;
+      margin: auto;
+  }
+  .footer {
+      grid-column: 1 / span 10;
+  }
+  .navigation {
+      max-width: 900px;
+      margin: auto;
+  }
+  /* FLEX BOX */
+  nav ul {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: left;
+  }
+  .item1 {
+      order: 1;
+      flex-grow: 8;
+  }
+  .item2 {
+      order: 2;
+      flex-grow: 1;
+      text-align: center;
+  }
+  .item3 {
+      order: 3;
+      flex-grow: 1;
+      text-align: center;
+  }
+  
+}
+@media (min-width: 900px) {
+  /*HEADER */
+  .navigation .item2, .item3 {
+    visibility: visible;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+  }
+  /* GRID */
+  .content {
+      max-width: 900px;
+      margin: auto;
+  }
+  .footer {
+      grid-column: 1 / span 10;
+      grid-row: 3;
+  }
+  .navigation {
+    width: 100%;
+    margin: auto;
+  }
+  /* FLEX BOX */
+  nav ul {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      text-align: left;
+  }
+  .item1 {
+      order: 1;
+      flex-grow: 8;
+  }
+  .item2 {
+      order: 2;
+      flex-grow: 1;
+      text-align: center;
+
+  }
+  .item3 {
+      order: 3;
+      flex-grow: 1;
+      text-align: center;
+  }
+}
+
+/* ----------------------------
+  --- MAIN SECTION ------------
+  ---------------------------- */
+.section {
+  margin-bottom: 30px;
+}
+
+.section .section-header {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: .5rem;
+  border-bottom: 0.5px solid gray;
+}
+
+.section .article-title {
+  margin: .5rem auto;
+  border-bottom: 0;
+}
+
+.section .article-description {
+  line-height: 1.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.section .list p {
+  line-height: 1.5rem;
+  color: #8A817C;
+  font-size: 1.4rem;
+}
+
+.article-title {
+  margin-top: 3rem;
+  margin-bottom: .5rem;
+}
+
+.article-title2 {
+  border-bottom: 0.5px solid gray;
+}
+
+.content .post p {
+  font-size: 1.5rem;
+  line-height: 3.1rem;
+  margin-bottom: 10px;
+}
+
+.content .post h1, h2 {
+  margin: 20px 0px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------- CODE STYLING ------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+pre {
+  font-size: 100%;
+}
+pre code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: inherit;
+  line-height: 22px;
+}
+/*
+
+.code {
+  background-color: lightgray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 5px auto;
+  margin-bottom: 10px;
+}*/
+code {
+  font-size: 120%;
+}
+
+code p {
+  font-family: "Consolas", monospace;
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+
+.code .comment {
+  color:gray;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------- CODE STYLING ------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+@media only screen and (min-width: 400px) {
+  .box-rectangle {
+    width: 400px;
+    height: 100px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .box-rectangle {
+    width: 800px;
+    height: 300px;
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+.cover {
+  object-fit: cover;
+}
+.contain {
+  object-fit: contain;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------- FOOTER ------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+
+.footer {
+  text-align: center;
+}
+
+.footer p {
+  color: gray;
+}
+
+/* ------- BOOTSTRAP OVERRIDES ----------- */
+.btn, .btn-primary, .btn-lg {
+  background-color:rgb(89, 34, 41);
+  border-color: rgb(89, 34, 41);
+}
+
+    
+    
+</style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <nav class="navigation">
+          <ul>
+              <li class="item1">
+                  <a href="/">Marta Nunes de Abreu</a>
+              </li>
+              <li class="item2">
+                  <a href="#">Articles</a>
+              </li>
+              <li class="item3">
+                  <a href="../about/">About</a>
+              </li>
+          </ul>
+      </nav>
+    </div>
+
+    <main class="tmpl-post">
+    <!-- BODY -->
+      <div class="content">
+        <h1>This is my first post.</h1>
+
+
+<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+<p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+<h2>Section Header</h2>
+<p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+<pre><code class="language-text/2-3">// this is a command
+function myCommand() {
+	let counter = 0;
+	counter++;
+}
+
+// Test with a line break above this line.
+console.log('Test');
+</code></pre>
+
+
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>

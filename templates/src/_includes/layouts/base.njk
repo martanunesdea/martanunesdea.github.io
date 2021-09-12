@@ -1,0 +1,58 @@
+---
+metatitle: Marta Nunes de Abreu
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>{{ metatitle }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="./style/style.css" rel="stylesheet">
+    {% set css %}
+    {% include "./style.css" %}
+    {% endset %}
+<style>
+    {% if env.environment == "production" %}
+        {{ css | cssmin | safe }}
+    {% else %}
+        {{ css | safe }}
+    {% endif %}
+</style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <nav class="navigation">
+          <ul>
+              <li class="item1">
+                  <a href="/">Marta Nunes de Abreu</a>
+              </li>
+              <li class="item2">
+                  <a href="#">Articles</a>
+              </li>
+              <li class="item3">
+                  <a href="../about/">About</a>
+              </li>
+          </ul>
+      </nav>
+    </div>
+
+    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    <!-- BODY -->
+      <div class="content">
+        {{ content | safe }}
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>
