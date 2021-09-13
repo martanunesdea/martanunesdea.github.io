@@ -1,3 +1,5 @@
+const { DateTime } = require("luxon");
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("allMySortedContent", function(collectionApi) {
     return collectionApi.getAllSorted();
@@ -14,11 +16,14 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addNunjucksFilter("limit", (arr, limit) => arr.slice(0, limit));
   
+  eleventyConfig.addFilter("postDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+  });
 
     return {
       templateFormats: ['njk', 'md', 'html'],
       dir: {
-        input: "src/posts",
+        input: "src/pages",
         // ⚠️ This value is relative to your input directory.
         includes: "_includes",
         data: "_data",

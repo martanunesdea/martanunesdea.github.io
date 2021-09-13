@@ -2,21 +2,14 @@
 layout: base.njk
 templateClass: tmpl-homepage
 ---
-<!-- 
-<h1>All articles</h1>
-<ul>
-{%- for post in collections.post | reverse -%}
-  <li>{{post.data.tags}} - {{ post.data.title }}</li>
-{%- endfor -%}
-</ul> 
--->
-
-<h1>Latest articles</h1>
+<div class="section">
+<h2 class="section-header">Latest articles</h2>
 {% set latestposts = collections.post | limit(3) %}
 <ul>
 {% for post in latestposts %}
   <li>{{ post.data.title }}</li>
 {% endfor %}
 </ul>
-
+<a href="post-list"><button class="btn btn-secondary btn-lg">See all</button></a>
+</div>
 {{ content | safe }}
