@@ -5,11 +5,12 @@ templateClass: tmpl-homepage
 <div class="section">
 <h2 class="section-header">Latest articles</h2>
 {% set latestposts = collections.post | limit(3) %}
-<ul>
 {% for post in latestposts %}
-  <li>{{ post.data.title }}</li>
+  <div class="article">
+    <h3 class="article-title">{{ post.data.title }}</h3>
+    <p class="article-description">{{ post.data.description }}</p>
+  </div>
 {% endfor %}
-</ul>
 <a href="post-list"><button class="btn btn-secondary btn-lg">See all</button></a>
 </div>
 {{ content | safe }}

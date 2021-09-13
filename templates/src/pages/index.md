@@ -4,6 +4,8 @@ description: This is a post on My Blog about agile frameworks.
 date: 2018-05-01
 layout: homepage.njk
 ---
+<!-- Filtered posts as part of template -->
+
 <div class="section">
 <h2 class="section-header">About</h2>
 <p>I'm a software developer working in embedded systems, in the medical device field.</p>
