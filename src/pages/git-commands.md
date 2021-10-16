@@ -21,3 +21,14 @@ $ git checkout newbranchname
 ```
 $ git reset
 ```
+
+
+## Removing from version control
+For a file (or multiple files..)
+```
+git rm --cached filexample.txt
+```
+For a folder:
+```
+git rm -r --cached folder
+```
