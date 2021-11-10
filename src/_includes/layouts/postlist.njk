@@ -6,8 +6,10 @@ templateClass: tmpl-homepage
 <hr>
 {%- for post in collections.post | reverse -%}
   <a href="{{post.url}}">
-    <p class="article-description">{{post.date | postDate }}</p>
-    <h3>{{ post.data.title }}</h3>
+    <div class="article">
+      <h3 class="article-title">{{ post.data.title }}</h3>
+      <p class="article-date">{{post.date | postDate }}</p>
+    </div>
   </a>
-  <hr>
+<hr>
 {%- endfor -%}

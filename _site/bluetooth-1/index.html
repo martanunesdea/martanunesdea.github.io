@@ -372,47 +372,35 @@ img {
     <main class="tmpl-post">
     <!-- BODY -->
       <div class="content">
-        <h1>Applications of embedded software</h1>
-<p>12 December 2020</p>
+        <h1>Incorporating BLE to an existing comms protocol</h1>
+<p>20 June 2021</p>
 
-<p>Nowadays, a vast majority of end-products from software development are consumed through mobile devices and computers (e-commerce, social media, streaming sites, miscellaneous mobile apps, etc.). It’s easy to understand the strange reactions from people when I tell them about my job as an embedded software engineer. I once had someone asking me if that is the same as “making models”. Mostly, though, the blunt question I get is “what is that?”.</p>
-<p>I can’t help but feel like the internet has provided a foundation to a large part of consumer-oriented software products. So, can there be any software applications outside the world wide web? And how often are we using it?</p>
-<p>Here’s my attempt to explain embedded software applications.</p>
-<p>I’ll be splitting this article into a brief explanation of embedded software, followed by an introduction to the two main areas where embedded software is present. I will finish pointing to other areas where it is also essential, thought not as visible to the everyday consumer.</p>
-<h2>Firmware: Where hardware and software meet</h2>
-<p>Firmware is the software purposefully designed and implemented to interact with specific hardware design. Embedded software is commonly exchanged with firmware, although embedded tends to refer to software that is more agnostic of the hardware (ie. RTOS or Embedded Linux configurations).</p>
-<p>A simple example: A smart speaker.</p>
-<p>Inside a smart speaker, there is a microprocessor inside, along with a hefty battery and other components, programmed to perform very specific tasks:</p>
-<p>a. Connect through Bluetooth</p>
-<p>b. Alert when batter is low</p>
-<p>c. Instruct the loudspeakers to play or stop as commanded by the user.</p>
-<p>What it boils down to is that embedded software has the responsibility to create an abstraction from the lower levels of electronic components and hardware to a human-friendly interface. This may come in different forms; as a complete operating system, if it’s a widely multi-purpose device, or through the implementation of a simple user interface with some buttons to get user input, if it is a single-purpose device only (e.g. a smart microwave).</p>
-<p>Let’s move on to a brief introduction of the two main exponents of embedded software.</p>
-<h2>“Internet of Things”</h2>
-<p>Wearables, HomeTech, CarTech, and any readily available gadget around you…</p>
-<p>It’s a commonly used term nowadays. Only a couple of years ago, it was used as a way to explain that “there is this new field emerging and we don’t quite now what it will entail so we’re going to give it this broad and generic name”. It is the idea that more and more products will be connected to the internet since, as it seems, it will control the world going forward.</p>
-<p>“Smart” devices have become commonplace thanks to the decrease in cost of microprocessors (in a simplistic way, the brains within computers) and of electronic components in general (e.g. memory storage, modules for Bluetooth, WiFi or Zigbee, sensors, etc.). Why would you get an expensive analogue watch, if you can get one that tells you the weather, how far you’ve walked, and who messaged you, for the same price or less?</p>
-<p>Regardless of our personal opinion on the availability of technology, the truth is everywhere we look our lifestyles are now facilitated with assistive technology. And most of it is enabled with firmware: software built to closely interact with the hardware of a device, and delivering the best functionality to the user.</p>
-<h2>Industry-grade software</h2>
-<p>This is one other large area where embedded software is also a key player. The average consumer may not come into contact with these software products but these exist and there are many software engineers behind their efficiency and reliability. A lot of industry-grade equipment is now supported by software and most of the times, this is embedded software. Here’s a short breakdown of software products within different key industries:</p>
-<ul>
-<li>Medical sector: hospital equipment such as ECG readers, surgical devices (endoscopes, assistive surgery devices), medical imaging devices, etc.</li>
-<li>Aviation sector: Planes are covered by sensors, motors, on and off switches, a bunch of electronics really. For the sanity of engineers, a lot of it is controlled by computer systems. This automates a lot of tasks, but also requires very safe software too.</li>
-<li>Automotive sector: The same logic from airplanes applies to cars, although in a smaller scale. The manufacturing of cars is in itself, dependent on yet more embedded software. There’s a special caveat about self-driving technology: this type of software isn’t necessarily embedded, a lot of it is processed through cloud or “edge” computing.</li>
-<li>Logistics and supply chain: The presence of robots automating tasks in warehouses and shipping facilities is yet again reliant on firmware. Although for some people robotics is a completely different field from embedded software, the underpinning idea of software interacting with hardware is there. In most cases, the engineers behind robotics projects were previously embedded software engineers in different sectors.</li>
-</ul>
-<p>I realize that categorizing all of these different types of software products into “industry-grade software” is a bit of a generalization. But all of these fulfill the following criteria relevant in this article:</p>
-<ol>
-<li>
-<p>They are not a consumer-centric software product (B2B rather than B2C software), and therefore most people are oblivious of its existence and importance.</p>
-</li>
-<li>
-<p>They require high-level of reliability and need to comply which very strict standards (MISRA standards for aviation and automotive sectors, ISO standards for medical equipment, and many more). This is because their purpose and functionality is not to be consumed by an user, but to sustain the foundation of critical processes (such as transportation or saving lives). Thus ,they must prevail much more rigorous testing.</p>
-</li>
-</ol>
-<h2>Conclusion</h2>
-<p>This article aims to reflect on the unseen and unspoken heroes within the world of software products: embedded software applications. As we’ve seen, a lot of the technologies we use are reliant on embedded software.</p>
-<p>In general, a lot of software exists in no small part thanks to embedded software engineering; as it abstracts away all the dependencies on the hardware. You may have heard that a lot of programming languages are based or built on C. This is because UNIX, one of the earliest operating systems, was entirely built on C, effectively bridging the gap between hardware and software. Once there was an OS written in C, other programs could interact with it in the same language. Since then, many compilers have been built to ensure that software written in C could be executed by the computers available.</p>
+<p>My first use of Bluetooth Low Energy was to get a wireless link between two devices with the lowest power consumption possible. The data being sent was basically a couple of long integers every now and again. It sounds technological quite simple, the complexity was on the custom biosensor being developed (not by me thankfully!).</p>
+<p>The second time I came across Bluetooth Low Energy, we needed to get several hundreds of MBs from a chunky lateral flow point of care device to a mobile app. BLE was not our preferred Bluetooth protocol but once we found out about Apple's policy regarding Bluetooth BR/EDR, we had to stick with that.</p>
+<p>So how do you go about sending this much data on BLE?</p>
+<p># Different layers of BLE
+Bluetooth Low Energy is split into different layers, as per any developed communications protocol. A common source of confusion is the mix up between GAP (Generic Access Profile) and GATT (Generic Attribute Protocol). GAP is a part of the BLE stack and describes some of the topology behind the protocol. On the other hand, GATT outlines a higher level protocol for the devices once there is a BLE link established.</p>
+<p>The short story is that, whilst your BLE comms will work without requiring an in-depth knowledge of GAP, it does require you to understand GATT, as this is how the BLE frames get sent between devices.</p>
+<p>To learn more about the Generic Access Profile and the role it plays in the establishment of a BLE connection, I would suggest reading the Bluetooth Core paper.</p>
+<h1>Generic Attribute Protocol (GATT)</h1>
+<p>As mentioned before, the Generic Attribute Profile sits at the top level of this BLE stack. This layer dictates the rules and expected format of the BLE Profiles.</p>
+<p>Each Profile is a stand-alone data configuration, think of it as an XML file almost, which encompasses separate containers of data, which should be related to each other. The basic example is the &quot;Glucose Profile&quot; or &quot;Air Pressure Profile&quot;, these are standardised profiles that are reused across different applications. It is useful because different devices from different manufacturers could use the same &quot;Profile&quot; and then one app could decipher the information on all of them more easily.</p>
+<p>## Characteristics and Attributes
+A Profile includes several characteristics inside it (or perhaps just one, even). These characteristics will then hold Attributes, which are the elementary pieces of data that can have their values read or written.</p>
+<h1>Creating a Profile from scratch vs. borrowing one</h1>
+<p>If you already have an existing protocol, you may or may not want to reevaluate the domain of the information you are transferring, and consider whether it fits into existing Profiles.</p>
+<p>If you have an assortment of information that needs to be transferred at different periodic intervals, then it may make sense to create different Profiles to specific bits of data, and you can then regulate how often each Profile will be updated, etc.</p>
+<p>However, if you are only attempting to send a serial stream of data over BLE and not interested in generating a new profile, you could borrow the &quot;Generic Attribute Profile&quot; since it is open for configuration. I will say it again because it sounds confusing the first time around, there is an already defined profile called Generic Attribute Profile, which follows the specifications of the &quot;Generic Attribute Profile&quot; in the Bluetooth Core Spec. Yes, a bit of an inception of GATTs if you ask me!</p>
+<p>## Borrowing a Profile
+This route involves creating a custom characteristic, for which you will need to create a UUID number to identify it in your collection of Profiles.</p>
+<p>You then need to character an Attribute within this characteristic, and define some of the parameters associated with it.</p>
+<p>At this point, you have the structure that your data will follow but you will need to make sure it then works with the host.</p>
+<h2>Notifications and subscriptions in BLE</h2>
+<p>One tricky thing about reading and writing the same attribute within a characteristic is that it is not very cache-friendly, especially in iOS devices.</p>
+<p>I soon found that Apple was caching the attribute of my custom characteristic as soon as the BLE connection was established. This was by far the intended result, since the value written to the attribute was meant to notify the host of a certain event!</p>
+<p>I had to create yet another profile which would serve the purpose of notifying the device to reset or refresh the profiles that it had loaded upon connecting to the client.</p>
+<h1>Conclusion</h1>
+<p>This article is barely scratching the surface of what you can do with Profiles over BLE. I will try to write a separate article about the different layers of BLE.</p>
 
 
       </div>

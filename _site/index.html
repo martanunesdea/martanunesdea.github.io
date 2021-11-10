@@ -222,13 +222,15 @@ nav ul {
 }
 
 .section .article-title {
-  margin: .5rem auto;
-  border-bottom: 0;
 }
 
 .section .article-description {
   line-height: 1.8rem;
   margin-bottom: 1.6rem;
+}
+
+.section .article-date {
+  line-height: 1.2rem;
 }
 
 .section .list p {
@@ -238,12 +240,18 @@ nav ul {
 }
 
 .article-title {
-  margin-top: 3rem;
-  margin-bottom: .5rem;
 }
 
 .article-title2 {
   border-bottom: 0.5px solid gray;
+}
+
+.article-date {
+}
+
+.article {
+  display: flex;
+  justify-content: space-between;
 }
 
 .content .post p {
@@ -372,12 +380,12 @@ img {
     <p>Setting up a website with EleventyJS</p>
   </a>
 
-  <a href="/applications-embedded/">
-    <p>Applications of embedded software</p>
+  <a href="/bluetooth-1/">
+    <p>Incorporating BLE to an existing comms protocol</p>
   </a>
 
-  <a href="/remote-working/">
-    <p>Three lessons after three months of working from home as a graduate</p>
+  <a href="/applications-embedded/">
+    <p>Applications of embedded software</p>
   </a>
 
 <a href="post-list"><button class="btn btn-secondary btn-lg">See all</button></a>

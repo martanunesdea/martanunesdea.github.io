@@ -222,13 +222,15 @@ nav ul {
 }
 
 .section .article-title {
-  margin: .5rem auto;
-  border-bottom: 0;
 }
 
 .section .article-description {
   line-height: 1.8rem;
   margin-bottom: 1.6rem;
+}
+
+.section .article-date {
+  line-height: 1.2rem;
 }
 
 .section .list p {
@@ -238,12 +240,18 @@ nav ul {
 }
 
 .article-title {
-  margin-top: 3rem;
-  margin-bottom: .5rem;
 }
 
 .article-title2 {
   border-bottom: 0.5px solid gray;
+}
+
+.article-date {
+}
+
+.article {
+  display: flex;
+  justify-content: space-between;
 }
 
 .content .post p {
@@ -366,22 +374,42 @@ img {
       <div class="content">
         <h1>All articles</h1>
 <hr><a href="/eleventy/">
-    <p class="article-description">01 September 2021</p>
-    <h3>Setting up a website with EleventyJS</h3>
+    <div class="article">
+      <h3 class="article-title">Setting up a website with EleventyJS</h3>
+      <p class="article-date">01 September 2021</p>
+    </div>
   </a>
-  <hr><a href="/applications-embedded/">
-    <p class="article-description">12 December 2020</p>
-    <h3>Applications of embedded software</h3>
+<hr><a href="/bluetooth-1/">
+    <div class="article">
+      <h3 class="article-title">Incorporating BLE to an existing comms protocol</h3>
+      <p class="article-date">20 June 2021</p>
+    </div>
   </a>
-  <hr><a href="/remote-working/">
-    <p class="article-description">09 July 2020</p>
-    <h3>Three lessons after three months of working from home as a graduate</h3>
+<hr><a href="/applications-embedded/">
+    <div class="article">
+      <h3 class="article-title">Applications of embedded software</h3>
+      <p class="article-date">12 December 2020</p>
+    </div>
   </a>
-  <hr><a href="/post3/">
-    <p class="article-description">11 June 2018</p>
-    <h3>This is my first post.</h3>
+<hr><a href="/starting-flask/">
+    <div class="article">
+      <h3 class="article-title">Back end development and Flask</h3>
+      <p class="article-date">10 November 2020</p>
+    </div>
   </a>
-  <hr>
+<hr><a href="/remote-working/">
+    <div class="article">
+      <h3 class="article-title">Three lessons after three months of working from home as a graduate</h3>
+      <p class="article-date">09 July 2020</p>
+    </div>
+  </a>
+<hr><a href="/git-commands/">
+    <div class="article">
+      <h3 class="article-title">Git notes</h3>
+      <p class="article-date">11 June 2019</p>
+    </div>
+  </a>
+<hr>
       </div>
 
       
