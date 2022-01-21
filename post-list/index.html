@@ -80,7 +80,7 @@ a:hover {
   font-size: 18px;
 }
 
-.navigation .item2, .item3 {
+.navigation .item2, .item3, .item4 {
   visibility: hidden;
   line-height: 0px;
 }
@@ -113,7 +113,7 @@ nav ul {
 
 @media (min-width: 600px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -161,11 +161,16 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
   
 }
 @media (min-width: 900px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -205,6 +210,11 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
 }
 
 /* ----------------------------
@@ -219,9 +229,6 @@ nav ul {
   margin-top: 2.5rem;
   margin-bottom: .5rem;
   border-bottom: 0.5px solid gray;
-}
-
-.section .article-title {
 }
 
 .section .article-description {
@@ -363,6 +370,9 @@ img {
                   <a href="../post-list">Articles</a>
               </li>
               <li class="item3">
+                  <a href="../post-list">Projects</a>
+              </li>
+              <li class="item4">
                   <a href="../about/">About</a>
               </li>
           </ul>
@@ -373,6 +383,12 @@ img {
     <!-- BODY -->
       <div class="content">
         <h1>All articles</h1>
+<hr><a href="/flask-mongodb/">
+    <div class="article">
+      <h3 class="article-title">Flask and MongoDB</h3>
+      <p class="article-date">12 October 2021</p>
+    </div>
+  </a>
 <hr><a href="/eleventy/">
     <div class="article">
       <h3 class="article-title">Setting up a website with EleventyJS</h3>
@@ -387,8 +403,14 @@ img {
   </a>
 <hr><a href="/bluetooth-2/">
     <div class="article">
-      <h3 class="article-title">Getting Bluetooth to work, without doing anything stupid</h3>
+      <h3 class="article-title">Getting BLE to work</h3>
       <p class="article-date">02 May 2021</p>
+    </div>
+  </a>
+<hr><a href="/state-machine/">
+    <div class="article">
+      <h3 class="article-title">Firmware architecture - State machines</h3>
+      <p class="article-date">09 April 2021</p>
     </div>
   </a>
 <hr><a href="/bluetooth-1/">

@@ -80,7 +80,7 @@ a:hover {
   font-size: 18px;
 }
 
-.navigation .item2, .item3 {
+.navigation .item2, .item3, .item4 {
   visibility: hidden;
   line-height: 0px;
 }
@@ -113,7 +113,7 @@ nav ul {
 
 @media (min-width: 600px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -161,11 +161,16 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
   
 }
 @media (min-width: 900px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -205,6 +210,11 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
 }
 
 /* ----------------------------
@@ -219,9 +229,6 @@ nav ul {
   margin-top: 2.5rem;
   margin-bottom: .5rem;
   border-bottom: 0.5px solid gray;
-}
-
-.section .article-title {
 }
 
 .section .article-description {
@@ -363,6 +370,9 @@ img {
                   <a href="../post-list">Articles</a>
               </li>
               <li class="item3">
+                  <a href="../post-list">Projects</a>
+              </li>
+              <li class="item4">
                   <a href="../about/">About</a>
               </li>
           </ul>
@@ -376,16 +386,16 @@ img {
 <h2 class="section-header">Latest articles</h2>
 
 
+  <a href="/flask-mongodb/">
+    <p>Flask and MongoDB</p>
+  </a>
+
   <a href="/eleventy/">
     <p>Setting up a website with EleventyJS</p>
   </a>
 
   <a href="/bluetooth-4/">
     <p>Incorporating BLE to an existing comms protocol</p>
-  </a>
-
-  <a href="/bluetooth-2/">
-    <p>Getting Bluetooth to work, without doing anything stupid</p>
   </a>
 
 <a href="post-list"><button class="btn btn-secondary btn-lg">See all</button></a>

@@ -80,7 +80,7 @@ a:hover {
   font-size: 18px;
 }
 
-.navigation .item2, .item3 {
+.navigation .item2, .item3, .item4 {
   visibility: hidden;
   line-height: 0px;
 }
@@ -113,7 +113,7 @@ nav ul {
 
 @media (min-width: 600px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -161,11 +161,16 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
   
 }
 @media (min-width: 900px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -205,6 +210,11 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
 }
 
 /* ----------------------------
@@ -219,9 +229,6 @@ nav ul {
   margin-top: 2.5rem;
   margin-bottom: .5rem;
   border-bottom: 0.5px solid gray;
-}
-
-.section .article-title {
 }
 
 .section .article-description {
@@ -363,6 +370,9 @@ img {
                   <a href="../post-list">Articles</a>
               </li>
               <li class="item3">
+                  <a href="../post-list">Projects</a>
+              </li>
+              <li class="item4">
                   <a href="../about/">About</a>
               </li>
           </ul>
@@ -375,14 +385,41 @@ img {
         <h1>A short summary on Bluetooth</h1>
 <p>09 April 2021</p>
 
-<p>As with any standardised communications protocol, Bluetooth is heavily documented and described to guarantee that it can be replicated by RF manufacturers around the world. It is often hard to find a middleground between the Bluetooth SIG standard and a large simplification of how Bluetooth works. Here's an attempt to bridge this gap.</p>
+<p>Bluetooth is defined in the Core standards as: &quot;Bluetooth wireless technology is a short-range communications system intended to replace the cable(s) connecting portable and/or fixed electronic devices.&quot;</p>
 <h1>Different types of Bluetooth</h1>
-<p>It all started with normal &quot;Bluetooth&quot;. Back in the day, I remember using Bluetooth to transfer .mp3 files from our old phones and being amazed at the idea of &quot;wireless&quot;.</p>
+<p>It all started with just one word: &quot;Bluetooth&quot;. Back in the day, I remember using Bluetooth to transfer mp3 files from our old phones and being amazed at the idea of wireless data transfer at the tip of our fingers.</p>
 <h2>Bluetooth BD/EDR (&quot;Bluetooth Classic&quot; or &quot;Bluetooth 5&quot;)</h2>
-<p>This old type of Bluetooth was designed to have a quick data rate (as quick as it can get when going without cables). However, it was fairly power hungry.</p>
+<p>This older type of Bluetooth was optimised to have a decent data rate (as quick as it could get when going without cables). However, this higher data rate also means that the Bluetooth connection needs to be active for longer periods and consumes more power all in all. These days most applications lean away from Bluetooth BR/EDR in favour of a more power economic solution. The largest exception lies in audio-related products like headsets and speakers, since these benefit for higher data rate and less latency.</p>
 <h2>Bluetooth Low Energy (BLE)</h2>
-<p>Bluetooth Low Energy, previously also known as &quot;Bluetooth Ultra Low Power&quot; or &quot;Bluetooth Low Power&quot;, was designed to overcome the power requirements from the Bluetooth (henceforth known as Bluetooth BR/EDR - Enhanced Data Rate). Since then, BLE has been widely favoured in many applications and it is the more popular choice of Bluetooth when designing an application. This is possibly exaggerated by the fact that Apple insists on mostly only accepting BLE communications (unless you go through a special procedure and become authorized to communicate with BR/EDR).</p>
-<p>This is a bit of a shame, because many applications would benefit from once-off but large-size data transfer. We instead live in a world that favours very small-sized data transfer over many continuous timepoints.</p>
+<p>Bluetooth Low Energy, previously also known as &quot;Bluetooth Ultra Low Power&quot; or &quot;Bluetooth Low Power&quot;, was designed to overcome the power requirements from Bluetooth (henceforth known as Bluetooth Basic Rate/EDR - Enhanced Data Rate). Since then, BLE has been adopted in a wide array of devices, with a huge uptake in consumer electronics such as sports gear and smart home.</p>
+<p>Although BLE is more predominant nowadays, when designing a new device, it is worth considering the use-case and user requirements for the communications pattern as it could tilt the balance from one to the other.</p>
+<h1>Bluetooth Core architecture</h1>
+<p>## Common components in architecture
+The Bluetooth Core is made up of a &quot;Controller&quot; which sits at the lower-level of the protocol and a &quot;Host&quot; which sits on top the of the Controller.
+The core system protocols are:</p>
+<ul>
+<li>Radio protocol (PHY)</li>
+<li>Link Layer (LL) - includes Link Control and Link Manager protocol</li>
+<li>Logical Link Control and Adaptation Protocol (L2CAP) - enables the multiplexing of channel-based connections.</li>
+<li>Generic Access Profile (GAP) Protocol - is omnipresent across the different layers of the technology.
+L2CAP is the responsibility of the Host, as is GAP, although they are common to both the LE and BR/EDR Controllers.</li>
+</ul>
+<h2>Differences</h2>
+<p>A BR/EDR host would normally include:</p>
+<ul>
+<li>L2CAP</li>
+<li>GAP</li>
+<li>SDP (Service Discovery Protocol), which allows the data to be sent and received serially.</li>
+<li>Something like RFCOMM or SPP for serial data transfer.</li>
+</ul>
+<p>A BLE host implements a couple more things:</p>
+<ul>
+<li>L2CAP</li>
+<li>GAP</li>
+<li>SMP (Security Manager Protocol)</li>
+<li>ATT/GATT</li>
+<li>SDP</li>
+</ul>
 
 
       </div>
