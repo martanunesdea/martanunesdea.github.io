@@ -4,7 +4,7 @@ tags: ['post']
 date: 2021-06-05
 layout: post.njk
 ---
-My first use of Bluetooth Low Energy was to get a wireless link between two devices with the lowest power consumption possible. The data being sent was basically a couple of long integers every now and again. It sounds technological quite simple, the complexity was on the custom biosensor being developed (not by me thankfully!).
+My first use of Bluetooth Low Energy was to get a wireless link between two devices with the lowest power consumption possible. The data being sent was basically a couple of long integers every now and again. It sounds, and it was, quite a straightforward process.
 
 The second time I came across Bluetooth Low Energy, we needed to get several hundreds of MBs from a chunky lateral flow point of care device to a mobile app. BLE was not our preferred Bluetooth protocol but once we found out about Apple's policy regarding Bluetooth BR/EDR, we had to stick with that. 
 

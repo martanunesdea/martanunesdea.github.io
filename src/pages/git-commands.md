@@ -32,3 +32,20 @@ For a folder:
 ```
 git rm -r --cached folder
 ```
+
+## Stashing
+This command comes in useful when you're not ready to commit changes but also don't want to revert them.
+````
+git stash
+```
+will allow you to stash the changes on a branch, so that your working copy remains effectively clean and you can checkout different branches, etc.
+```
+git stash pop
+```
+will retrieve your saved changes from memory and apply them to whichever branch you're working on.
+
+
+## Rebase
+```
+git rebase --interactive
+```

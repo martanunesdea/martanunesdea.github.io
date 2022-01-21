@@ -8,7 +8,9 @@ layout: post.njk
 
 Flask is a very lightweight server side library built in Python. The plus side to the "lightweight" characteristic is that it is very quick to get it up and running. The downside is that, it effectively builds with the barebones and you have to sort out the rest. Which is a relatively good thing in cases where the website or web app doesn't require many features.
 
-In this case, I am using Flask precisely because 1) I didn't want to go through the hassle of learning Django and 2) the use of lightweight server library will be useful when I start with sending data to servers from microprocessors or embedded systems. So a win/win for my learning journey.
+In this case, I am using Flask precisely because:
+1. I didn't want to go through the hassle of learning Django
+2. The use of lightweight server library will be useful when I start with sending data to servers from microprocessors or embedded systems. So a win/win for my learning journey.
 
 Since Flask is built in Python, it comes with integration to SQLite as part of the sqlite3 package. That's also one less thing to worry about, since I have already built my database handler around sqlite3. 
 
