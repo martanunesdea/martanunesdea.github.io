@@ -21,22 +21,19 @@ Although BLE is more predominant nowadays, when designing a new device, it is wo
 ## Common components in architecture
 The Bluetooth Core is made up of a "Controller" which sits at the lower-level of the protocol and a "Host" which sits on top the of the Controller. 
 The core system protocols are:
+
+At Controller level,
 - Radio protocol (PHY)
 - Link Layer (LL) - includes Link Control and Link Manager protocol
-- Logical Link Control and Adaptation Protocol (L2CAP) - enables the multiplexing of channel-based connections.
-- Generic Access Profile (GAP) Protocol - is omnipresent across the different layers of the technology.
-L2CAP is the responsibility of the Host, as is GAP, although they are common to both the LE and BR/EDR Controllers.
+
+At Host level (BLE and BR/EDR alike),
+- Logical Link Control and Adaptation Protocol (L2CAP) - provides a channel-based abstraction to applications and services. It carries out fragmentation and de-fragmentation of application data and multiplexing and de-multiplexing of multiple channels over a shared logical link.
+- Generic Access Profile (GAP) Protocol - represents the base functionality such as modes and access procedures used by the transports, protocols and applications profiles. GAP services include: device discovery, connection modes, security and authentication.
 
 ## Differences
-A BR/EDR host would normally include:
-- L2CAP
-- GAP
-- SDP (Service Discovery Protocol), which allows the data to be sent and received serially. 
-- Something like RFCOMM or SPP for serial data transfer.
+The minimal requirements for a BR/EDR Host is simply to implement L2CAP and GAP. However a "minimal" BLE host needs to also implement:
+- SMP (Security Manager Protocol) - uses a fixed L2CAP channel to implement security features (e.g. pairing and bonding).
+- ATT (Attribute Protocol) provides a method to communicate small amounts of data over a fixed L2CAP channel. The Attribute protocol is also used by devices to determine the services and capabilities of other devices. 
 
-A BLE host implements a couple more things:
-- L2CAP
-- GAP
-- SMP (Security Manager Protocol)
-- ATT/GATT
-- SDP 
+# Final word
+I'll leave it here on the short summary on Bluetooth as a technology, and tackle the BLE specific protocols in a next article. 
