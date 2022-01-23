@@ -397,29 +397,24 @@ img {
 <p>## Common components in architecture
 The Bluetooth Core is made up of a &quot;Controller&quot; which sits at the lower-level of the protocol and a &quot;Host&quot; which sits on top the of the Controller.
 The core system protocols are:</p>
+<p>At Controller level,</p>
 <ul>
 <li>Radio protocol (PHY)</li>
 <li>Link Layer (LL) - includes Link Control and Link Manager protocol</li>
-<li>Logical Link Control and Adaptation Protocol (L2CAP) - enables the multiplexing of channel-based connections.</li>
-<li>Generic Access Profile (GAP) Protocol - is omnipresent across the different layers of the technology.
-L2CAP is the responsibility of the Host, as is GAP, although they are common to both the LE and BR/EDR Controllers.</li>
+</ul>
+<p>At Host level (BLE and BR/EDR alike),</p>
+<ul>
+<li>Logical Link Control and Adaptation Protocol (L2CAP) - provides a channel-based abstraction to applications and services. It carries out fragmentation and de-fragmentation of application data and multiplexing and de-multiplexing of multiple channels over a shared logical link.</li>
+<li>Generic Access Profile (GAP) Protocol - represents the base functionality such as modes and access procedures used by the transports, protocols and applications profiles. GAP services include: device discovery, connection modes, security and authentication.</li>
 </ul>
 <h2>Differences</h2>
-<p>A BR/EDR host would normally include:</p>
+<p>The minimal requirements for a BR/EDR Host is simply to implement L2CAP and GAP. However a &quot;minimal&quot; BLE host needs to also implement:</p>
 <ul>
-<li>L2CAP</li>
-<li>GAP</li>
-<li>SDP (Service Discovery Protocol), which allows the data to be sent and received serially.</li>
-<li>Something like RFCOMM or SPP for serial data transfer.</li>
+<li>SMP (Security Manager Protocol) - uses a fixed L2CAP channel to implement security features (e.g. pairing and bonding).</li>
+<li>ATT (Attribute Protocol) provides a method to communicate small amounts of data over a fixed L2CAP channel. The Attribute protocol is also used by devices to determine the services and capabilities of other devices.</li>
 </ul>
-<p>A BLE host implements a couple more things:</p>
-<ul>
-<li>L2CAP</li>
-<li>GAP</li>
-<li>SMP (Security Manager Protocol)</li>
-<li>ATT/GATT</li>
-<li>SDP</li>
-</ul>
+<h1>Final word</h1>
+<p>I'll leave it here on the short summary on Bluetooth as a technology, and tackle the BLE specific protocols in a next article.</p>
 
 
       </div>
