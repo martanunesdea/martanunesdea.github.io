@@ -1,0 +1,21 @@
+
+{
+    "title": "Marta Nunes de Abreu",
+    "url": "https://www.martanunesdea.github.io/",
+    "language": "en",
+    "description": "I am collecting thoughts and conclusions from side projects.",
+    "feed": {
+      "subtitle": "I am collecting thoughts and conclusions from side projects.",
+      "filename": "feed.xml",
+      "path": "/feed/feed.xml",
+      "id": "https://www.martanunesdea.github.io/"
+    },
+    "jsonfeed": {
+      "path": "/feed/feed.json",
+      "url": "https://example.com/feed/feed.json"
+    },
+    "author": {
+      "name": "Martae",
+      "url": "https://www.martanunesdea.github.io/about/"
+    }
+  }
