@@ -23,7 +23,7 @@ module.exports = function(eleventyConfig) {
     return {
         templateFormats: ['njk', 'md', 'html'],
         dir: {
-          input: "src/pages",
+          input: "src/",
           // ⚠️ This value is relative to your input directory.
           includes: "_includes",
           data: "_data",

@@ -110,7 +110,7 @@ nav ul {
   margin: 0px;
 }
 
-
+/* --------- MIN WIDTH 600 PX -----------------*/
 @media (min-width: 600px) {
   /*HEADER */
   .navigation .item2, .item3, .item4 {
@@ -168,6 +168,8 @@ nav ul {
   }
   
 }
+
+/* --------- MIN WIDTH 900 PX -----------------*/
 @media (min-width: 900px) {
   /*HEADER */
   .navigation .item2, .item3, .item4 {
@@ -218,7 +220,7 @@ nav ul {
 }
 
 /* ----------------------------
-  --- MAIN SECTION ------------
+  --- HOME PAGE ---------------
   ---------------------------- */
 .section {
   margin-bottom: 30px;
@@ -231,45 +233,32 @@ nav ul {
   border-bottom: 0.5px solid gray;
 }
 
-.section .article-description {
+
+/* ----------------------------
+  --- POST LIST PAGE ----------
+  ---------------------------- */
+.article-description {
   line-height: 1.8rem;
   margin-bottom: 1.6rem;
 }
 
-.section .article-date {
-  line-height: 1.2rem;
-}
-
+.article-date {
+  line-height: 1.5rem;
+} 
+/*
 .section .list p {
   line-height: 1.5rem;
   color: #8A817C;
   font-size: 1.4rem;
 }
-
-.article-title {
-}
-
-.article-title2 {
-  border-bottom: 0.5px solid gray;
-}
-
-.article-date {
-}
-
-.article {
-  display: flex;
-  justify-content: space-between;
-}
-
 .content .post p {
   font-size: 1.5rem;
   line-height: 3.1rem;
   margin-bottom: 10px;
 }
-
 .content .post h1, h2 {
   margin: 20px 0px;
-}
+}*/
 
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */
@@ -284,15 +273,6 @@ pre code {
   padding: inherit;
   line-height: 22px;
 }
-/*
-
-.code {
-  background-color: lightgray;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin: 5px auto;
-  margin-bottom: 10px;
-}*/
 code {
   font-size: 120%;
 }
@@ -302,37 +282,8 @@ code p {
   font-size: 1rem;
   margin-bottom: 0px;
 }
-
 .code .comment {
   color:gray;
-}
-
-
-/* ---------------------------------------------------------------------- */
-/* ------------- CODE STYLING ------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-@media only screen and (min-width: 400px) {
-  .box-rectangle {
-    width: 400px;
-    height: 100px;
-  }
-}
-@media only screen and (min-width: 800px) {
-  .box-rectangle {
-    width: 800px;
-    height: 300px;
-  }
-}
-
-img {
-  width: 100%;
-  height: 100%;
-}
-.cover {
-  object-fit: cover;
-}
-.contain {
-  object-fit: contain;
 }
 
 
@@ -342,6 +293,7 @@ img {
 
 .footer {
   text-align: center;
+  border-top: 1px solid rgb(198, 195, 195);
 }
 
 .footer p {
@@ -382,19 +334,34 @@ img {
     <main class="tmpl-post">
     <!-- BODY -->
       <div class="content">
-        <h1>Getting Bluetooth to work, without doing anything stupid</h1>
+        <h1>Getting BLE to work - Connecting</h1>
 <p>02 May 2021</p>
 
 <p>Bluetooth can be a multi-client network but the simplest network only requires two devices: a host and a client. Normally, the host is the device providing the information and the client is the one requesting it.</p>
 <p>In order to get this network to communicate, it is necessary to establish the following points:</p>
 <ul>
-<li>Who is the host device? And who is the client device?</li>
-<li>How is the connection going to be established? Security considerations regarding this.</li>
-<li>How is the data going to be transferred? Plus data integrity considerations regarding this.</li>
+<li>Which device starts the connection? Which device accepts the connection?</li>
+<li>How is the connection going to be established?</li>
+<li>Security considerations regarding the connection link.</li>
 </ul>
-<p>Depending on the application, there may be other things that need a detailed consideration but for most people wanting to develop a marketable application this should suffice.</p>
 <h1>Device roles</h1>
+<p>The roles of a device may vary based on the stages of the protocol. This is a simplified version of how to distinguish between these.</p>
+<p>## Advertisement
+A device may be a &quot;broadcaster&quot; if it is advertising, or an &quot;observer&quot; if it is scanning for devices.</p>
+<h2>Connection</h2>
+<p>Then, a device may be a &quot;peripheral&quot; if it requests a connection, or a &quot;central&quot; device, if it accepts a connection.</p>
+<p>## Communication
+Lastly, when communicating through ATT, a device becomes a &quot;client&quot; when asking for information, and another device the &quot;server&quot; that provides that information.</p>
 <h1>Establishing a connection</h1>
+<p>In a scenario with low security requirements, connecting can be as easy as, finding a Bluetooth device and issuing a conenction command to it. (This is assuming you have access to the Bluetooth's module library or API).</p>
+<p>Provided the &quot;central&quot; device is willing to connect, it will accept and connect. This functionality is enabled through GAP: it discovers devices available and attempts to connect.</p>
+<h1>Security implications</h1>
+<p>A simple connection relies on the assumption that a device would readily accept any incoming connections but this could a dangerous and vulnerable position. For instance, if that device is also connected with a wide area network, it could be maliciously infected with malware and propagate through the network.</p>
+<p>This is why a lot of device require &quot;pairing&quot; as a way to safely confirm that two devices should indeed be connected.</p>
+<p>## Pairing and bonding
+Coming soon...</p>
+<h1>Final word</h1>
+<p>Now we've learned about establishing a connection, in the next article, I will be discussing the use of GATT as means to share data.</p>
 
 
       </div>

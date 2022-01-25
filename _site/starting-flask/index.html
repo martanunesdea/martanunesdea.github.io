@@ -110,7 +110,7 @@ nav ul {
   margin: 0px;
 }
 
-
+/* --------- MIN WIDTH 600 PX -----------------*/
 @media (min-width: 600px) {
   /*HEADER */
   .navigation .item2, .item3, .item4 {
@@ -168,6 +168,8 @@ nav ul {
   }
   
 }
+
+/* --------- MIN WIDTH 900 PX -----------------*/
 @media (min-width: 900px) {
   /*HEADER */
   .navigation .item2, .item3, .item4 {
@@ -218,7 +220,7 @@ nav ul {
 }
 
 /* ----------------------------
-  --- MAIN SECTION ------------
+  --- HOME PAGE ---------------
   ---------------------------- */
 .section {
   margin-bottom: 30px;
@@ -231,45 +233,32 @@ nav ul {
   border-bottom: 0.5px solid gray;
 }
 
-.section .article-description {
+
+/* ----------------------------
+  --- POST LIST PAGE ----------
+  ---------------------------- */
+.article-description {
   line-height: 1.8rem;
   margin-bottom: 1.6rem;
 }
 
-.section .article-date {
-  line-height: 1.2rem;
-}
-
+.article-date {
+  line-height: 1.5rem;
+} 
+/*
 .section .list p {
   line-height: 1.5rem;
   color: #8A817C;
   font-size: 1.4rem;
 }
-
-.article-title {
-}
-
-.article-title2 {
-  border-bottom: 0.5px solid gray;
-}
-
-.article-date {
-}
-
-.article {
-  display: flex;
-  justify-content: space-between;
-}
-
 .content .post p {
   font-size: 1.5rem;
   line-height: 3.1rem;
   margin-bottom: 10px;
 }
-
 .content .post h1, h2 {
   margin: 20px 0px;
-}
+}*/
 
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */
@@ -284,15 +273,6 @@ pre code {
   padding: inherit;
   line-height: 22px;
 }
-/*
-
-.code {
-  background-color: lightgray;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin: 5px auto;
-  margin-bottom: 10px;
-}*/
 code {
   font-size: 120%;
 }
@@ -302,37 +282,8 @@ code p {
   font-size: 1rem;
   margin-bottom: 0px;
 }
-
 .code .comment {
   color:gray;
-}
-
-
-/* ---------------------------------------------------------------------- */
-/* ------------- CODE STYLING ------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-@media only screen and (min-width: 400px) {
-  .box-rectangle {
-    width: 400px;
-    height: 100px;
-  }
-}
-@media only screen and (min-width: 800px) {
-  .box-rectangle {
-    width: 800px;
-    height: 300px;
-  }
-}
-
-img {
-  width: 100%;
-  height: 100%;
-}
-.cover {
-  object-fit: cover;
-}
-.contain {
-  object-fit: contain;
 }
 
 
@@ -342,6 +293,7 @@ img {
 
 .footer {
   text-align: center;
+  border-top: 1px solid rgb(198, 195, 195);
 }
 
 .footer p {
@@ -387,7 +339,11 @@ img {
 
 <h2>Back end development and Flask</h2>
 <p>Flask is a very lightweight server side library built in Python. The plus side to the &quot;lightweight&quot; characteristic is that it is very quick to get it up and running. The downside is that, it effectively builds with the barebones and you have to sort out the rest. Which is a relatively good thing in cases where the website or web app doesn't require many features.</p>
-<p>In this case, I am using Flask precisely because 1) I didn't want to go through the hassle of learning Django and 2) the use of lightweight server library will be useful when I start with sending data to servers from microprocessors or embedded systems. So a win/win for my learning journey.</p>
+<p>In this case, I am using Flask precisely because:</p>
+<ol>
+<li>I didn't want to go through the hassle of learning Django</li>
+<li>The use of lightweight server library will be useful when I start with sending data to servers from microprocessors or embedded systems. So a win/win for my learning journey.</li>
+</ol>
 <p>Since Flask is built in Python, it comes with integration to SQLite as part of the sqlite3 package. That's also one less thing to worry about, since I have already built my database handler around sqlite3.</p>
 <p>Making calls to routes specified within Flask is fairly straightforward. Understanding the relation between templates, javascript add-ons, and then the flask source file is a little bit trickier. I found myself particularly stuck when attempting to make calls from the javascript functions onto flask, until I realised that it all revolves around HTTP requests.</p>
 <p>Essentially, when integrating dynamic javascript onto your site, you will have to perform requests, which will then re-direct you to the routes defined within the flask source file. Now, the choice of library responsible for performing these HTTP requests is down to the programmer. When searching for a way to approach this problem, I found most people where recurring to AJAX and jQuery as the solution. However, the downside to this is that other web development frameworks don't support jQuery (or they do, but it presents additional work). When reading through Flask's documentation, I found they actually present their AJAX example with two other formats: plain XHR and fetch. Again, there are upsides and downsides to either, and many posts cover this in detail. Essentially, Fetch API is meant to be the new way of making requests but not everyone seems to think it's the most straightforward way.</p>

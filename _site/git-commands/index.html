@@ -110,7 +110,7 @@ nav ul {
   margin: 0px;
 }
 
-
+/* --------- MIN WIDTH 600 PX -----------------*/
 @media (min-width: 600px) {
   /*HEADER */
   .navigation .item2, .item3, .item4 {
@@ -168,6 +168,8 @@ nav ul {
   }
   
 }
+
+/* --------- MIN WIDTH 900 PX -----------------*/
 @media (min-width: 900px) {
   /*HEADER */
   .navigation .item2, .item3, .item4 {
@@ -218,7 +220,7 @@ nav ul {
 }
 
 /* ----------------------------
-  --- MAIN SECTION ------------
+  --- HOME PAGE ---------------
   ---------------------------- */
 .section {
   margin-bottom: 30px;
@@ -231,45 +233,32 @@ nav ul {
   border-bottom: 0.5px solid gray;
 }
 
-.section .article-description {
+
+/* ----------------------------
+  --- POST LIST PAGE ----------
+  ---------------------------- */
+.article-description {
   line-height: 1.8rem;
   margin-bottom: 1.6rem;
 }
 
-.section .article-date {
-  line-height: 1.2rem;
-}
-
+.article-date {
+  line-height: 1.5rem;
+} 
+/*
 .section .list p {
   line-height: 1.5rem;
   color: #8A817C;
   font-size: 1.4rem;
 }
-
-.article-title {
-}
-
-.article-title2 {
-  border-bottom: 0.5px solid gray;
-}
-
-.article-date {
-}
-
-.article {
-  display: flex;
-  justify-content: space-between;
-}
-
 .content .post p {
   font-size: 1.5rem;
   line-height: 3.1rem;
   margin-bottom: 10px;
 }
-
 .content .post h1, h2 {
   margin: 20px 0px;
-}
+}*/
 
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */
@@ -284,15 +273,6 @@ pre code {
   padding: inherit;
   line-height: 22px;
 }
-/*
-
-.code {
-  background-color: lightgray;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin: 5px auto;
-  margin-bottom: 10px;
-}*/
 code {
   font-size: 120%;
 }
@@ -302,37 +282,8 @@ code p {
   font-size: 1rem;
   margin-bottom: 0px;
 }
-
 .code .comment {
   color:gray;
-}
-
-
-/* ---------------------------------------------------------------------- */
-/* ------------- CODE STYLING ------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-@media only screen and (min-width: 400px) {
-  .box-rectangle {
-    width: 400px;
-    height: 100px;
-  }
-}
-@media only screen and (min-width: 800px) {
-  .box-rectangle {
-    width: 800px;
-    height: 300px;
-  }
-}
-
-img {
-  width: 100%;
-  height: 100%;
-}
-.cover {
-  object-fit: cover;
-}
-.contain {
-  object-fit: contain;
 }
 
 
@@ -342,6 +293,7 @@ img {
 
 .footer {
   text-align: center;
+  border-top: 1px solid rgb(198, 195, 195);
 }
 
 .footer p {
@@ -402,6 +354,21 @@ $ git checkout newbranchname
 <p>For a folder:</p>
 <pre><code>git rm -r --cached folder
 </code></pre>
+<h2>Stashing</h2>
+<p>This command comes in useful when you're not ready to commit changes but also don't want to revert them.</p>
+<pre><code>git stash
+```
+will allow you to stash the changes on a branch, so that your working copy remains effectively clean and you can checkout different branches, etc.
+```
+git stash pop
+```
+will retrieve your saved changes from memory and apply them to whichever branch you're working on.
+
+
+## Rebase
+```
+git rebase --interactive
+```</code></pre>
 
 
       </div>

@@ -80,7 +80,7 @@ a:hover {
   font-size: 18px;
 }
 
-.navigation .item2, .item3 {
+.navigation .item2, .item3, .item4 {
   visibility: hidden;
   line-height: 0px;
 }
@@ -110,10 +110,10 @@ nav ul {
   margin: 0px;
 }
 
-
+/* --------- MIN WIDTH 600 PX -----------------*/
 @media (min-width: 600px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -161,11 +161,18 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
   
 }
+
+/* --------- MIN WIDTH 900 PX -----------------*/
 @media (min-width: 900px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -205,10 +212,15 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
 }
 
 /* ----------------------------
-  --- MAIN SECTION ------------
+  --- HOME PAGE ---------------
   ---------------------------- */
 .section {
   margin-bottom: 30px;
@@ -221,48 +233,32 @@ nav ul {
   border-bottom: 0.5px solid gray;
 }
 
-.section .article-title {
-}
 
-.section .article-description {
+/* ----------------------------
+  --- POST LIST PAGE ----------
+  ---------------------------- */
+.article-description {
   line-height: 1.8rem;
   margin-bottom: 1.6rem;
 }
 
-.section .article-date {
-  line-height: 1.2rem;
-}
-
+.article-date {
+  line-height: 1.5rem;
+} 
+/*
 .section .list p {
   line-height: 1.5rem;
   color: #8A817C;
   font-size: 1.4rem;
 }
-
-.article-title {
-}
-
-.article-title2 {
-  border-bottom: 0.5px solid gray;
-}
-
-.article-date {
-}
-
-.article {
-  display: flex;
-  justify-content: space-between;
-}
-
 .content .post p {
   font-size: 1.5rem;
   line-height: 3.1rem;
   margin-bottom: 10px;
 }
-
 .content .post h1, h2 {
   margin: 20px 0px;
-}
+}*/
 
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */
@@ -277,15 +273,6 @@ pre code {
   padding: inherit;
   line-height: 22px;
 }
-/*
-
-.code {
-  background-color: lightgray;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin: 5px auto;
-  margin-bottom: 10px;
-}*/
 code {
   font-size: 120%;
 }
@@ -295,37 +282,8 @@ code p {
   font-size: 1rem;
   margin-bottom: 0px;
 }
-
 .code .comment {
   color:gray;
-}
-
-
-/* ---------------------------------------------------------------------- */
-/* ------------- CODE STYLING ------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-@media only screen and (min-width: 400px) {
-  .box-rectangle {
-    width: 400px;
-    height: 100px;
-  }
-}
-@media only screen and (min-width: 800px) {
-  .box-rectangle {
-    width: 800px;
-    height: 300px;
-  }
-}
-
-img {
-  width: 100%;
-  height: 100%;
-}
-.cover {
-  object-fit: cover;
-}
-.contain {
-  object-fit: contain;
 }
 
 
@@ -335,6 +293,7 @@ img {
 
 .footer {
   text-align: center;
+  border-top: 1px solid rgb(198, 195, 195);
 }
 
 .footer p {
@@ -363,6 +322,9 @@ img {
                   <a href="../post-list">Articles</a>
               </li>
               <li class="item3">
+                  <a href="../post-list">Projects</a>
+              </li>
+              <li class="item4">
                   <a href="../about/">About</a>
               </li>
           </ul>
@@ -372,22 +334,26 @@ img {
     <main class="tmpl-post">
     <!-- BODY -->
       <div class="content">
-        <h1>Incorporating BLE to an existing comms protocol</h1>
-<p>20 June 2021</p>
+        <h1>Getting BLE to work - Sharing</h1>
+<p>05 June 2021</p>
 
-<p>My first use of Bluetooth Low Energy was to get a wireless link between two devices with the lowest power consumption possible. The data being sent was basically a couple of long integers every now and again. It sounds technological quite simple, the complexity was on the custom biosensor being developed (not by me thankfully!).</p>
-<p>The second time I came across Bluetooth Low Energy, we needed to get several hundreds of MBs from a chunky lateral flow point of care device to a mobile app. BLE was not our preferred Bluetooth protocol but once we found out about Apple's policy regarding Bluetooth BR/EDR, we had to stick with that.</p>
-<p>So how do you go about sending this much data on BLE?</p>
-<p># Different layers of BLE
-Bluetooth Low Energy is split into different layers, as per any developed communications protocol. A common source of confusion is the mix up between GAP (Generic Access Profile) and GATT (Generic Attribute Protocol). GAP is a part of the BLE stack and describes some of the topology behind the protocol. On the other hand, GATT outlines a higher level protocol for the devices once there is a BLE link established.</p>
+<p>So how do you go about sending this much data on BLE? It is highly encouraged that data is sent through the ATT protocol.</p>
+<h3>Hold on, is GATT the same as GAP.</h3>
+<p>No, there is a common source of confusion between GAP (Generic Access Profile) and GATT (Generic Attribute Protocol). GAP is a part of the BLE Host and describes some of the functionality behind advertisement, connecting, security, data transfer, etc. On the other hand, GATT is a higher level protocol that is used once there is a BLE link established.</p>
 <p>The short story is that, whilst your BLE comms will work without requiring an in-depth knowledge of GAP, it does require you to understand GATT, as this is how the BLE frames get sent between devices.</p>
 <p>To learn more about the Generic Access Profile and the role it plays in the establishment of a BLE connection, I would suggest reading the Bluetooth Core paper.</p>
-<h1>Generic Attribute Protocol (GATT)</h1>
-<p>As mentioned before, the Generic Attribute Profile sits at the top level of this BLE stack. This layer dictates the rules and expected format of the BLE Profiles.</p>
-<p>Each Profile is a stand-alone data configuration, think of it as an XML file almost, which encompasses separate containers of data, which should be related to each other. The basic example is the &quot;Glucose Profile&quot; or &quot;Air Pressure Profile&quot;, these are standardised profiles that are reused across different applications. It is useful because different devices from different manufacturers could use the same &quot;Profile&quot; and then one app could decipher the information on all of them more easily.</p>
-<p>## Characteristics and Attributes
+<h1>What is the GATT protocol?</h1>
+<p>It is a standardised way of communicating in Bluetooth. It relies on the idea of &quot;profiles&quot; as an entity of data that a device is able to share.</p>
+<p>Each Profile is a stand-alone data configuration, think of it as an XML file almost, which encompasses separate sub-categories, which should be related to each other. The basic example is the &quot;Glucose Profile&quot; or &quot;Air Pressure Profile&quot;, these are standardised profiles that are used across different applications. It is useful because different devices from different manufacturers could use the same &quot;Profile&quot; and then one app can decipher the information on all of them more easily.</p>
+<h2>Example</h2>
+<p>If a device can share a &quot;weather profile&quot; would mean that it has got some weather-related data packaged up into one profile.</p>
+<p>Inside this profile, there may be two characteristics, e.g &quot;rainfall&quot; and &quot;temperature&quot;. Then each characteristic would have an &quot;attribute&quot; which is the actual value of the attribute.</p>
+<p># Characteristics and Attributes
 A Profile includes several characteristics inside it (or perhaps just one, even). These characteristics will then hold Attributes, which are the elementary pieces of data that can have their values read or written.</p>
-<h1>Creating a Profile from scratch vs. borrowing one</h1>
+<h2>So, do I need to create a profile to send data?</h2>
+<p>It depends. There are existing profiles that you may be able to recycle and make it your own. For instance, if you are wanting to send weather data, there is a genuine &quot;Temperature profile&quot; defined by Bluetooth SIG. So you could choose to use that.</p>
+<p>However, most people create their custom profiles, give it a custom UUID and advertise it as such. Then you can create any characteristics and attributes as you please.</p>
+<h2>Creating a Profile from scratch vs. borrowing one</h2>
 <p>If you already have an existing protocol, you may or may not want to reevaluate the domain of the information you are transferring, and consider whether it fits into existing Profiles.</p>
 <p>If you have an assortment of information that needs to be transferred at different periodic intervals, then it may make sense to create different Profiles to specific bits of data, and you can then regulate how often each Profile will be updated, etc.</p>
 <p>However, if you are only attempting to send a serial stream of data over BLE and not interested in generating a new profile, you could borrow the &quot;Generic Attribute Profile&quot; since it is open for configuration. I will say it again because it sounds confusing the first time around, there is an already defined profile called Generic Attribute Profile, which follows the specifications of the &quot;Generic Attribute Profile&quot; in the Bluetooth Core Spec. Yes, a bit of an inception of GATTs if you ask me!</p>
@@ -395,7 +361,7 @@ A Profile includes several characteristics inside it (or perhaps just one, even)
 This route involves creating a custom characteristic, for which you will need to create a UUID number to identify it in your collection of Profiles.</p>
 <p>You then need to character an Attribute within this characteristic, and define some of the parameters associated with it.</p>
 <p>At this point, you have the structure that your data will follow but you will need to make sure it then works with the host.</p>
-<h2>Notifications and subscriptions in BLE</h2>
+<h1>Notifications and subscriptions in BLE</h1>
 <p>One tricky thing about reading and writing the same attribute within a characteristic is that it is not very cache-friendly, especially in iOS devices.</p>
 <p>I soon found that Apple was caching the attribute of my custom characteristic as soon as the BLE connection was established. This was by far the intended result, since the value written to the attribute was meant to notify the host of a certain event!</p>
 <p>I had to create yet another profile which would serve the purpose of notifying the device to reset or refresh the profiles that it had loaded upon connecting to the client.</p>
