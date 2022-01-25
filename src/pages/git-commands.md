@@ -22,6 +22,14 @@ $ git checkout newbranchname
 $ git reset
 ```
 
+## Reverting commits that have already been pushed
+This is a "nuclear" option and should not be used in branches where there's co-development going on. Simply put, by using this command you could be rendering the other person's work useless. There's also a lot of other options between "git reset" a commit in your working copy and the below command. I'll try to fill in those gaps in the near future..
+The below command is to be used if, you've pushed one or two commits to your remote branch and want to completely undo them, leaving no audit trail behind.
+```
+$ git reset <commit sha>
+$ git push origin --force
+```
+If the --force option is omitted, git raises warning about overwriting current commits in the remote origin. 
 
 ## Removing from version control
 For a file (or multiple files..)
