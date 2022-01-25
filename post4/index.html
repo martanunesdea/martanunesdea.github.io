@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="./style/style.css" rel="stylesheet">
+    
+<style>
+    
+        
+    /* ------- GENERAL SETUP --------------------------------------------- */
+html {
+  font-size: 12px;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+body {
+  width: 100%;
+}
+.container {
+  max-width: 100%;
+  padding: 0px;
+}
+.container > * {
+	padding: 10px;
+}
+
+/* ----------- TYPOGRAPHY ---------------------------------------------- */
+
+h1, h2, h3, h4 {
+  font-family: 'Oxygen', sans-serif;
+  color: #8A817C;
+}
+h1{
+  font-size: 2.1rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 1.8rem;
+}
+
+p, li {
+  font-family: 'Oxygen', sans-serif;
+  color: #2A2A2A;
+  font-size: 1.4rem;
+  line-height: 2.8rem;
+}
+a {
+  font-family: 'Oxygen', sans-serif;
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------- NAVBAR ------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+.header {
+  background-color: rgb(89, 34, 41);
+}
+.navigation ul a {
+  color: white;
+  font-size: 18px;
+}
+
+.navigation .item2, .item3 {
+  visibility: hidden;
+  line-height: 0px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------- CONTAINER - GRID --------------------------------------- */
+/* ---------------------------------------------------------------------- */
+.container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 0px;
+}
+
+.container > * {
+  grid-column: 1 / span 10;
+}
+
+.links, .ads {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+@media (min-width: 600px) {
+  /*HEADER */
+  .navigation .item2, .item3 {
+    visibility: visible;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+  }
+  /* GRID */
+  .links {
+      grid-column: 1 / span 1;
+      grid-row: 2;
+  }
+  .ads {
+      grid-column: 10 / span 1;
+      grid-row: 2;
+
+  }
+  .content {
+      max-width: 900px;
+      margin: auto;
+  }
+  .footer {
+      grid-column: 1 / span 10;
+  }
+  .navigation {
+      max-width: 900px;
+      margin: auto;
+  }
+  /* FLEX BOX */
+  nav ul {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: left;
+  }
+  .item1 {
+      order: 1;
+      flex-grow: 8;
+  }
+  .item2 {
+      order: 2;
+      flex-grow: 1;
+      text-align: center;
+  }
+  .item3 {
+      order: 3;
+      flex-grow: 1;
+      text-align: center;
+  }
+  
+}
+@media (min-width: 900px) {
+  /*HEADER */
+  .navigation .item2, .item3 {
+    visibility: visible;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+  }
+  /* GRID */
+  .content {
+      max-width: 900px;
+      margin: auto;
+  }
+  .footer {
+      grid-column: 1 / span 10;
+      grid-row: 3;
+  }
+  .navigation {
+    width: 100%;
+    margin: auto;
+  }
+  /* FLEX BOX */
+  nav ul {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      text-align: left;
+  }
+  .item1 {
+      order: 1;
+      flex-grow: 8;
+  }
+  .item2 {
+      order: 2;
+      flex-grow: 1;
+      text-align: center;
+
+  }
+  .item3 {
+      order: 3;
+      flex-grow: 1;
+      text-align: center;
+  }
+}
+
+/* ----------------------------
+  --- MAIN SECTION ------------
+  ---------------------------- */
+.section {
+  margin-bottom: 30px;
+}
+
+.section .section-header {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: .5rem;
+  border-bottom: 0.5px solid gray;
+}
+
+.section .article-title {
+  margin: .5rem auto;
+  border-bottom: 0;
+}
+
+.section .article-description {
+  line-height: 1.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.section .list p {
+  line-height: 1.5rem;
+  color: #8A817C;
+  font-size: 1.4rem;
+}
+
+.article-title {
+  margin-top: 3rem;
+  margin-bottom: .5rem;
+}
+
+.article-title2 {
+  border-bottom: 0.5px solid gray;
+}
+
+.content .post p {
+  font-size: 1.5rem;
+  line-height: 3.1rem;
+  margin-bottom: 10px;
+}
+
+.content .post h1, h2 {
+  margin: 20px 0px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------- CODE STYLING ------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+pre {
+  font-size: 100%;
+}
+pre code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: inherit;
+  line-height: 22px;
+}
+/*
+
+.code {
+  background-color: lightgray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 5px auto;
+  margin-bottom: 10px;
+}*/
+code {
+  font-size: 120%;
+}
+
+code p {
+  font-family: "Consolas", monospace;
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+
+.code .comment {
+  color:gray;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------- CODE STYLING ------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+@media only screen and (min-width: 400px) {
+  .box-rectangle {
+    width: 400px;
+    height: 100px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .box-rectangle {
+    width: 800px;
+    height: 300px;
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+.cover {
+  object-fit: cover;
+}
+.contain {
+  object-fit: contain;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------- FOOTER ------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+
+.footer {
+  text-align: center;
+}
+
+.footer p {
+  color: gray;
+}
+
+/* ------- BOOTSTRAP OVERRIDES ----------- */
+.btn, .btn-primary, .btn-lg {
+  background-color:rgb(89, 34, 41);
+  border-color: rgb(89, 34, 41);
+}
+
+    
+    
+</style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <nav class="navigation">
+          <ul>
+              <li class="item1">
+                  <a href="/">Marta Nunes de Abreu</a>
+              </li>
+              <li class="item2">
+                  <a href="../post-list">Articles</a>
+              </li>
+              <li class="item3">
+                  <a href="../about/">About</a>
+              </li>
+          </ul>
+      </nav>
+    </div>
+
+    <main class="tmpl-post">
+    <!-- BODY -->
+      <div class="content">
+        <h1>Applications of embedded software</h1>
+<p>12 December 2020</p>
+
+<p>Nowadays, a vast majority of end-products from software development are consumed through mobile devices and computers (e-commerce, social media, streaming sites, miscellaneous mobile apps, etc.). It’s easy to understand the strange reactions from people when I tell them about my job as an embedded software engineer. I once had someone asking me if that is the same as “making models”. Mostly, though, the blunt question I get is “what is that?”.</p>
+<p>I can’t help but feel like the internet has provided a foundation to a large part of consumer-oriented software products. So, can there be any software applications outside the world wide web? And how often are we using it?</p>
+<p>Here’s my attempt to explain embedded software applications.</p>
+<p>I’ll be splitting this article into a brief explanation of embedded software, followed by an introduction to the two main areas where embedded software is present. I will finish pointing to other areas where it is also essential, thought not as visible to the everyday consumer.</p>
+<h2>Firmware: Where hardware and software meet</h2>
+<p>Firmware is the software purposefully designed and implemented to interact with specific hardware design. Embedded software is commonly exchanged with firmware, although embedded tends to refer to software that is more agnostic of the hardware (ie. RTOS or Embedded Linux configurations).</p>
+<p>A simple example: A smart speaker.</p>
+<p>Inside a smart speaker, there is a microprocessor inside, along with a hefty battery and other components, programmed to perform very specific tasks:</p>
+<p>a. Connect through Bluetooth</p>
+<p>b. Alert when batter is low</p>
+<p>c. Instruct the loudspeakers to play or stop as commanded by the user.</p>
+<p>What it boils down to is that embedded software has the responsibility to create an abstraction from the lower levels of electronic components and hardware to a human-friendly interface. This may come in different forms; as a complete operating system, if it’s a widely multi-purpose device, or through the implementation of a simple user interface with some buttons to get user input, if it is a single-purpose device only (e.g. a smart microwave).</p>
+<p>Let’s move on to a brief introduction of the two main exponents of embedded software.</p>
+<h2>“Internet of Things”</h2>
+<p>Wearables, HomeTech, CarTech, and any readily available gadget around you…</p>
+<p>It’s a commonly used term nowadays. Only a couple of years ago, it was used as a way to explain that “there is this new field emerging and we don’t quite now what it will entail so we’re going to give it this broad and generic name”. It is the idea that more and more products will be connected to the internet since, as it seems, it will control the world going forward.</p>
+<p>“Smart” devices have become commonplace thanks to the decrease in cost of microprocessors (in a simplistic way, the brains within computers) and of electronic components in general (e.g. memory storage, modules for Bluetooth, WiFi or Zigbee, sensors, etc.). Why would you get an expensive analogue watch, if you can get one that tells you the weather, how far you’ve walked, and who messaged you, for the same price or less?</p>
+<p>Regardless of our personal opinion on the availability of technology, the truth is everywhere we look our lifestyles are now facilitated with assistive technology. And most of it is enabled with firmware: software built to closely interact with the hardware of a device, and delivering the best functionality to the user.</p>
+<h2>Industry-grade software</h2>
+<p>This is one other large area where embedded software is also a key player. The average consumer may not come into contact with these software products but these exist and there are many software engineers behind their efficiency and reliability. A lot of industry-grade equipment is now supported by software and most of the times, this is embedded software. Here’s a short breakdown of software products within different key industries:</p>
+<ul>
+<li>Medical sector: hospital equipment such as ECG readers, surgical devices (endoscopes, assistive surgery devices), medical imaging devices, etc.</li>
+<li>Aviation sector: Planes are covered by sensors, motors, on and off switches, a bunch of electronics really. For the sanity of engineers, a lot of it is controlled by computer systems. This automates a lot of tasks, but also requires very safe software too.</li>
+<li>Automotive sector: The same logic from airplanes applies to cars, although in a smaller scale. The manufacturing of cars is in itself, dependent on yet more embedded software. There’s a special caveat about self-driving technology: this type of software isn’t necessarily embedded, a lot of it is processed through cloud or “edge” computing.</li>
+<li>Logistics and supply chain: The presence of robots automating tasks in warehouses and shipping facilities is yet again reliant on firmware. Although for some people robotics is a completely different field from embedded software, the underpinning idea of software interacting with hardware is there. In most cases, the engineers behind robotics projects were previously embedded software engineers in different sectors.</li>
+</ul>
+<p>I realize that categorizing all of these different types of software products into “industry-grade software” is a bit of a generalization. But all of these fulfill the following criteria relevant in this article:</p>
+<ol>
+<li>
+<p>They are not a consumer-centric software product (B2B rather than B2C software), and therefore most people are oblivious of its existence and importance.</p>
+</li>
+<li>
+<p>They require high-level of reliability and need to comply which very strict standards (MISRA standards for aviation and automotive sectors, ISO standards for medical equipment, and many more). This is because their purpose and functionality is not to be consumed by an user, but to sustain the foundation of critical processes (such as transportation or saving lives). Thus ,they must prevail much more rigorous testing.</p>
+</li>
+</ol>
+<h2>Conclusion</h2>
+<p>This article aims to reflect on the unseen and unspoken heroes within the world of software products: embedded software applications. As we’ve seen, a lot of the technologies we use are reliant on embedded software.</p>
+<p>In general, a lot of software exists in no small part thanks to embedded software engineering; as it abstracts away all the dependencies on the hardware. You may have heard that a lot of programming languages are based or built on C. This is because UNIX, one of the earliest operating systems, was entirely built on C, effectively bridging the gap between hardware and software. Once there was an OS written in C, other programs could interact with it in the same language. Since then, many compilers have been built to ensure that software written in C could be executed by the computers available.</p>
+
+
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>

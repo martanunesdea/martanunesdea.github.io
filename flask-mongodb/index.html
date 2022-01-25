@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="./style/style.css" rel="stylesheet">
+    
+<style>
+    
+        
+    /* ------- GENERAL SETUP --------------------------------------------- */
+html {
+  font-size: 12px;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+body {
+  width: 100%;
+}
+.container {
+  max-width: 100%;
+  padding: 0px;
+}
+.container > * {
+	padding: 10px;
+}
+
+/* ----------- TYPOGRAPHY ---------------------------------------------- */
+
+h1, h2, h3, h4 {
+  font-family: 'Oxygen', sans-serif;
+  color: #8A817C;
+}
+h1{
+  font-size: 2.1rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 1.8rem;
+}
+
+p, li {
+  font-family: 'Oxygen', sans-serif;
+  color: #2A2A2A;
+  font-size: 1.4rem;
+  line-height: 2.8rem;
+}
+a {
+  font-family: 'Oxygen', sans-serif;
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------- NAVBAR ------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+.header {
+  background-color: rgb(89, 34, 41);
+}
+.navigation ul a {
+  color: white;
+  font-size: 18px;
+}
+
+.navigation .item2, .item3, .item4 {
+  visibility: hidden;
+  line-height: 0px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------- */
+/* ------------- CONTAINER - GRID --------------------------------------- */
+/* ---------------------------------------------------------------------- */
+.container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 0px;
+}
+
+.container > * {
+  grid-column: 1 / span 10;
+}
+
+.links, .ads {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* --------- MIN WIDTH 600 PX -----------------*/
+@media (min-width: 600px) {
+  /*HEADER */
+  .navigation .item2, .item3, .item4 {
+    visibility: visible;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+  }
+  /* GRID */
+  .links {
+      grid-column: 1 / span 1;
+      grid-row: 2;
+  }
+  .ads {
+      grid-column: 10 / span 1;
+      grid-row: 2;
+
+  }
+  .content {
+      max-width: 900px;
+      margin: auto;
+  }
+  .footer {
+      grid-column: 1 / span 10;
+  }
+  .navigation {
+      max-width: 900px;
+      margin: auto;
+  }
+  /* FLEX BOX */
+  nav ul {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: left;
+  }
+  .item1 {
+      order: 1;
+      flex-grow: 8;
+  }
+  .item2 {
+      order: 2;
+      flex-grow: 1;
+      text-align: center;
+  }
+  .item3 {
+      order: 3;
+      flex-grow: 1;
+      text-align: center;
+  }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+}
+
+/* --------- MIN WIDTH 900 PX -----------------*/
+@media (min-width: 900px) {
+  /*HEADER */
+  .navigation .item2, .item3, .item4 {
+    visibility: visible;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+  }
+  /* GRID */
+  .content {
+      max-width: 900px;
+      margin: auto;
+  }
+  .footer {
+      grid-column: 1 / span 10;
+      grid-row: 3;
+  }
+  .navigation {
+    width: 100%;
+    margin: auto;
+  }
+  /* FLEX BOX */
+  nav ul {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      text-align: left;
+  }
+  .item1 {
+      order: 1;
+      flex-grow: 8;
+  }
+  .item2 {
+      order: 2;
+      flex-grow: 1;
+      text-align: center;
+
+  }
+  .item3 {
+      order: 3;
+      flex-grow: 1;
+      text-align: center;
+  }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+/* ----------------------------
+  --- HOME PAGE ---------------
+  ---------------------------- */
+.section {
+  margin-bottom: 30px;
+}
+
+.section .section-header {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: .5rem;
+  border-bottom: 0.5px solid gray;
+}
+
+
+/* ----------------------------
+  --- POST LIST PAGE ----------
+  ---------------------------- */
+.article-description {
+  line-height: 1.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.article-date {
+  line-height: 1.5rem;
+} 
+/*
+.section .list p {
+  line-height: 1.5rem;
+  color: #8A817C;
+  font-size: 1.4rem;
+}
+.content .post p {
+  font-size: 1.5rem;
+  line-height: 3.1rem;
+  margin-bottom: 10px;
+}
+.content .post h1, h2 {
+  margin: 20px 0px;
+}*/
+
+/* ---------------------------------------------------------------------- */
+/* ------------- CODE STYLING ------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+pre {
+  font-size: 100%;
+}
+pre code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: inherit;
+  line-height: 22px;
+}
+code {
+  font-size: 120%;
+}
+
+code p {
+  font-family: "Consolas", monospace;
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+.code .comment {
+  color:gray;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------- FOOTER ------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+
+.footer {
+  text-align: center;
+  border-top: 1px solid rgb(198, 195, 195);
+}
+
+.footer p {
+  color: gray;
+}
+
+/* ------- BOOTSTRAP OVERRIDES ----------- */
+.btn, .btn-primary, .btn-lg {
+  background-color:rgb(89, 34, 41);
+  border-color: rgb(89, 34, 41);
+}
+
+    
+    
+</style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <nav class="navigation">
+          <ul>
+              <li class="item1">
+                  <a href="/">Marta Nunes de Abreu</a>
+              </li>
+              <li class="item2">
+                  <a href="../post-list">Articles</a>
+              </li>
+              <li class="item3">
+                  <a href="../post-list">Projects</a>
+              </li>
+              <li class="item4">
+                  <a href="../about/">About</a>
+              </li>
+          </ul>
+      </nav>
+    </div>
+
+    <main class="tmpl-post">
+    <!-- BODY -->
+      <div class="content">
+        <h1>Flask and MongoDB</h1>
+<p>12 October 2021</p>
+
+<h2>Adding a DB to Flask</h2>
+<p>Flask is a great little web-server framework in Python. It is very simple and straightforward.</p>
+<p>One of its advantages is how quickly you are able to create something that is deployable. This also means that very quickly, you will need a database solution as a means to have persistent storage in the web application.</p>
+<p>You could opt for sqlite, since this also a very &quot;simple and straightforward&quot; database option with Python. Looking more towards a production state application, you may however consider something like PostgreSQL or MongoDB.</p>
+<h2>Opting for MongoDB</h2>
+<p>My web projects tend to be experiment projects, of a certain &quot;hobbyist&quot; nature. As such, I like the flexibility that MongoDB provides. The fact that it is a document-based NoSQL database makes the database management as easy as managing JSOB objects. And it allows you to increase or decrease the amount of information being stored per document as you wish. As a disclaimer, I'm not saying this is necessarily a good thing in more mature and universally available web apps but for me, it works.</p>
+<p>The only downside to using MongoDB is the fiddly &quot;ObjectID&quot; that Mongo attaches to each document, since it is not directly comparable to a Python string. However, there are some modules that help you cast an ObjectID into a string type so it's all good.</p>
+<h2>Adding MongoDB to Flask</h2>
+<p>Below is a snippet of my &quot;db.py&quot; file, with the two functions responsible for initialising a connection to the MongoDB instance.</p>
+<pre><code>from flask import g, current_app
+from flask_pymongo import PyMongo
+
+def get_db():
+    if 'db' not in g:
+        pymongo = PyMongo(current_app)
+        g.db = pymongo.db
+    return g.db
+</code></pre>
+<p>So, I can use the current_app object on the PyMongo constructor as a way to serve the flask app instance.</p>
+<h2>Querying</h2>
+<p>Querying from MongoDB is fairly straightforward and there is ample support on the Mongo website. Additionally, by logging in to Mongo Atlas you can check what is the state of your database collection.</p>
+<h2>DB stubs</h2>
+<p>The only issue I'm still battling is how to connect my &quot;test&quot; DB with the flask app. As written above, my way of connecting to MongoDB is with &quot;current_app&quot;, ie. with the app instance that is running. This makes things a bit difficult when running tests, since the app isn't running per se... I will keep investigating.</p>
+<p>One thing I've noticed is that there is not a lot of people or articles writing about Flask + MongoDB. You mostly see people using something like SQLAlchemy or other SQL-based solution.s</p>
+
+
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>
