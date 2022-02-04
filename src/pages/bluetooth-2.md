@@ -14,13 +14,13 @@ In order to get this network to communicate, it is necessary to establish the fo
 # Device roles
 The roles of a device may vary based on the stages of the protocol. This is a simplified version of how to distinguish between these.
 
-## Advertisement
+## Advertisement
 A device may be a "broadcaster" if it is advertising, or an "observer" if it is scanning for devices. 
 
 ## Connection
 Then, a device may be a "peripheral" if it requests a connection, or a "central" device, if it accepts a connection.
 
-## Communication 
+## Communication 
 Lastly, when communicating through ATT, a device becomes a "client" when asking for information, and another device the "server" that provides that information.
 
 # Establishing a connection
@@ -33,7 +33,7 @@ A simple connection relies on the assumption that a device would readily accept 
 
 This is why a lot of device require "pairing" as a way to safely confirm that two devices should indeed be connected. 
 
-## Pairing and bonding
+## Pairing and bonding
 Coming soon...
 
 # Final word

@@ -18,7 +18,7 @@ Bluetooth Low Energy, previously also known as "Bluetooth Ultra Low Power" or "B
 Although BLE is more predominant nowadays, when designing a new device, it is worth considering the use-case and user requirements for the communications pattern as it could tilt the balance from one to the other.
 
 # Bluetooth Core architecture
-## Common components in architecture
+## Common components in architecture
 The Bluetooth Core is made up of a "Controller" which sits at the lower-level of the protocol and a "Host" which sits on top the of the Controller. 
 The core system protocols are:
 

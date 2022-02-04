@@ -25,7 +25,7 @@ If a device can share a "weather profile" would mean that it has got some weathe
 Inside this profile, there may be two characteristics, e.g "rainfall" and "temperature". Then each characteristic would have an "attribute" which is the actual value of the attribute. 
 
 
-# Characteristics and Attributes
+# Characteristics and Attributes
 A Profile includes several characteristics inside it (or perhaps just one, even). These characteristics will then hold Attributes, which are the elementary pieces of data that can have their values read or written.
 
 
@@ -41,7 +41,7 @@ If you have an assortment of information that needs to be transferred at differe
 
 However, if you are only attempting to send a serial stream of data over BLE and not interested in generating a new profile, you could borrow the "Generic Attribute Profile" since it is open for configuration. I will say it again because it sounds confusing the first time around, there is an already defined profile called Generic Attribute Profile, which follows the specifications of the "Generic Attribute Profile" in the Bluetooth Core Spec. Yes, a bit of an inception of GATTs if you ask me! 
 
-## Borrowing a Profile
+## Borrowing a Profile
 This route involves creating a custom characteristic, for which you will need to create a UUID number to identify it in your collection of Profiles. 
 
 You then need to character an Attribute within this characteristic, and define some of the parameters associated with it. 
