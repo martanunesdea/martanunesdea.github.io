@@ -47,20 +47,20 @@
 </ul>
 <h1>Device roles</h1>
 <p>The roles of a device may vary based on the stages of the protocol. This is a simplified version of how to distinguish between these.</p>
-<p>## Advertisement
-A device may be a &quot;broadcaster&quot; if it is advertising, or an &quot;observer&quot; if it is scanning for devices.</p>
+<h2>Advertisement</h2>
+<p>A device may be a &quot;broadcaster&quot; if it is advertising, or an &quot;observer&quot; if it is scanning for devices.</p>
 <h2>Connection</h2>
 <p>Then, a device may be a &quot;peripheral&quot; if it requests a connection, or a &quot;central&quot; device, if it accepts a connection.</p>
-<p>## Communication
-Lastly, when communicating through ATT, a device becomes a &quot;client&quot; when asking for information, and another device the &quot;server&quot; that provides that information.</p>
+<h2>Communication</h2>
+<p>Lastly, when communicating through ATT, a device becomes a &quot;client&quot; when asking for information, and another device the &quot;server&quot; that provides that information.</p>
 <h1>Establishing a connection</h1>
 <p>In a scenario with low security requirements, connecting can be as easy as, finding a Bluetooth device and issuing a conenction command to it. (This is assuming you have access to the Bluetooth's module library or API).</p>
 <p>Provided the &quot;central&quot; device is willing to connect, it will accept and connect. This functionality is enabled through GAP: it discovers devices available and attempts to connect.</p>
 <h1>Security implications</h1>
 <p>A simple connection relies on the assumption that a device would readily accept any incoming connections but this could a dangerous and vulnerable position. For instance, if that device is also connected with a wide area network, it could be maliciously infected with malware and propagate through the network.</p>
 <p>This is why a lot of device require &quot;pairing&quot; as a way to safely confirm that two devices should indeed be connected.</p>
-<p>## Pairing and bonding
-Coming soon...</p>
+<h2>Pairing and bonding</h2>
+<p>Coming soon...</p>
 <h1>Final word</h1>
 <p>Now we've learned about establishing a connection, in the next article, I will be discussing the use of GATT as means to share data.</p>
 
