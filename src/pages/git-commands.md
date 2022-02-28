@@ -17,7 +17,7 @@ $ git branch newbranchname
 $ git checkout newbranchname
 ```
 
-## Reverting commits
+## Reverting commits
 ```
 $ git reset
 ```
