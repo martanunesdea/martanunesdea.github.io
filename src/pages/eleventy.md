@@ -1,7 +1,7 @@
 ---
 title: Setting up a website with EleventyJS
 description: This is a post on My Blog about agile frameworks.
-tags: post
+tags: ['notes']
 date: 2021-09-01
 layout: post.njk
 ---

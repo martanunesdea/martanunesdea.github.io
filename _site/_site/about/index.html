@@ -1,4 +1,19 @@
-/* ------- GENERAL SETUP --------------------------------------------- */
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="./style/style.css" rel="stylesheet">
+    
+<style>
+    
+        
+    /* ------- GENERAL SETUP --------------------------------------------- */
 html {
   font-size: 12px;
   background-color: white;
@@ -65,7 +80,7 @@ a:hover {
   font-size: 18px;
 }
 
-.navigation .item2, .item3, .item4 {
+.navigation .item2, .item3 {
   visibility: hidden;
   line-height: 0px;
 }
@@ -95,10 +110,10 @@ nav ul {
   margin: 0px;
 }
 
-/* --------- MIN WIDTH 600 PX -----------------*/
+
 @media (min-width: 600px) {
   /*HEADER */
-  .navigation .item2, .item3, .item4 {
+  .navigation .item2, .item3 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -116,7 +131,6 @@ nav ul {
   .content {
       max-width: 900px;
       margin: auto;
-      padding-bottom: 5rem;
   }
   .footer {
       grid-column: 1 / span 10;
@@ -147,18 +161,11 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
-  .item4 {
-    order: 4;
-    flex-grow: 1;
-    text-align: center;
-  }
   
 }
-
-/* --------- MIN WIDTH 900 PX -----------------*/
 @media (min-width: 900px) {
   /*HEADER */
-  .navigation .item2, .item3, .item4 {
+  .navigation .item2, .item3 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -198,15 +205,10 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
-  .item4 {
-    order: 4;
-    flex-grow: 1;
-    text-align: center;
-  }
 }
 
 /* ----------------------------
-  --- HOME PAGE ---------------
+  --- MAIN SECTION ------------
   ---------------------------- */
 .section {
   margin-bottom: 30px;
@@ -219,32 +221,40 @@ nav ul {
   border-bottom: 0.5px solid gray;
 }
 
+.section .article-title {
+  margin: .5rem auto;
+  border-bottom: 0;
+}
 
-/* ----------------------------
-  --- POST LIST PAGE ----------
-  ---------------------------- */
-.article-description {
+.section .article-description {
   line-height: 1.8rem;
   margin-bottom: 1.6rem;
 }
 
-.article-date {
-  line-height: 1.5rem;
-} 
-/*
 .section .list p {
   line-height: 1.5rem;
   color: #8A817C;
   font-size: 1.4rem;
 }
+
+.article-title {
+  margin-top: 3rem;
+  margin-bottom: .5rem;
+}
+
+.article-title2 {
+  border-bottom: 0.5px solid gray;
+}
+
 .content .post p {
   font-size: 1.5rem;
   line-height: 3.1rem;
   margin-bottom: 10px;
 }
+
 .content .post h1, h2 {
   margin: 20px 0px;
-}*/
+}
 
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */
@@ -259,6 +269,15 @@ pre code {
   padding: inherit;
   line-height: 22px;
 }
+/*
+
+.code {
+  background-color: lightgray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 5px auto;
+  margin-bottom: 10px;
+}*/
 code {
   font-size: 120%;
 }
@@ -268,8 +287,37 @@ code p {
   font-size: 1rem;
   margin-bottom: 0px;
 }
+
 .code .comment {
   color:gray;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* ------------- CODE STYLING ------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+@media only screen and (min-width: 400px) {
+  .box-rectangle {
+    width: 400px;
+    height: 100px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .box-rectangle {
+    width: 800px;
+    height: 300px;
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+.cover {
+  object-fit: cover;
+}
+.contain {
+  object-fit: contain;
 }
 
 
@@ -278,9 +326,7 @@ code p {
 /* ---------------------------------------------------------------------- */
 
 .footer {
-  margin-top: 3rem;
   text-align: center;
-  border-top: 1px solid rgb(198, 195, 195);
 }
 
 .footer p {
@@ -292,3 +338,47 @@ code p {
   background-color:rgb(89, 34, 41);
   border-color: rgb(89, 34, 41);
 }
+
+    
+    
+</style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <nav class="navigation">
+          <ul>
+              <li class="item1">
+                  <a href="/">Marta Nunes de Abreu</a>
+              </li>
+              <li class="item2">
+                  <a href="../post-list">Articles</a>
+              </li>
+              <li class="item3">
+                  <a href="../about/">About</a>
+              </li>
+          </ul>
+      </nav>
+    </div>
+
+    <main class="tmpl-post">
+    <!-- BODY -->
+      <div class="content">
+        <h1>About</h1>
+<p>May 1, 2018</p>
+
+<p>I'm a software developer in embedded systems, with an interest in web technology and data applications. Lately, I've also developed an interest for the &quot;maker&quot; movement and DIY, I'm converting a van into a camper van.</p>
+<p>Currently, I'm working as a software engineer in Research &amp; Development of a medical device company. I enjoy the logical work involved in embedded software development (it really is a love/hate relationship with C). I am a natural curious wanderer and I enjoy learning about new topics on my spare time (tech and non tech alike, although I do try to keep this blog mostly tech-centred). Some of the topics I am learning about at the moment: networks, Linux and handling large file I/O in a codebase.</p>
+
+
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>

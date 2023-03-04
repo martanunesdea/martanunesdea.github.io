@@ -15,7 +15,6 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addNunjucksFilter("limit", (arr, limit) => arr.slice(0, limit));
 
-    let options = { year: 'numeric', month: 'long', day: 'numeric' };
     eleventyConfig.addFilter("postDate", (dateObj) => {
       return DateTime.fromJSDate(dateObj).toFormat('dd MMMM yyyy').toLocaleString();
     });
