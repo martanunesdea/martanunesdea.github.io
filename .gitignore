@@ -1,3 +1,4 @@
 /html-generator
 .vscode
 .cache
+node_modules
