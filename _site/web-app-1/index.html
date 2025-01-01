@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="/index.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <div class="brand">Marta Nunes de Abreu</div>
+      <nav>
+          <a href="../index">Home</a>
+          <a href="../post-list">Blog</a>
+          <a href="../about">About</a>
+      </nav>
+    </div>
+
+    <main class="tmpl-post">
+    <!-- BODY -->
+      <div class="content">
+        <h1>I wrote a web app and it was so slow</h1>
+<p>20 May 2023</p>
+
+<p>With so many accessible web frameworks in a variety of programming languages, one would be quick to assume that making a web app should be no trouble at all, right? Well, I managed to mess it up somehow</p>
+<h1>The chosen &quot;stack&quot;</h1>
+<p>I decided to develop my web app mostly using Flask and with a very, very thin front-end. The front end is a simple template library that generates html based on data fetched from a database.
+However, the database engine in question was MongoDB and for some reason this combination of retrieving data from MongoDB and feeding that to an html generator was causing a very laggy user interface.</p>
+<h2>Thoughts on Flask</h2>
+<p>I like Flask and have nothing wrong to say about it. I must say I have not used any back-end frameworks in Python and hence I don't know whether Flask is underperforming against its competitors. However, I have used Node-based frameworks in the past that were slighly more performant. I do wonder whether perhaps the Python http server library is not the best.</p>
+<h2>Thoughts on MongoDB</h2>
+<p>The reason I went with MongoDB in the first place was because I thought it lent itself well to the type of data I was storing and two, I preferred it over SQL driven engines. I just feel sometimes using SQL adds unnecessary layers of complexity.</p>
+<h2>Thoughts on the html generator I used</h2>
+<p>I believe out all the options I picked, this html generator is the least offending, especially for the type of application that I'm attempting to build. Ie. I am mostly concerned about the retrieval of data, and presentation in a clear way.</p>
+<h1>What needs changing?</h1>
+<p>I am still unsure. I will have a look at the architecture of the project, and read about ways of making database-fetches more efficient.
+I am tempted to say that the combination of Flask and MongoDB is not the best. I shall do some research about where to go from here.</p>
+
+
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>

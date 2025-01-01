@@ -8,326 +8,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
-    <link href="./style/style.css" rel="stylesheet">
-    
-<style>
-    
-        
-    /* ------- GENERAL SETUP --------------------------------------------- */
-html {
-  font-size: 12px;
-  background-color: white;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-img {
-  max-width: 100%;
-}
-body {
-  width: 100%;
-}
-.container {
-  max-width: 100%;
-  padding: 0px;
-}
-.container > * {
-	padding: 10px;
-}
+    <link href="/index.css" rel="stylesheet">
 
-/* ----------- TYPOGRAPHY ---------------------------------------------- */
-
-h1, h2, h3, h4 {
-  font-family: 'Oxygen', sans-serif;
-  color: #8A817C;
-}
-h1{
-  font-size: 2.1rem;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-h2 {
-  font-size: 1.8rem;
-}
-
-p, li {
-  font-family: 'Oxygen', sans-serif;
-  color: #2A2A2A;
-  font-size: 1.4rem;
-  line-height: 2.8rem;
-}
-a {
-  font-family: 'Oxygen', sans-serif;
-  text-decoration: none;
-  color: #000000;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-/* ---------------------------------------------------------------------- */
-/* ------------- NAVBAR ------------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-.header {
-  background-color: rgb(89, 34, 41);
-}
-.navigation ul a {
-  color: white;
-  font-size: 18px;
-}
-
-.navigation .item2, .item3, .item4 {
-  visibility: hidden;
-  line-height: 0px;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-/* ---------------------------------------------------------------------- */
-/* ------------- CONTAINER - GRID --------------------------------------- */
-/* ---------------------------------------------------------------------- */
-.container {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-gap: 0px;
-}
-
-.container > * {
-  grid-column: 1 / span 10;
-}
-
-.links, .ads {
-  padding: 0px;
-  margin: 0px;
-}
-
-/* --------- MIN WIDTH 600 PX -----------------*/
-@media (min-width: 600px) {
-  /*HEADER */
-  .navigation .item2, .item3, .item4 {
-    visibility: visible;
-    font-size: 1.4rem;
-    line-height: 2.8rem;
-  }
-  /* GRID */
-  .links {
-      grid-column: 1 / span 1;
-      grid-row: 2;
-  }
-  .ads {
-      grid-column: 10 / span 1;
-      grid-row: 2;
-
-  }
-  .content {
-      max-width: 900px;
-      margin: auto;
-  }
-  .footer {
-      grid-column: 1 / span 10;
-  }
-  .navigation {
-      max-width: 900px;
-      margin: auto;
-  }
-  /* FLEX BOX */
-  nav ul {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-      align-items: center;
-      text-align: left;
-  }
-  .item1 {
-      order: 1;
-      flex-grow: 8;
-  }
-  .item2 {
-      order: 2;
-      flex-grow: 1;
-      text-align: center;
-  }
-  .item3 {
-      order: 3;
-      flex-grow: 1;
-      text-align: center;
-  }
-  .item4 {
-    order: 4;
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-}
-
-/* --------- MIN WIDTH 900 PX -----------------*/
-@media (min-width: 900px) {
-  /*HEADER */
-  .navigation .item2, .item3, .item4 {
-    visibility: visible;
-    font-size: 1.4rem;
-    line-height: 2.8rem;
-  }
-  /* GRID */
-  .content {
-      max-width: 900px;
-      margin: auto;
-  }
-  .footer {
-      grid-column: 1 / span 10;
-      grid-row: 3;
-  }
-  .navigation {
-    width: 100%;
-    margin: auto;
-  }
-  /* FLEX BOX */
-  nav ul {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-      text-align: left;
-  }
-  .item1 {
-      order: 1;
-      flex-grow: 8;
-  }
-  .item2 {
-      order: 2;
-      flex-grow: 1;
-      text-align: center;
-
-  }
-  .item3 {
-      order: 3;
-      flex-grow: 1;
-      text-align: center;
-  }
-  .item4 {
-    order: 4;
-    flex-grow: 1;
-    text-align: center;
-  }
-}
-
-/* ----------------------------
-  --- HOME PAGE ---------------
-  ---------------------------- */
-.section {
-  margin-bottom: 30px;
-}
-
-.section .section-header {
-  font-size: 2rem;
-  margin-top: 2.5rem;
-  margin-bottom: .5rem;
-  border-bottom: 0.5px solid gray;
-}
-
-
-/* ----------------------------
-  --- POST LIST PAGE ----------
-  ---------------------------- */
-.article-description {
-  line-height: 1.8rem;
-  margin-bottom: 1.6rem;
-}
-
-.article-date {
-  line-height: 1.5rem;
-} 
-/*
-.section .list p {
-  line-height: 1.5rem;
-  color: #8A817C;
-  font-size: 1.4rem;
-}
-.content .post p {
-  font-size: 1.5rem;
-  line-height: 3.1rem;
-  margin-bottom: 10px;
-}
-.content .post h1, h2 {
-  margin: 20px 0px;
-}*/
-
-/* ---------------------------------------------------------------------- */
-/* ------------- CODE STYLING ------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-pre {
-  font-size: 100%;
-}
-pre code {
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
-  padding: inherit;
-  line-height: 22px;
-}
-code {
-  font-size: 120%;
-}
-
-code p {
-  font-family: "Consolas", monospace;
-  font-size: 1rem;
-  margin-bottom: 0px;
-}
-.code .comment {
-  color:gray;
-}
-
-
-/* ---------------------------------------------------------------------- */
-/* ------------- FOOTER ------------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-
-.footer {
-  text-align: center;
-  border-top: 1px solid rgb(198, 195, 195);
-}
-
-.footer p {
-  color: gray;
-}
-
-/* ------- BOOTSTRAP OVERRIDES ----------- */
-.btn, .btn-primary, .btn-lg {
-  background-color:rgb(89, 34, 41);
-  border-color: rgb(89, 34, 41);
-}
-
-    
-    
-</style>
   </head>
   <body>
     <div class="container">
       <div class="header">
-      <nav class="navigation">
-          <ul>
-              <li class="item1">
-                  <a href="/">Marta Nunes de Abreu</a>
-              </li>
-              <li class="item2">
-                  <a href="../post-list">Articles</a>
-              </li>
-              <li class="item3">
-                  <a href="../post-list">Projects</a>
-              </li>
-              <li class="item4">
-                  <a href="../about/">About</a>
-              </li>
-          </ul>
+      <div class="brand">Marta Nunes de Abreu</div>
+      <nav>
+          <a href="../index">Home</a>
+          <a href="../post-list">Blog</a>
+          <a href="../about">About</a>
       </nav>
     </div>
 
@@ -346,20 +37,20 @@ code p {
 </ul>
 <h1>Device roles</h1>
 <p>The roles of a device may vary based on the stages of the protocol. This is a simplified version of how to distinguish between these.</p>
-<p>## Advertisement
-A device may be a &quot;broadcaster&quot; if it is advertising, or an &quot;observer&quot; if it is scanning for devices.</p>
+<h2>Advertisement</h2>
+<p>A device may be a &quot;broadcaster&quot; if it is advertising, or an &quot;observer&quot; if it is scanning for devices.</p>
 <h2>Connection</h2>
 <p>Then, a device may be a &quot;peripheral&quot; if it requests a connection, or a &quot;central&quot; device, if it accepts a connection.</p>
-<p>## Communication
-Lastly, when communicating through ATT, a device becomes a &quot;client&quot; when asking for information, and another device the &quot;server&quot; that provides that information.</p>
+<h2>Communication</h2>
+<p>Lastly, when communicating through ATT, a device becomes a &quot;client&quot; when asking for information, and another device the &quot;server&quot; that provides that information.</p>
 <h1>Establishing a connection</h1>
 <p>In a scenario with low security requirements, connecting can be as easy as, finding a Bluetooth device and issuing a conenction command to it. (This is assuming you have access to the Bluetooth's module library or API).</p>
 <p>Provided the &quot;central&quot; device is willing to connect, it will accept and connect. This functionality is enabled through GAP: it discovers devices available and attempts to connect.</p>
 <h1>Security implications</h1>
 <p>A simple connection relies on the assumption that a device would readily accept any incoming connections but this could a dangerous and vulnerable position. For instance, if that device is also connected with a wide area network, it could be maliciously infected with malware and propagate through the network.</p>
 <p>This is why a lot of device require &quot;pairing&quot; as a way to safely confirm that two devices should indeed be connected.</p>
-<p>## Pairing and bonding
-Coming soon...</p>
+<h2>Pairing and bonding</h2>
+<p>Coming soon...</p>
 <h1>Final word</h1>
 <p>Now we've learned about establishing a connection, in the next article, I will be discussing the use of GATT as means to share data.</p>
 

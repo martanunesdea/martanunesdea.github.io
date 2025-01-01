@@ -19,15 +19,17 @@ module.exports = function(eleventyConfig) {
       return DateTime.fromJSDate(dateObj).toFormat('dd MMMM yyyy').toLocaleString();
     });
 
+    eleventyConfig.addPassthroughCopy("index.css");    
+
     return {
         templateFormats: ['njk', 'md', 'html'],
         dir: {
-          input: "src",
+          input: "content",
           // ⚠️ This value is relative to your input directory.
-          includes: "_includes",
-          data: "_data",
+          includes: "../_includes",
+          data: "../_data",
           output: "_site",
-          layouts: "_includes/layouts"
+          layouts: "../_includes/layouts"
         }
       }
 };

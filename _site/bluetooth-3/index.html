@@ -8,326 +8,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
-    <link href="./style/style.css" rel="stylesheet">
-    
-<style>
-    
-        
-    /* ------- GENERAL SETUP --------------------------------------------- */
-html {
-  font-size: 12px;
-  background-color: white;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-img {
-  max-width: 100%;
-}
-body {
-  width: 100%;
-}
-.container {
-  max-width: 100%;
-  padding: 0px;
-}
-.container > * {
-	padding: 10px;
-}
+    <link href="/index.css" rel="stylesheet">
 
-/* ----------- TYPOGRAPHY ---------------------------------------------- */
-
-h1, h2, h3, h4 {
-  font-family: 'Oxygen', sans-serif;
-  color: #8A817C;
-}
-h1{
-  font-size: 2.1rem;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-h2 {
-  font-size: 1.8rem;
-}
-
-p, li {
-  font-family: 'Oxygen', sans-serif;
-  color: #2A2A2A;
-  font-size: 1.4rem;
-  line-height: 2.8rem;
-}
-a {
-  font-family: 'Oxygen', sans-serif;
-  text-decoration: none;
-  color: #000000;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-/* ---------------------------------------------------------------------- */
-/* ------------- NAVBAR ------------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-.header {
-  background-color: rgb(89, 34, 41);
-}
-.navigation ul a {
-  color: white;
-  font-size: 18px;
-}
-
-.navigation .item2, .item3, .item4 {
-  visibility: hidden;
-  line-height: 0px;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-/* ---------------------------------------------------------------------- */
-/* ------------- CONTAINER - GRID --------------------------------------- */
-/* ---------------------------------------------------------------------- */
-.container {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-gap: 0px;
-}
-
-.container > * {
-  grid-column: 1 / span 10;
-}
-
-.links, .ads {
-  padding: 0px;
-  margin: 0px;
-}
-
-/* --------- MIN WIDTH 600 PX -----------------*/
-@media (min-width: 600px) {
-  /*HEADER */
-  .navigation .item2, .item3, .item4 {
-    visibility: visible;
-    font-size: 1.4rem;
-    line-height: 2.8rem;
-  }
-  /* GRID */
-  .links {
-      grid-column: 1 / span 1;
-      grid-row: 2;
-  }
-  .ads {
-      grid-column: 10 / span 1;
-      grid-row: 2;
-
-  }
-  .content {
-      max-width: 900px;
-      margin: auto;
-  }
-  .footer {
-      grid-column: 1 / span 10;
-  }
-  .navigation {
-      max-width: 900px;
-      margin: auto;
-  }
-  /* FLEX BOX */
-  nav ul {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-      align-items: center;
-      text-align: left;
-  }
-  .item1 {
-      order: 1;
-      flex-grow: 8;
-  }
-  .item2 {
-      order: 2;
-      flex-grow: 1;
-      text-align: center;
-  }
-  .item3 {
-      order: 3;
-      flex-grow: 1;
-      text-align: center;
-  }
-  .item4 {
-    order: 4;
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-}
-
-/* --------- MIN WIDTH 900 PX -----------------*/
-@media (min-width: 900px) {
-  /*HEADER */
-  .navigation .item2, .item3, .item4 {
-    visibility: visible;
-    font-size: 1.4rem;
-    line-height: 2.8rem;
-  }
-  /* GRID */
-  .content {
-      max-width: 900px;
-      margin: auto;
-  }
-  .footer {
-      grid-column: 1 / span 10;
-      grid-row: 3;
-  }
-  .navigation {
-    width: 100%;
-    margin: auto;
-  }
-  /* FLEX BOX */
-  nav ul {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-      text-align: left;
-  }
-  .item1 {
-      order: 1;
-      flex-grow: 8;
-  }
-  .item2 {
-      order: 2;
-      flex-grow: 1;
-      text-align: center;
-
-  }
-  .item3 {
-      order: 3;
-      flex-grow: 1;
-      text-align: center;
-  }
-  .item4 {
-    order: 4;
-    flex-grow: 1;
-    text-align: center;
-  }
-}
-
-/* ----------------------------
-  --- HOME PAGE ---------------
-  ---------------------------- */
-.section {
-  margin-bottom: 30px;
-}
-
-.section .section-header {
-  font-size: 2rem;
-  margin-top: 2.5rem;
-  margin-bottom: .5rem;
-  border-bottom: 0.5px solid gray;
-}
-
-
-/* ----------------------------
-  --- POST LIST PAGE ----------
-  ---------------------------- */
-.article-description {
-  line-height: 1.8rem;
-  margin-bottom: 1.6rem;
-}
-
-.article-date {
-  line-height: 1.5rem;
-} 
-/*
-.section .list p {
-  line-height: 1.5rem;
-  color: #8A817C;
-  font-size: 1.4rem;
-}
-.content .post p {
-  font-size: 1.5rem;
-  line-height: 3.1rem;
-  margin-bottom: 10px;
-}
-.content .post h1, h2 {
-  margin: 20px 0px;
-}*/
-
-/* ---------------------------------------------------------------------- */
-/* ------------- CODE STYLING ------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-pre {
-  font-size: 100%;
-}
-pre code {
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
-  padding: inherit;
-  line-height: 22px;
-}
-code {
-  font-size: 120%;
-}
-
-code p {
-  font-family: "Consolas", monospace;
-  font-size: 1rem;
-  margin-bottom: 0px;
-}
-.code .comment {
-  color:gray;
-}
-
-
-/* ---------------------------------------------------------------------- */
-/* ------------- FOOTER ------------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-
-.footer {
-  text-align: center;
-  border-top: 1px solid rgb(198, 195, 195);
-}
-
-.footer p {
-  color: gray;
-}
-
-/* ------- BOOTSTRAP OVERRIDES ----------- */
-.btn, .btn-primary, .btn-lg {
-  background-color:rgb(89, 34, 41);
-  border-color: rgb(89, 34, 41);
-}
-
-    
-    
-</style>
   </head>
   <body>
     <div class="container">
       <div class="header">
-      <nav class="navigation">
-          <ul>
-              <li class="item1">
-                  <a href="/">Marta Nunes de Abreu</a>
-              </li>
-              <li class="item2">
-                  <a href="../post-list">Articles</a>
-              </li>
-              <li class="item3">
-                  <a href="../post-list">Projects</a>
-              </li>
-              <li class="item4">
-                  <a href="../about/">About</a>
-              </li>
-          </ul>
+      <div class="brand">Marta Nunes de Abreu</div>
+      <nav>
+          <a href="../index">Home</a>
+          <a href="../post-list">Blog</a>
+          <a href="../about">About</a>
       </nav>
     </div>
 
@@ -348,8 +39,8 @@ code p {
 <h2>Example</h2>
 <p>If a device can share a &quot;weather profile&quot; would mean that it has got some weather-related data packaged up into one profile.</p>
 <p>Inside this profile, there may be two characteristics, e.g &quot;rainfall&quot; and &quot;temperature&quot;. Then each characteristic would have an &quot;attribute&quot; which is the actual value of the attribute.</p>
-<p># Characteristics and Attributes
-A Profile includes several characteristics inside it (or perhaps just one, even). These characteristics will then hold Attributes, which are the elementary pieces of data that can have their values read or written.</p>
+<h1>Characteristics and Attributes</h1>
+<p>A Profile includes several characteristics inside it (or perhaps just one, even). These characteristics will then hold Attributes, which are the elementary pieces of data that can have their values read or written.</p>
 <h2>So, do I need to create a profile to send data?</h2>
 <p>It depends. There are existing profiles that you may be able to recycle and make it your own. For instance, if you are wanting to send weather data, there is a genuine &quot;Temperature profile&quot; defined by Bluetooth SIG. So you could choose to use that.</p>
 <p>However, most people create their custom profiles, give it a custom UUID and advertise it as such. Then you can create any characteristics and attributes as you please.</p>
@@ -357,8 +48,8 @@ A Profile includes several characteristics inside it (or perhaps just one, even)
 <p>If you already have an existing protocol, you may or may not want to reevaluate the domain of the information you are transferring, and consider whether it fits into existing Profiles.</p>
 <p>If you have an assortment of information that needs to be transferred at different periodic intervals, then it may make sense to create different Profiles to specific bits of data, and you can then regulate how often each Profile will be updated, etc.</p>
 <p>However, if you are only attempting to send a serial stream of data over BLE and not interested in generating a new profile, you could borrow the &quot;Generic Attribute Profile&quot; since it is open for configuration. I will say it again because it sounds confusing the first time around, there is an already defined profile called Generic Attribute Profile, which follows the specifications of the &quot;Generic Attribute Profile&quot; in the Bluetooth Core Spec. Yes, a bit of an inception of GATTs if you ask me!</p>
-<p>## Borrowing a Profile
-This route involves creating a custom characteristic, for which you will need to create a UUID number to identify it in your collection of Profiles.</p>
+<h2>Borrowing a Profile</h2>
+<p>This route involves creating a custom characteristic, for which you will need to create a UUID number to identify it in your collection of Profiles.</p>
 <p>You then need to character an Attribute within this characteristic, and define some of the parameters associated with it.</p>
 <p>At this point, you have the structure that your data will follow but you will need to make sure it then works with the host.</p>
 <h1>Notifications and subscriptions in BLE</h1>
