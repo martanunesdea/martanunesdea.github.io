@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>Marta Nunes de Abreu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
-    <link href="./style/style.css" rel="stylesheet">
-    
-<style>
-    
-        
-    /* ------- GENERAL SETUP --------------------------------------------- */
+/* ------- GENERAL SETUP --------------------------------------------- */
 html {
   font-size: 12px;
   background-color: white;
@@ -41,13 +26,18 @@ body {
 /* ----------- TYPOGRAPHY ---------------------------------------------- */
 
 h1, h2, h3, h4 {
-  font-family: 'Oxygen', sans-serif;
-  color: #8A817C;
+  font-family: 'Helvetica Neue';
+  font-weight: 1000;
+  color: black;
+  margin-block-start: 1.6em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  /*color: #8A817C;*/
 }
 h1{
-  font-size: 2.1rem;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  display: block;
+  font-size: 2.3rem;
 }
 h2 {
   font-size: 1.8rem;
@@ -56,8 +46,8 @@ h2 {
 p, li {
   font-family: 'Oxygen', sans-serif;
   color: #2A2A2A;
-  font-size: 1.4rem;
-  line-height: 2.8rem;
+  font-size: 20px;
+  line-height: 1.5;
 }
 a {
   font-family: 'Oxygen', sans-serif;
@@ -72,24 +62,38 @@ a:hover {
 /* ---------------------------------------------------------------------- */
 /* ------------- NAVBAR ------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
+/* Header styling */
 .header {
-  background-color: rgb(89, 34, 41);
-}
-.navigation ul a {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #6b3a4f; /* Matching the maroon/purple color */
   color: white;
-  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  font-size: 19px;
+  font-weight: 1000;
 }
 
-.navigation .item2, .item3 {
-  visibility: hidden;
-  line-height: 0px;
+
+/* Navigation (right) */
+.header nav {
+  display: flex;
+  gap: 20px;
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+.header nav a {
+  text-decoration: none;
+  color: #c9abb9;
+  transition: color 0.3s ease;
+}
+
+.header nav a:hover {
+  color: white; /* Lighter color for hover effect */
+}
+
+.header nav a.active {
+  font-weight: bold;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -110,10 +114,10 @@ nav ul {
   margin: 0px;
 }
 
-
+/* --------- MIN WIDTH 600 PX -----------------*/
 @media (min-width: 600px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -131,12 +135,14 @@ nav ul {
   .content {
       max-width: 900px;
       margin: auto;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
   }
   .footer {
       grid-column: 1 / span 10;
   }
   .navigation {
-      max-width: 900px;
+      max-width: 100%;
       margin: auto;
   }
   /* FLEX BOX */
@@ -149,7 +155,7 @@ nav ul {
   }
   .item1 {
       order: 1;
-      flex-grow: 8;
+      flex-grow: 20;
   }
   .item2 {
       order: 2;
@@ -161,11 +167,18 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
   
 }
+
+/* --------- MIN WIDTH 900 PX -----------------*/
 @media (min-width: 900px) {
   /*HEADER */
-  .navigation .item2, .item3 {
+  .navigation .item2, .item3, .item4 {
     visibility: visible;
     font-size: 1.4rem;
     line-height: 2.8rem;
@@ -192,7 +205,7 @@ nav ul {
   }
   .item1 {
       order: 1;
-      flex-grow: 8;
+      flex-grow: 20;
   }
   .item2 {
       order: 2;
@@ -205,56 +218,108 @@ nav ul {
       flex-grow: 1;
       text-align: center;
   }
+  .item4 {
+    order: 4;
+    flex-grow: 1;
+    text-align: center;
+  }
 }
 
+/***
+-- POSTCARD ___
+***/
+
+
 /* ----------------------------
-  --- MAIN SECTION ------------
+  --- HOME PAGE ---------------
   ---------------------------- */
 .section {
   margin-bottom: 30px;
 }
 
 .section .section-header {
-  font-size: 2rem;
-  margin-top: 2.5rem;
-  margin-bottom: .5rem;
-  border-bottom: 0.5px solid gray;
+  font-size: 30px;
+  margin-top: 2rem;
+  margin-bottom: 1em;
 }
 
-.section .article-title {
-  margin: .5rem auto;
-  border-bottom: 0;
+
+/* ----------------------------
+  --- POST LIST PAGE ----------
+  ---------------------------- */
+.article  {
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,.08);
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,.05);
+  border-radius: 12px;
+  transition: box-shadow .3s linear;
+  margin-bottom: 25px;
+  & .article-title {
+    font-family: 'Oxygen', 'sans-serif';
+    font-weight: 1000;
+    color: black;
+    margin: 0 0 0.3em 0;
+  }
 }
 
-.section .article-description {
+.article-description {
   line-height: 1.8rem;
   margin-bottom: 1.6rem;
 }
 
+.article-date {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1em;
+} 
+/*
 .section .list p {
   line-height: 1.5rem;
   color: #8A817C;
   font-size: 1.4rem;
 }
-
-.article-title {
-  margin-top: 3rem;
-  margin-bottom: .5rem;
-}
-
-.article-title2 {
-  border-bottom: 0.5px solid gray;
-}
-
 .content .post p {
   font-size: 1.5rem;
   line-height: 3.1rem;
   margin-bottom: 10px;
 }
-
 .content .post h1, h2 {
   margin: 20px 0px;
+}*/
+
+/*------ POST ------ */
+.post-title {
+  margin: 2em 0;
+  & h1 {
+    margin-bottom: 0.3em;
+  }
+
+  & p {
+    font-size: 16px;
+  }
 }
+
+.post {
+  margin: 4em 0;
+  & p {
+  display: block;
+  font-weight: bold;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+  & ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+} 
 
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */
@@ -267,25 +332,11 @@ pre code {
   border: 1px solid #999;
   display: block;
   padding: inherit;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 2em;
 }
-/*
-
-.code {
-  background-color: lightgray;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin: 5px auto;
-  margin-bottom: 10px;
-}*/
 code {
   font-size: 120%;
-}
-
-code p {
-  font-family: "Consolas", monospace;
-  font-size: 1rem;
-  margin-bottom: 0px;
 }
 
 .code .comment {
@@ -293,40 +344,72 @@ code p {
 }
 
 
-/* ---------------------------------------------------------------------- */
-/* ------------- CODE STYLING ------------------------------------------- */
-/* ---------------------------------------------------------------------- */
-@media only screen and (min-width: 400px) {
-  .box-rectangle {
-    width: 400px;
-    height: 100px;
-  }
+/*----- BANNER ********/
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4em 0;
 }
-@media only screen and (min-width: 800px) {
-  .box-rectangle {
-    width: 800px;
-    height: 300px;
+
+.banner-text {
+  max-width: 50%;
+  
+  & .banner-header {
+    margin-bottom: 2.1em;
+  }
+  & .title {
+    font-size: 40px;
+    margin: 0;
+  }
+  & .subtitle {
+    color: grey;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 0;
   }
 }
 
-img {
+.banner-image {
+  max-width: 43%;
+}
+
+.banner-image img {
   width: 100%;
-  height: 100%;
-}
-.cover {
-  object-fit: cover;
-}
-.contain {
-  object-fit: contain;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-text {
+    max-width: 100%;
+  }
+  .banner-image {
+    max-width: 90%;
+  }
+
+  .banner-image {
+    margin-top: 20px;
+  }
+}
 
 /* ---------------------------------------------------------------------- */
 /* ------------- FOOTER ------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
 
 .footer {
+  margin-top: 3rem;
   text-align: center;
+  border-top: 1px solid rgb(198, 195, 195);
 }
 
 .footer p {
@@ -335,57 +418,26 @@ img {
 
 /* ------- BOOTSTRAP OVERRIDES ----------- */
 .btn, .btn-primary, .btn-lg {
-  background-color:rgb(89, 34, 41);
-  border-color: rgb(89, 34, 41);
+  background-color: #6b3a4f;
+  font-size: 16px;
+  font-weight: 1000;
+  line-height: 1;
+  color: #c9abb9;
+  --padding: 20px;
+  --margin: 20px;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--padding) calc(var(--padding)*2);
+  border-radius: 12px;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  transition: background .3s linear;
 }
 
-    
-    
-</style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-      <nav class="navigation">
-          <ul>
-              <li class="item1">
-                  <a href="/">Marta Nunes de Abreu</a>
-              </li>
-              <li class="item2">
-                  <a href="../post-list">Articles</a>
-              </li>
-              <li class="item3">
-                  <a href="../about/">About</a>
-              </li>
-          </ul>
-      </nav>
-    </div>
-
-    <main class="tmpl-homepage">
-    <!-- BODY -->
-      <div class="content">
-        <h1>All articles</h1>
-<hr><a href="/post4/">
-    <p>This is my fourth post. - Jun 11, 2018</p>
-  </a>
-  <hr><a href="/post3/">
-    <p>This is my third post. - Jun 11, 2018</p>
-  </a>
-  <hr><a href="/post2/">
-    <p>This is my second post. - Jun 11, 2018</p>
-  </a>
-  <hr><a href="/post1/">
-    <p>This is my first post. - May 1, 2018</p>
-  </a>
-  <hr>
-      </div>
-
-      
-    <!-- Footer -->
-      <div class="footer">
-        <p>© Copyright 2020. All rights reversed.</p>
-      </div>
-    </div>
-
-  </body>
-</html>
+.btn:hover, .btn-primary:hover, .btn-lg:hover {
+  color: #6b3a4f;
+  background-color: #c9abb9;
+}
