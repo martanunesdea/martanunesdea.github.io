@@ -25,9 +25,11 @@
     <main class="tmpl-post">
     <!-- BODY -->
       <div class="content">
-        <h1>Flask and MongoDB</h1>
+        <div class="post-title">
+<h1>Flask and MongoDB</h1>
 <p>12 October 2021</p>
-
+</div>
+<div class="post">
 <h2>Adding a DB to Flask</h2>
 <p>Flask is a great little web-server framework in Python. It is very simple and straightforward.</p>
 <p>One of its advantages is how quickly you are able to create something that is deployable. This also means that very quickly, you will need a database solution as a means to have persistent storage in the web application.</p>
@@ -53,6 +55,7 @@ def get_db():
 <p>The only issue I'm still battling is how to connect my &quot;test&quot; DB with the flask app. As written above, my way of connecting to MongoDB is with &quot;current_app&quot;, ie. with the app instance that is running. This makes things a bit difficult when running tests, since the app isn't running per se... I will keep investigating.</p>
 <p>One thing I've noticed is that there is not a lot of people or articles writing about Flask + MongoDB. You mostly see people using something like SQLAlchemy or other SQL-based solution.s</p>
 
+</div>
 
       </div>
 

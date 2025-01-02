@@ -26,13 +26,18 @@ body {
 /* ----------- TYPOGRAPHY ---------------------------------------------- */
 
 h1, h2, h3, h4 {
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Helvetica Neue';
+  font-weight: 1000;
   color: black;
+  margin-block-start: 1.6em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
   /*color: #8A817C;*/
 }
 h1{
   display: block;
-  font-size: 2.3em;
+  font-size: 2.3rem;
 }
 h2 {
   font-size: 1.8rem;
@@ -41,8 +46,8 @@ h2 {
 p, li {
   font-family: 'Oxygen', sans-serif;
   color: #2A2A2A;
-  font-size: 1.4rem;
-  line-height: 2.8rem;
+  font-size: 20px;
+  line-height: 1.5;
 }
 a {
   font-family: 'Oxygen', sans-serif;
@@ -59,7 +64,7 @@ a:hover {
 /* ---------------------------------------------------------------------- */
 /* Header styling */
 .header {
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
   background-color: #6b3a4f; /* Matching the maroon/purple color */
   color: white;
   display: flex;
@@ -67,7 +72,7 @@ a:hover {
   align-items: center;
   padding: 15px 20px;
   font-size: 19px;
-  font-weight: bold;
+  font-weight: 1000;
 }
 
 
@@ -233,10 +238,9 @@ a:hover {
 }
 
 .section .section-header {
-  font-size: 25px;
-  font-weight: 1000;
-  margin-top: 2.5rem;
-  margin-bottom: 25px;
+  font-size: 30px;
+  margin-top: 2rem;
+  margin-bottom: 1em;
 }
 
 
@@ -251,7 +255,14 @@ a:hover {
   border-radius: 12px;
   transition: box-shadow .3s linear;
   margin-bottom: 25px;
+  & .article-title {
+    font-family: 'Oxygen', 'sans-serif';
+    font-weight: 1000;
+    color: black;
+    margin: 0 0 0.3em 0;
+  }
 }
+
 .article-description {
   line-height: 1.8rem;
   margin-bottom: 1.6rem;
@@ -277,6 +288,39 @@ a:hover {
   margin: 20px 0px;
 }*/
 
+/*------ POST ------ */
+.post-title {
+  margin: 2em 0;
+  & h1 {
+    margin-bottom: 0.3em;
+  }
+
+  & p {
+    font-size: 16px;
+  }
+}
+
+.post {
+  margin: 4em 0;
+  & p {
+  display: block;
+  font-weight: bold;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+  & ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+} 
+
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */
 /* ---------------------------------------------------------------------- */
@@ -288,21 +332,75 @@ pre code {
   border: 1px solid #999;
   display: block;
   padding: inherit;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 2em;
 }
 code {
   font-size: 120%;
 }
 
-code p {
-  font-family: "Consolas", monospace;
-  font-size: 1rem;
-  margin-bottom: 0px;
-}
 .code .comment {
   color:gray;
 }
 
+
+/*----- BANNER ********/
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4em 0;
+}
+
+.banner-text {
+  max-width: 50%;
+  
+  & .banner-header {
+    margin-bottom: 2.1em;
+  }
+  & .title {
+    font-size: 40px;
+    margin: 0;
+  }
+  & .subtitle {
+    color: grey;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 0;
+  }
+}
+
+.banner-image {
+  max-width: 43%;
+}
+
+.banner-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-text {
+    max-width: 100%;
+  }
+  .banner-image {
+    max-width: 90%;
+  }
+
+  .banner-image {
+    margin-top: 20px;
+  }
+}
 
 /* ---------------------------------------------------------------------- */
 /* ------------- FOOTER ------------------------------------------------- */
@@ -320,6 +418,26 @@ code p {
 
 /* ------- BOOTSTRAP OVERRIDES ----------- */
 .btn, .btn-primary, .btn-lg {
-  background-color:rgb(89, 34, 41);
-  border-color: rgb(89, 34, 41);
+  background-color: #6b3a4f;
+  font-size: 16px;
+  font-weight: 1000;
+  line-height: 1;
+  color: #c9abb9;
+  --padding: 20px;
+  --margin: 20px;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--padding) calc(var(--padding)*2);
+  border-radius: 12px;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  transition: background .3s linear;
+}
+
+.btn:hover, .btn-primary:hover, .btn-lg:hover {
+  color: #6b3a4f;
+  background-color: #c9abb9;
 }

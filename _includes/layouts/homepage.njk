@@ -3,7 +3,22 @@ layout: base.njk
 templateClass: tmpl-homepage
 ---
 <div class="section">
-<h2 class="section-header">Latest in Blog</h2>
+
+  <div class="banner">
+    <div class="banner-text">
+      <div class="banner-header">
+        <h1 class="title">Marta Nunes de Abreu</h1>
+        <h2 class="subtitle">Software Engineer</h2>
+      </div>
+      <p>I'm a full time software engineer with a background in medical technology. My interests include digital signal processing, data security and data management.</p>
+    </div>
+    <div class="banner-image">
+      <img src="marta.jpeg" alt="Your Name">
+    </div>
+  </div>
+
+
+<h1 class="section-header">Latest in Blog</h1>
 {% set latestposts = collections.post | reverse | limit(3) %}
 {% for post in latestposts %}
   <a href="{{post.url}}">
@@ -13,11 +28,7 @@ templateClass: tmpl-homepage
     </div>
   </a>
 {% endfor %}
-<a href="post-list"><button class="btn btn-secondary btn-lg">See all</button></a>
+<a href="post-list"><button class="btn btn-secondary btn-lg">See more →</button></a>
 </div>
 
-<div class="section">
-<h2 class="section-header">Notes</h2>
-
-</div>
 {{ content | safe }}

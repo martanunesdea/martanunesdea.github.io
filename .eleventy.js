@@ -19,7 +19,7 @@ module.exports = function(eleventyConfig) {
       return DateTime.fromJSDate(dateObj).toFormat('dd MMMM yyyy').toLocaleString();
     });
 
-    eleventyConfig.addPassthroughCopy("index.css");    
+    eleventyConfig.addPassthroughCopy("index.css");
 
     return {
         templateFormats: ['njk', 'md', 'html'],
