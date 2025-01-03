@@ -1,6 +1,6 @@
 ---
 title: Back end development and Flask
-tags: ['notes']
+tags: ['post']
 date: 2020-11-10
 layout: post.njk
 ---

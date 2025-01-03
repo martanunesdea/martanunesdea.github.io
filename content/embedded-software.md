@@ -1,7 +1,8 @@
 ---
-title: Applications of embedded software
+title: What is embedded software, really?
+description: Explaining the critical applications of Embedded Software
 tags: ['post']
-date: 2020-02-21
+date: 2019-12-02
 layout: post.njk
 ---
 Nowadays, a vast majority of end-products from software development are consumed through mobile devices and computers (e-commerce, social media, streaming sites, miscellaneous mobile apps, etc.). It’s easy to understand the strange reactions from people when I tell them about my job as an embedded software engineer. I once had someone asking me if that is the same as “making models”. Mostly, though, the blunt question I get is “what is that?”.
@@ -12,28 +13,41 @@ Here’s my attempt to explain embedded software applications.
 
 I’ll be splitting this article into a brief explanation of embedded software, followed by an introduction to the two main areas where embedded software is present. I will finish pointing to other areas where it is also essential, thought not as visible to the everyday consumer.
 
-## Firmware: Where hardware and software meet
+# Firmware: Where hardware and software meet
 
-Firmware is the software purposefully designed and implemented to interact with specific hardware design. Embedded software is commonly exchanged with firmware, although embedded tends to refer to software that is more agnostic of the hardware (ie. RTOS or Embedded Linux configurations). 
+I tend to use the word “embedded software” to sound a bit less geeky, and perhaps in the hopes that people will deduce what it is (ie. software embedded in the machine). However, the reality is, this term is interchangeable with firmware. Firmware is the software purposefully designed and implemented to interact with a certain type of hardware.
 
 A simple example: A smart speaker.
 
 Inside a smart speaker, there is a microprocessor inside, along with a hefty battery and other components, programmed to perform very specific tasks:
 
-a. Connect through Bluetooth
-
-b. Alert when batter is low
-
-c. Instruct the loudspeakers to play or stop as commanded by the user.
+1) Connect through Bluetooth.
+2) Alert when batter is low.
+3) Instruct the loudspeakers to play or stop as commanded by the user.
 
 What it boils down to is that embedded software has the responsibility to create an abstraction from the lower levels of electronic components and hardware to a human-friendly interface. This may come in different forms; as a complete operating system, if it’s a widely multi-purpose device, or through the implementation of a simple user interface with some buttons to get user input, if it is a single-purpose device only (e.g. a smart microwave).
 
 Let’s move on to a brief introduction of the two main exponents of embedded software.
 
+## Operating systems
+The hidden, yet critical piece of software that most people come into contact is the operating system of the machines they use. Either that is Mac OS, Windows, Android, Chrome OS, iOS, etc. Without taking a huge de-tour into the world of computer architecture, the take-home idea is that there is a chunky amount of software bridging the gap between the capable hardware of computer systems we use and the speedy and smooth user experiences we get.
 
-## “Internet of Things”
+For those keen to understand some of the responsibilities of this software here is a short overview:
 
-Wearables, HomeTech, CarTech, and any readily available gadget around you…
+- Process management and scheduling: The OS is able to optimize performance by splitting one big job into several tasks and then organizing those tasks in order to finish as quickly as possible.
+- Memory management: This refers to on-demand memory. The OS must allow the user to multi-task by saving the details of the user’s tasks and having them ready when the user comes back to them.
+- Input and output: The OS must attend to different sources of input, and reflect the changes occurring in the system by updating the outputs. Inputs may be, the keyboard, a touch screen or a microphone, and the outputs are normally a screen, although it could be a speaker, a printer, etc.
+- File systems and persistent memory: This refers to permanent storage. The OS must organise files in a clever way, almost predicting which are the most often opened files. It also needs to ensure files and programs are protected and only accessed by the right users.
+- Networks: The OS must establish and maintain connections within networks, normally via the internet but there may also be local networks established within a site (e.g. in an office, school or university). In addition to this, lower range communication protocols such as Bluetooth are now also in demand.
+
+It seems because computers have been around for so long, we tend to think there’s no advances being done in the operating systems front. But that’s not true at all. Both Apple and Windows are constantly releasing upgrades (those that are so easy to postpone on startup). There are several motivations for these upgrades: strengthening security features, enhancing user experience, but also battling the ever-growing compromise between speed and battery performance.
+
+### High-performance computing
+
+On a less consumer-centric area, parallel computing is aiming to take advantage of multi-core architecture to make computers able to process data and complete problems that require a large number of calculations (such as scientific programs). Once again, embedded software is a key player to create an abstraction between the hardware-tailored software and allowing other users to take advantage of high performant computers.
+
+## “Internet of Things”
+### Wearables, HomeTech, CarTech, and any readily available gadget around you…
 
 It’s a commonly used term nowadays. Only a couple of years ago, it was used as a way to explain that “there is this new field emerging and we don’t quite now what it will entail so we’re going to give it this broad and generic name”. It is the idea that more and more products will be connected to the internet since, as it seems, it will control the world going forward.
 
@@ -53,10 +67,8 @@ This is one other large area where embedded software is also a key player. The a
 I realize that categorizing all of these different types of software products into “industry-grade software” is a bit of a generalization. But all of these fulfill the following criteria relevant in this article:
 
 1) They are not a consumer-centric software product (B2B rather than B2C software), and therefore most people are oblivious of its existence and importance.
-
 2) They require high-level of reliability and need to comply which very strict standards (MISRA standards for aviation and automotive sectors, ISO standards for medical equipment, and many more). This is because their purpose and functionality is not to be consumed by an user, but to sustain the foundation of critical processes (such as transportation or saving lives). Thus ,they must prevail much more rigorous testing.
-
-## Conclusion
+Conclusion
 
 This article aims to reflect on the unseen and unspoken heroes within the world of software products: embedded software applications. As we’ve seen, a lot of the technologies we use are reliant on embedded software.
 

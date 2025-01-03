@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="/index.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <div class="brand">Marta Nunes de Abreu</div>
+      <nav>
+          <a href="../index">Home</a>
+          <a href="../post-list">Blog</a>
+          <a href="../about">About</a>
+      </nav>
+    </div>
+
+    <main class="tmpl-post">
+    <!-- BODY -->
+      <div class="content">
+        <div class="post-title">
+<h1>I&#39;ve finally starting testing out my Raspberry Pi</h1>
+<p>22 September 2022</p>
+</div>
+<div class="post">
+<h1>So, what had taken me so long to do an embedded project on my free time?</h1>
+<p>The short answer: motivation. To be more precise, the right type of slight pressure to get something done within a timeframe and the purpose-driven motivation to yield that satisfactory moment of having something ticked off your to-do list. It's not the easiest type of motivation to come by, and that's probably why it's taken me this long.</p>
+<p>Aaanyway, let's get to the point. What follows here is my &quot;public learning&quot; log-type stuff.</p>
+<p>MVP:</p>
+<ol>
+<li>Set up</li>
+<li>Read about security on SSH Raspberry Pi and implement extra steps for secure connection</li>
+<li>Interface with USB</li>
+<li>Protocol to share between Raspberry Pi and Mac</li>
+<li>Interface with hard drive</li>
+</ol>
+<h1>1. Set up</h1>
+<p>First, wiped out sd card with NOOBS but kept FAT32 formatting.</p>
+<p>Second, downloaded Raspberry Pi Imager which helped downloading the Raspberry Pi OS onto the sd card.</p>
+<p>Third, added ssh file onto the boot partition.</p>
+<p>Fourth, popped in the sd card, powered on the raspberry pi (whilst connected to the router) and found the IP address for the raspberry pi using scanner app (Fing)</p>
+<p>Lastly, connected through ssh with terminal on Mac. To configure WLAN settings, I then entered &quot;sudo raspi-config&quot; which allowed me to enter the WLAN SSID and password.</p>
+<p>I did have to repeat this cycle once or twice more, as I had to reset the OS image to ensure my mistakes were undone. In doing so, I realised that when using the &quot;Rasperry Pi Imager&quot; you can actually configure wireless settins from there (and you might even be able to reconfigure the generic &quot;raspberry&quot; username to something different).</p>
+<h1>2. Read about security and implement extra steps.</h1>
+<p>I thought about writing all that I did in this post, but it probably merits a separate article. The first and most important thing is to change the password to something different. If using SSH then you probably want to prioritise getting the right security settings sooner rather than later. Depending on where you live too (remote Arctic living may not be as vulnerable to WLAN attacks).</p>
+<p>To change password from default:</p>
+<pre><code class="language-bash">ssh pi@192.168.0.56 -l pi
+// upon prompted with password i typed &quot;raspberry&quot;
+// to change password:
+passwd
+</code></pre>
+<h1>3. Interface with USB</h1>
+<p>I followed these commands:</p>
+<h3><strong>Mount A USB Memory Stick / Drive</strong></h3>
+<p><strong>List available devices</strong></p>
+<pre><code>
+ls -l /dev/disk/by-uuid/
+
+</code></pre>
+<p>SDA1 will be your USB memory stick (unless you have multiple).  What it means:</p>
+<p>The SD means SCSI device which also incoporates USB drives.The A means the 1st drive found (the next would be SDB, SDC, etc)The 1 means the first partition of the device (multiple partitions will give SDA2, SDA3, etc)</p>
+<p><strong>Create a directory to assign it to and apply ownership of it</strong></p>
+<p>Note that &quot;usb&quot; can be anything you want,</p>
+<pre><code class="language-bash">sudo mkdir /media/usb 
+</code></pre>
+<p><strong>Mount the USB Drive</strong></p>
+<pre><code>
+sudo mount /dev/sda1 /media/usb -o uid=my_user,gid=my_user
+</code></pre>
+<p>You can now access your drive using the path /media/usb/</p>
+<p><strong>Un-mount the USB drive</strong></p>
+<pre><code>
+sudo umount /media/usb
+</code></pre>
+<p><a href="https://raspberry-projects.com/pi/command-line/file-system-command-line/usb-drives">https://raspberry-projects.com/pi/command-line/file-system-command-line/usb-drives</a></p>
+<h1>4. Protocols for sharing between RPI and Mac</h1>
+<ul>
+<li>Transferring files between RPI and PC
+<ul>
+<li>secure copy through SSH, this is quick but it is not very convenient for things like shared albums, etc.</li>
+<li>File transfer protocol (FTP) with something like FireZilla. But this needs to be “set up” every time we want to share files, not completely frictionless.</li>
+<li>SMB - samba solution</li>
+<li>Netatalk - seems to be Mac only (or maybe UNIX only?). It seems like AFP protocol is deprecated on new Mac OS anyway, so I believe I would have to go with Samba for a somewhat simpler implementation.</li>
+<li>NFS - Network File Sharing, seems complicated to be honest and a bit too much for what I need. I am open to use it in the future but for now I’m more interested on getting something up and running.</li>
+<li>CIFS</li>
+</ul>
+</li>
+</ul>
+<h1>5. Connecting Raspberry Pi hard drive with Mac</h1>
+<p>I ended up following this tutorial and it worked, but I’ve got no idea why. I should probably read up on the samba settings I’ve used.. the rest makes sense.</p>
+<p><a href="https://tutorials-raspberrypi.com/raspberry-pi-samba-server-share-files-in-the-local-network/">https://tutorials-raspberrypi.com/raspberry-pi-samba-server-share-files-in-the-local-network/</a></p>
+<p>We create a new folder in the previously mounted directory:</p>
+<pre><code>mkdir /media/usb/share
+</code></pre>
+<p>Now we can edit the Samba configuration. But first, we create a backup (just in case):</p>
+<pre><code>sudo cp /etc/samba/smb.conf /etc/samba/smb.conf_backup
+sudo nano /etc/samba/smb.conf
+</code></pre>
+<p>Add the following section to the end of the file and save with CTRL + O.</p>
+<pre><code>[share]
+Comment = Raspberry Pi Shared Folder
+Path = /media/usb/share
+Browseable = yes
+Writeable = Yes
+only guest = no
+create mask = 0777
+directory mask = 0777
+Public = yes
+Guest ok = yes
+</code></pre>
+<p>This configuration means that every user can read, write and execute files. Either a Samba user or a “guest” is authorized.</p>
+<p>The Samba user (also called “pi”) has to get a password. This password can differ from the SSH password of the user. We hereby put it:</p>
+<pre><code>sudo smbpasswd -a pi
+</code></pre>
+<p>The last step on the Raspberry Pi is to restart the Samba server.</p>
+<pre><code>sudo service smbd restart
+</code></pre>
+<p>And later on…</p>
+<p>No reboot is necessary on <strong>Mac Systems</strong>. Here you can simply open a Finder window and select “Network” in the sidebar. Then select “raspberry pi” and the “shared” folder to get to the directory.</p>
+<p>I had pinned this resource earlier on (<a href="https://www.linux.com/news/using-samba-share-files-between-linux-and-windows/">https://www.linux.com/news/using-samba-share-files-between-linux-and-windows/</a>) and I’ve managed to work out the meaning behind the settings that I had used previously. I have now changed the config file to not be public.</p>
+<p>These are my current settings:</p>
+<pre><code class="language-bash">[drive]
+Comment = Shared Foldeer
+Path = /media/hd0
+Writeable = yes
+create mask = 0777
+directory mask = 0777
+Public = no
+Guest ok = no
+</code></pre>
+<p>This link was useful:</p>
+<p><a href="https://raspberrypi-guide.github.io/filesharing/filesharing-raspberry-pi">https://raspberrypi-guide.github.io/filesharing/filesharing-raspberry-pi</a></p>
+<p>I also found this resource at some point but I’ve got no idea what this guy is doing, and whether it is even necessary. <a href="https://www.jeremycollins.net/using-a-raspberry-pi-as-a-nas-mac-os-time-machine">https://www.jeremycollins.net/using-a-raspberry-pi-as-a-nas-mac-os-time-machine</a></p>
+<p>Looking back at it, this one was also heading the right way: <a href="https://uk.pcmag.com/network-attached-storage/124258/how-to-turn-a-raspberry-pi-into-a-nas-for-whole-home-file-sharing">https://uk.pcmag.com/network-attached-storage/124258/how-to-turn-a-raspberry-pi-into-a-nas-for-whole-home-file-sharing</a></p>
+<p>Pinning these three for later reading:</p>
+<p><a href="https://www.redhat.com/sysadmin/samba-file-sharing#:~:text=The%20Samba%20project%20provides%20file,%2C%20macOS%2C%20and%20Windows%20clients">https://www.redhat.com/sysadmin/samba-file-sharing#:~:text=The Samba project provides file,%2C macOS%2C and Windows clients</a>.</p>
+<p>(mentioned above) <a href="https://www.linux.com/news/using-samba-share-files-between-linux-and-windows/">https://www.linux.com/news/using-samba-share-files-between-linux-and-windows/</a></p>
+<p><a href="https://www.raspberrypi.com/documentation/computers/remote-access.html#installing-samba-support">https://www.raspberrypi.com/documentation/computers/remote-access.html#installing-samba-support</a></p>
+<p>(used to get stuff up and running) <a href="https://tutorials-raspberrypi.com/raspberry-pi-samba-server-share-files-in-the-local-network/">https://tutorials-raspberrypi.com/raspberry-pi-samba-server-share-files-in-the-local-network/</a></p>
+
+</div>
+
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>

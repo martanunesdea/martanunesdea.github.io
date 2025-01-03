@@ -1,7 +1,7 @@
 ---
 title: Flask and MongoDB
 description: A short summary on integration
-tags: ['notes', 'web']
+tags: ['post', 'web']
 date: 2021-10-12
 layout: post.njk
 ---
