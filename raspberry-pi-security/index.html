@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="/index.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <div class="brand">Marta Nunes de Abreu</div>
+      <nav>
+          <a href="../index">Home</a>
+          <a href="../post-list">Blog</a>
+          <a href="../about">About</a>
+      </nav>
+    </div>
+
+    <main class="tmpl-post">
+    <!-- BODY -->
+      <div class="content">
+        <div class="post-title">
+<h1>Securing my raspberry pi wireless connection</h1>
+<p>25 September 2022</p>
+</div>
+<div class="post">
+<h1>Security</h1>
+<p>This list is inspired by the official docs section: <a href="https://www.raspberrypi.com/documentation/computers/configuration.html#securing-your-raspberry-pi">“Securing your Raspberry Pi”</a> and in fact, many of the steps I took were based on that documentation.</p>
+<ol>
+<li>Change default credentials</li>
+<li>Improve SSH security</li>
+<li>Firewall and ban2safe</li>
+<li>Automatic updates</li>
+<li>(not really security but wifi related) Set a static IP address</li>
+</ol>
+<h1>Changing default credentials</h1>
+<h2>Password</h2>
+<p>To change password:
+<code>passwd</code></p>
+<h2>User</h2>
+<p>I followed these instructions, on official docs on the 15th August:</p>
+<p>You can, of course, make your Raspberry Pi even more secure by also changing your username. All Raspberry Pis come with the default username <code>pi</code>, so changing this will immediately make your Raspberry Pi more secure.</p>
+<p>To add a new user, enter:</p>
+<p><code>sudo adduser alice</code></p>
+<p>You will be prompted to create a password for the new user.</p>
+<p>The new user will have a home directory at <code>/home/alice/</code>.</p>
+<p>To add them to the <code>sudo</code> group to give them <code>sudo</code> permissions as well as all of the other necessary permissions:</p>
+<p><code>sudo usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,gpio,i2c,spi alice</code></p>
+<p>You can check your permissions are in place (i.e. you can use <code>sudo</code>) by trying the following:</p>
+<p><code>sudo su - alice</code></p>
+<p>If it runs successfully, then you can be sure that the new account is in the <code>sudo</code> group.</p>
+<p>Once you have confirmed that the new account is working, you can delete the <code>pi</code> user. In order to do this, you’ll need to first change the autologin user to your new user <code>alice</code>, with the following:</p>
+<p><code>sudo raspi-config</code></p>
+<p>Select option 1, S5 <code>Boot / Auto login</code>, and say yes to reboot. Please note that with the current Raspberry Pi OS distribution, there are some aspects that require the <code>pi</code> user to be present. If you are unsure whether you will be affected by this, then leave the <code>pi</code> user in place. Work is being done to reduce the dependency on the <code>pi</code> user.</p>
+<p>I did not implement this:</p>
+<p>To delete the <code>pi</code> user, type the following:</p>
+<p><code>sudo deluser pi</code></p>
+<p>This command will delete the <code>pi</code> user but will leave the <code>/home/pi</code> folder. If necessary, you can use the command below to remove the home folder for the <code>pi</code> user at the same time. Note the data in this folder will be permanently deleted, so make sure any required data is stored elsewhere.</p>
+<p><code>sudo deluser -remove-home pi</code></p>
+<p>This command will result in a warning that the group <code>pi</code> has no more members. The <code>deluser</code> command removes both the <code>pi</code> user and the <code>pi</code> group though, so the warning can be safely ignored.</p>
+<h2>Force sudo to have a password</h2>
+<p>Followed these instructions, from official docs on the 29th August</p>
+<p>Placing <code>sudo</code> in front of a command runs it as a superuser, and by default, that does not need a password. In general, this is not a problem. However, if your Raspberry Pi is exposed to the internet and somehow becomes exploited (perhaps via a webpage exploit for example), the attacker will be able to change things that require superuser credentials, unless you have set <code>sudo</code> to require a password.</p>
+<p>To force <code>sudo</code> to require a password, enter:</p>
+<p><code>sudo visudo /etc/sudoers.d/010_pi-nopasswd</code></p>
+<p>and change the <code>pi</code> entry (or whichever usernames have superuser rights) to:</p>
+<p><code>pi ALL=(ALL) PASSWD: ALL</code></p>
+<p>Then save the file: it will be checked for any syntax errors. If no errors were detected, the file will be saved and you will be returned to the shell prompt. If errors were detected, you will be asked 'what now?' Press the 'enter' key on your keyboard: this will bring up a list of options. You will probably want to use 'e' for '(e)dit sudoers file again', so you can edit the file and fix the problem.</p>
+<h1>Improving SSH security</h1>
+<h2>Update openssl-server regularly</h2>
+<p>An up-to-date distribution contains all the latest security fixes, so you should go ahead and <a href="https://www.raspberrypi.com/documentation/computers/os.html#updating-and-upgrading-raspberry-pi-os">update</a> your version of Raspberry Pi OS to the latest version.</p>
+<p>If you are using SSH to connect to your Raspberry Pi, it can be worthwhile to add a <code>cron</code> job that specifically updates the ssh-server. The following command, perhaps as a daily cron job, will ensure you have the latest SSH security fixes promptly, independent of your normal update process.</p>
+<p><code>apt install openssh-server</code></p>
+<h2>Disable default pi user from logging in via ssh</h2>
+<p>(ie. in my case “lemontart”). Followed the below steps (<a href="https://www.raspberrypi.com/documentation/computers/configuration.html#make-sudo-require-a-password">docs</a> on 29/08):</p>
+<p>You can also <strong>allow</strong> or <strong>deny</strong> specific users by altering the <code>sshd</code> configuration.</p>
+<p><code>sudo nano /etc/ssh/sshd_config</code></p>
+<p>Add, edit, or append to the end of the file the following line, which contains the usernames you wish to allow to log in:</p>
+<p><code>AllowUsers alice bob</code></p>
+<p>You can also use <code>DenyUsers</code> to specifically stop some usernames from logging in:</p>
+<p><code>DenyUsers jane john</code></p>
+<p>After the change you will need to restart the <code>sshd</code> service using <code>sudo systemctl restart ssh</code> or reboot so the changes take effect.</p>
+<h2><strong><strong>Using key-based authentication</strong></strong></h2>
+<ul>
+<li>Following on from <a href="https://www.raspberrypi.com/documentation/computers/remote-access.html#passwordless-ssh-access">docs</a> (<a href="https://www.raspberrypi.com/documentation/computers/remote-access.html#passwordless-ssh-access">Passwordless SSH Access</a>) I copied an existing key to the RPI:</li>
+</ul>
+<pre><code class="language-jsx">ssh-copy-id &lt;USERNAME&gt;@&lt;IP-ADDRESS&gt;
+</code></pre>
+<ul>
+<li>Then verified the key was in ~/.ssh/authorized_keys in the RPI.</li>
+<li>Then logged out of SSH and checked it worked.</li>
+<li>Then disabled password-based ssh login: typed in command:</li>
+</ul>
+<p><code>sudo nano /etc/ssh/sshd_config</code></p>
+<ul>
+<li>There are three lines that need to be changed to <code>no</code>, if they are not set that way already:</li>
+</ul>
+<p><code>ChallengeResponseAuthentication no</code></p>
+<p><code>PasswordAuthentication no</code></p>
+<p><code>UsePAM no</code></p>
+<p>Save the file and either restart the ssh system with <code>sudo service ssh reload</code> or reboot.</p>
+
+</div>
+
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>
