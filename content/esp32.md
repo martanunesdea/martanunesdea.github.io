@@ -5,7 +5,7 @@ tags: ['post']
 date: 2022-05-20
 layout: post.njk
 ---
-# Speech processing with ESP32
+# Getting set up with ESP32
 ## Project Rationale
 
 This project idea came to possibly in my second year of university and so many things have got in the way that I kept on postponing it. Perhaps the ambition behind the idea was a bit too big to simply start working on it during my down time. Perhaps not. In essence, I am hoping to connect a microphone to an esp32 board, perhaps do a bit of pre-processing from the board and then send the data wirelessly. Once the data is in a bit of a more powerful machine, I will try to use more advanced filtering and algorithms to process the audio. If all goes well, I will try to use the final speech output as the input for a future NLP project (this would be separately implemented to avoid complications, and to enable me to work on different things concurrently). Sounds simple, right? Well, let's get working then!
@@ -43,8 +43,3 @@ Client and server roles
 The terminology for client and server is widely used around the Internet development sector. In the case of TCP/IP protocol, I'll be setting up the esp32 as the "host" that is providing information to the computer (which acts as the "client".).
 
 To setup my computer as a client, I have to run either a python script or a couple of netcat commands to tune in to the correct address and listen to the port.
-
-```c
-/* main.c */
-printf("Hello world");
-```

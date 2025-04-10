@@ -38,7 +38,7 @@ To change password from default:
 
 ```bash
 ssh pi@192.168.0.56 -l pi
-// upon prompted with password i typed "raspberry"
+// upon prompted with password i typed a custom password
 // to change password:
 passwd
 ```

@@ -91,7 +91,7 @@ If you are using SSH to connect to your Raspberry Pi, it can be worthwhile to ad
 
 ## Disable default pi user from logging in via ssh
 
-(ie. in my case “lemontart”). Followed the below steps ([docs](https://www.raspberrypi.com/documentation/computers/configuration.html#make-sudo-require-a-password) on 29/08):
+(ie. in my case “myusername”). Followed the below steps ([docs](https://www.raspberrypi.com/documentation/computers/configuration.html#make-sudo-require-a-password) on 29/08):
 
 You can also **allow** or **deny** specific users by altering the `sshd` configuration.
 

@@ -29,7 +29,7 @@ What it boils down to is that embedded software has the responsibility to create
 
 Let’s move on to a brief introduction of the two main exponents of embedded software.
 
-## Operating systems
+## Operating systems
 The hidden, yet critical piece of software that most people come into contact is the operating system of the machines they use. Either that is Mac OS, Windows, Android, Chrome OS, iOS, etc. Without taking a huge de-tour into the world of computer architecture, the take-home idea is that there is a chunky amount of software bridging the gap between the capable hardware of computer systems we use and the speedy and smooth user experiences we get.
 
 For those keen to understand some of the responsibilities of this software here is a short overview:
