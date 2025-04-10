@@ -78,7 +78,7 @@
 <p>If you are using SSH to connect to your Raspberry Pi, it can be worthwhile to add a <code>cron</code> job that specifically updates the ssh-server. The following command, perhaps as a daily cron job, will ensure you have the latest SSH security fixes promptly, independent of your normal update process.</p>
 <p><code>apt install openssh-server</code></p>
 <h2>Disable default pi user from logging in via ssh</h2>
-<p>(ie. in my case “lemontart”). Followed the below steps (<a href="https://www.raspberrypi.com/documentation/computers/configuration.html#make-sudo-require-a-password">docs</a> on 29/08):</p>
+<p>(ie. in my case “myusername”). Followed the below steps (<a href="https://www.raspberrypi.com/documentation/computers/configuration.html#make-sudo-require-a-password">docs</a> on 29/08):</p>
 <p>You can also <strong>allow</strong> or <strong>deny</strong> specific users by altering the <code>sshd</code> configuration.</p>
 <p><code>sudo nano /etc/ssh/sshd_config</code></p>
 <p>Add, edit, or append to the end of the file the following line, which contains the usernames you wish to allow to log in:</p>
