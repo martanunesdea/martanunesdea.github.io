@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="/index.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <div class="brand">Marta Nunes de Abreu</div>
+      <nav>
+          <a href="../index">Home</a>
+          <a href="../post-list">Blog</a>
+          <a href="../about">About</a>
+      </nav>
+    </div>
+
+    <main class="tmpl-post">
+    <!-- BODY -->
+      <div class="content">
+        <div class="post-title">
+<h1>Setting up a website with EleventyJS</h1>
+<p>01 September 2021</p>
+</div>
+<div class="post">
+<p>For a while, I've entertained the idea of building a very basic personal site with pure HTML and CSS. Given the practicalities of hosting a static website on Github Pages, I thought that would suffice my needs and spare me some time.</p>
+<p>However, I soon realised that I needed a templating engine if I wanted to avoid having to implement 1 small change across multiple files.</p>
+<h2>Template engines</h2>
+<p>Python is best known for its practical automation programs, right? I thought I could easily write up a Python script that would take the HTML of an article and embed it within my base HTML file. I created this script and generated several HTML files and was very pleased. However, I soon realised that there was a few other functionalities that I wasn't going to have the time to program onto this template.</p>
+<p>Because I had used Flask and Ninja before, I was tempted to just borrow the Ninja functionality to generate my templates.</p>
+<p>I made a quick google search and soon got a bit overwhelmed with all the new Python static site generators that were out there.</p>
+<p>I quickly stumbled onto EleventyJS, and soon realised this was all I needed.</p>
+<p>Even though EleventyJS is a static site generator, it offers a very simple and minimal approach (unlike GatsbyJS, etc.).</p>
+<p>Here's how I started.</p>
+<h2>Downloaded EleventyJS</h2>
+<pre><code class="language-text/2-3">mkdir eleventy-sample
+cd eleventy-sample
+npm init -y
+npm install --save-dev @11ty/eleventy
+npx @11ty/eleventy
+</code></pre>
+<h2>Tested it out on 2 sample files</h2>
+<pre><code class="language-text/2-3">echo '&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Page title&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Hi&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;' &gt; index.html
+echo '# Page header' &gt; README.md
+npx @11ty/eleventy
+</code></pre>
+<p>First, we're creating two sample files.</p>
+<p>Then, call eleventy program.</p>
+<p>This will look for &quot;templateable&quot; files, e.g. markdown, html, etc. and generate them into their own html file.</p>
+<p>Looked simple enough!
+Ok, let's with a real HTML template.</p>
+<h2>Tested it with a nonjuncks template</h2>
+<p>So I created a non-juncks file that served as a layout template, a bit like this:</p>
+<pre><code class="language-text/2-3">&lt;!-- template.njk --&gt;
+---
+title: My Rad Blog
+---
+
+&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Setting up a website with EleventyJS&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Then, I created a couple of markdown files that would borrow from this template:</p>
+<pre><code>&lt;!-- samplefile1.md --&gt;
+---
+layout: template.njk
+my_title: My Rad Markdown Blog Post
+---
+# { {  my_title_here }  }  
+</code></pre>
+<p>Then checked what eleventy would produce, with this command:</p>
+<pre><code>npx @11ty/eleventy --serve
+</code></pre>
+<p>This creates a server that will watch for any changes and serve new content as needed.
+The results were two separate html files inside the base html template provided. Happy days! So far, eleventJS was doing exactly what was written in the package and I was very satisfied.</p>
+<p>At this point, I copied across my &quot;base&quot; html file from my existing website and copied it onto my &quot;template.njk&quot; file. I checked my localhost server and there it was! The sample file was embedded my existing HTML file (with existing CSS too!)
+Ok... but I want my home page to look a bit different than my posts. How could I do that?</p>
+<h2>Structuring project</h2>
+<p>Unfortunately, the documentation is not great for how to set-up your project and how to get on your feet. It shows you some good started projects and I guess you're just meant to take it from there.
+After having a look here's how I structured my project:</p>
+<pre><code>-- src
+  -- _includes
+    -- _layouts
+    -- style
+  -- _site
+  -- pages
+eleventy.js
+</code></pre>
+<p>In eleventy.js, I established all of these directores:</p>
+<pre><code>return {
+        templateFormats: ['njk', 'md', 'html'],
+        dir: {
+          input: &quot;src/pages&quot;,
+          includes: &quot;_includes&quot;,
+          data: &quot;_data&quot;,
+          output: &quot;_site&quot;,
+          layouts: &quot;../_includes/layouts&quot;
+        }
+      }
+</code></pre>
+<p>With this organisation setup, I was able to create a few more templates on my &quot;layouts&quot; directory. And then, added more markdown files on my &quot;pages&quot; directory, which would borrow from one of the templates (base, homepage, postlist or post).</p>
+<p>The only thing that changed was the frontmatter of the markdown file. For instance, for my &quot;list of articles&quot; page, I created a markdown file like so:</p>
+<pre><code>---
+title: Articles
+date: 2018-05-01
+layout: postlist.njk
+---
+</code></pre>
+<h2>Using nunjucks filters</h2>
+<p>I had mentioned that I didn't require much from a static site generator, however there were essentially two small things that I couldn't quite generate with my own Python template and those were the following:</p>
+<ul>
+<li>A 3-article list for my homepage, that gets updated as newer articles are written.</li>
+<li>A list of articles that is sorted by date.</li>
+</ul>
+<p>Whilst trying to tackle the first one, I quickly found a way to implement the second one. This was because the only required existing nonjucks features. All I had to do, was add a tag on each of the mardown files that were posts. Like so:</p>
+<pre><code>---
+title: This is my first post
+description: Some description about my first post
+date: 2018-05-01
+tags: post
+layout: postlist.njk
+---
+</code></pre>
+<p>This will generate a collection called &quot;post&quot; which nonjucks will be able to iterate over.</p>
+<pre><code>---
+layout: base.njk
+templateClass: tmpl-homepage
+---
+&lt;h1&gt;All articles&lt;/h1&gt;
+&lt;hr&gt;
+{- for post in collections.post | reverse -}
+  &lt;a href=&quot;&quot;&gt;
+    &lt;h3&gt;&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+{- endfor -}
+</code></pre>
+<p>Simple as that! Ok, so how did I manage to tackle feature n.1?</p>
+<h3>Creating nonjucks filters on Eleventy config</h3>
+
+</div>
+
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>

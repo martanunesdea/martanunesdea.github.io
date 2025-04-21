@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Marta Nunes de Abreu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <link href="/index.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+      <div class="brand">Marta Nunes de Abreu</div>
+      <nav>
+          <a href="../index">Home</a>
+          <a href="../post-list">Blog</a>
+          <a href="../about">About</a>
+      </nav>
+    </div>
+
+    <main class="tmpl-post">
+    <!-- BODY -->
+      <div class="content">
+        <div class="post-title">
+<h1>Password manager with C++ and MySQL</h1>
+<p>24 August 2020</p>
+</div>
+<div class="post">
+<h1>Processing text in C++</h1>
+<h2>Project Rationale</h2>
+<p>It's been a while since I have made a significant project in C++ and I would like to start small, but still achieve something that is &quot;functionally complete&quot;. My self-prescribed project brief is the following:</p>
+<ol>
+<li>Create program that generates random (but safe) passwords</li>
+<li>Capture details about the credentials (website for account, etc).</li>
+<li>Store password hash and details of account in DB.</li>
+</ol>
+<p>This nicely packages two things I'm keen to practice in C++, the first is hashing and safe random number generation, and the second is database management.</p>
+<h3>Day 1, 2 - Start with password manager</h3>
+<p>There's been a lot of things that have been implemented in C++ in the past few years but for this project I'm wanting to borrow as little as possible. I'd like to do a bit more of my own software design and implementation. So I deliberately made the decision to narrow the scope of the project so it is attainable; to generate random passwords, save them on a database and retrieve them.</p>
+<p>Obtaining text input and parsing it was not difficult, I had already done that with my parsing project.</p>
+<p>The tricky bit was in creating a randomly generated password.</p>
+<h3>Day 3, 4 and 5 - Setting up MySQL Connector-C++</h3>
+<p>This will be a long post...</p>
+<p>Download the appropiate binary package from the community downloads page and followed the process. When trying to talk to mysql, it works fine in the appropiate directory but, this isn't the desired outcome, so I changed the PATH variable from my terminal.</p>
+<p>So I got to talk to MySQL and even created my own database and tables within the terminal. But ideally, I'd like to do that from my C++ project. So I downloaded also Connector C++.</p>
+<p>This is a convenient driver that allows MySQL APIs to interact with MySQL. I first struggled with the downloading and linking my existing C++ project with connector C++. I look very close into what the Makefile or CMake should be doing, and I was doing as suggested; including and linking the right files. However for some reason, it wasn't able to identify the library file from within the connector c++ directory. In a desperate attempt, I thought perhaps re-installing the program for Connector C++ wouldn't do any further harm. And so I did. This time, I installed it from a binary and let the process run. Afterwards, I used the suggested Makefile content with a very basic C++ project file and it successfully linked.</p>
+<p>After successfully linking, I was finally quite relieved of at least having achieved something. I then looked for one of the sample code files on how to initiate a session from C++ (using the X dev API). This was not the most straightforward, as I wasn't quite sure which parameters to use to initiate a session but I finally got there...</p>
+<p>I will re-edit and add code excerpts at some point. But these are all the steps I followed.</p>
+<h3>Day 6 - Talking in SQL!</h3>
+<p>Today the progress was much quicker after the previous three days of work to get the setup running. But now that there is a C++ file talking to the MySQL server everything is going smoothly! The folks at MySQL did a good job at creating a good dev guide/tutorial for X Dev API with samples of code (that I am yet to paraphrase here) which makes trying things out quick and easy. Today, I've managed to create a table within the schema for the project, inserting rows and selecting some of the elements in the row and printing them out. I used MySQL on a second terminal to check whether some of these function calls had really worked since (for the time being) I don't know how to identify these errors with commands from the API.</p>
+<p>The insertion of variables into the table was done through hard-coded variables and names initially, but I also managed to append C++ variables with the SQL command and that got executed just as easily (expect code fragment here).</p>
+<p>Next thing to do is to split up this sample code into a nicer structure (it's currently all in one function). And then to try and integrate this source file onto the rest of the project.</p>
+
+</div>
+
+      </div>
+
+      
+    <!-- Footer -->
+      <div class="footer">
+        <p>© Copyright 2020. All rights reversed.</p>
+      </div>
+    </div>
+
+  </body>
+</html>
