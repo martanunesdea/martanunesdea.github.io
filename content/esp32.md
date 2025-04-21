@@ -1,6 +1,6 @@
 ---
-title: Speech processing with ESP32
-description: Simple tutorial to get started with ESP32 and audio processing
+title: Getting set up with ESP32
+description: Simple tutorial for a starting up on development with ESP32
 tags: ['post']
 date: 2022-05-20
 layout: post.njk

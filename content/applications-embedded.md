@@ -35,7 +35,7 @@ Let’s move on to a brief introduction of the two main exponents of embedded so
 
 Wearables, HomeTech, CarTech, and any readily available gadget around you…
 
-It’s a commonly used term nowadays. Only a couple of years ago, it was used as a way to explain that “there is this new field emerging and we don’t quite now what it will entail so we’re going to give it this broad and generic name”. It is the idea that more and more products will be connected to the internet since, as it seems, it will control the world going forward.
+It’s a commonly used term nowadays. Only a couple of years ago, it was used as a way to explain that “there is this new field emerging and we don’t quite know what it will entail so we’re going to give it this broad and generic name”. It is the idea that more and more products will be connected to the internet since, as it seems, it will control the world going forward.
 
 “Smart” devices have become commonplace thanks to the decrease in cost of microprocessors (in a simplistic way, the brains within computers) and of electronic components in general (e.g. memory storage, modules for Bluetooth, WiFi or Zigbee, sensors, etc.). Why would you get an expensive analogue watch, if you can get one that tells you the weather, how far you’ve walked, and who messaged you, for the same price or less?
 
