@@ -1,9 +1,7 @@
 ---
 title: Getting into programming - Episode 1
 description: Learning Python
-tags: ['post']
 date: 2019-09-15
-layout: post.njk
 ---
 This article forms part of a tutorial series to learn technology and software through Python. 
 # Understanding Technology

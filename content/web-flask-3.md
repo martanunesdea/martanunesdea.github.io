@@ -1,8 +1,6 @@
 ---
 title: I wrote a web app and it was so slow
-tags: ['post']
-date: 2023-05-20
-layout: post.njk
+date: 2021-12-18
 ---
 With so many accessible web frameworks in a variety of programming languages, one would be quick to assume that making a web app should be no trouble at all, right? Well, I managed to mess it up somehow
 

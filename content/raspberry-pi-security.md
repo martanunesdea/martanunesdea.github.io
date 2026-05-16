@@ -1,8 +1,6 @@
 ---
 title: Securing my raspberry pi wireless connection
-tags: ['post']
 date: 2022-09-25
-layout: post.njk
 ---
 # Security
 

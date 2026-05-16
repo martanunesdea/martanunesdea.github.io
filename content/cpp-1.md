@@ -1,8 +1,6 @@
 ---
 title: Parsing in C++
-tags: ['post']
 date: 2020-07-28
-layout: post.njk
 ---
 # Processing text in C++
 ## Project Rationale

@@ -1,8 +1,6 @@
 ---
 title: Applications of embedded software
-tags: ['post']
 date: 2020-02-21
-layout: post.njk
 ---
 Nowadays, a vast majority of end-products from software development are consumed through mobile devices and computers (e-commerce, social media, streaming sites, miscellaneous mobile apps, etc.). It’s easy to understand the strange reactions from people when I tell them about my job as an embedded software engineer. I once had someone asking me if that is the same as “making models”. Mostly, though, the blunt question I get is “what is that?”.
 

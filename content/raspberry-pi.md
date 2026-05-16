@@ -1,8 +1,6 @@
 ---
 title: I've finally starting testing out my Raspberry Pi
-tags: ['post']
 date: 2022-09-22
-layout: post.njk
 ---
 # So, what had taken me so long to do an embedded project on my free time?
 The short answer: motivation. To be more precise, the right type of slight pressure to get something done within a timeframe and the purpose-driven motivation to yield that satisfactory moment of having something ticked off your to-do list. It's not the easiest type of motivation to come by, and that's probably why it's taken me this long. 

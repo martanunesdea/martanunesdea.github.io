@@ -15,27 +15,19 @@ img {
 body {
   width: 100%;
 }
-.container {
-  max-width: 100%;
-  padding: 0px;
-}
-.container > * {
-	padding: 10px;
-}
 
 /* ----------- TYPOGRAPHY ---------------------------------------------- */
 
 h1, h2, h3, h4 {
-  font-family: 'Helvetica Neue';
-  font-weight: 1000;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 900;
   color: black;
   margin-block-start: 1.6em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  /*color: #8A817C;*/
 }
-h1{
+h1 {
   display: block;
   font-size: 2.3rem;
 }
@@ -62,21 +54,19 @@ a:hover {
 /* ---------------------------------------------------------------------- */
 /* ------------- NAVBAR ------------------------------------------------- */
 /* ---------------------------------------------------------------------- */
-/* Header styling */
+
 .header {
   font-family: 'Helvetica Neue', sans-serif;
-  background-color: #6b3a4f; /* Matching the maroon/purple color */
+  background-color: #6b3a4f;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
   font-size: 19px;
-  font-weight: 1000;
+  font-weight: 900;
 }
 
-
-/* Navigation (right) */
 .header nav {
   display: flex;
   gap: 20px;
@@ -89,7 +79,7 @@ a:hover {
 }
 
 .header nav a:hover {
-  color: white; /* Lighter color for hover effect */
+  color: white;
 }
 
 .header nav a.active {
@@ -99,140 +89,31 @@ a:hover {
 /* ---------------------------------------------------------------------- */
 /* ------------- CONTAINER - GRID --------------------------------------- */
 /* ---------------------------------------------------------------------- */
+
 .container {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-gap: 0px;
+  grid-template-columns: 1fr;
+  max-width: 100%;
+  padding: 0px;
 }
 
 .container > * {
-  grid-column: 1 / span 10;
+  padding: 10px;
 }
 
-.links, .ads {
-  padding: 0px;
-  margin: 0px;
-}
-
-/* --------- MIN WIDTH 600 PX -----------------*/
 @media (min-width: 600px) {
-  /*HEADER */
-  .navigation .item2, .item3, .item4 {
-    visibility: visible;
-    font-size: 1.4rem;
-    line-height: 2.8rem;
-  }
-  /* GRID */
-  .links {
-      grid-column: 1 / span 1;
-      grid-row: 2;
-  }
-  .ads {
-      grid-column: 10 / span 1;
-      grid-row: 2;
-
-  }
   .content {
-      max-width: 900px;
-      margin: auto;
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-  }
-  .footer {
-      grid-column: 1 / span 10;
-  }
-  .navigation {
-      max-width: 100%;
-      margin: auto;
-  }
-  /* FLEX BOX */
-  nav ul {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-      align-items: center;
-      text-align: left;
-  }
-  .item1 {
-      order: 1;
-      flex-grow: 20;
-  }
-  .item2 {
-      order: 2;
-      flex-grow: 1;
-      text-align: center;
-  }
-  .item3 {
-      order: 3;
-      flex-grow: 1;
-      text-align: center;
-  }
-  .item4 {
-    order: 4;
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-}
-
-/* --------- MIN WIDTH 900 PX -----------------*/
-@media (min-width: 900px) {
-  /*HEADER */
-  .navigation .item2, .item3, .item4 {
-    visibility: visible;
-    font-size: 1.4rem;
-    line-height: 2.8rem;
-  }
-  /* GRID */
-  .content {
-      max-width: 900px;
-      margin: auto;
-  }
-  .footer {
-      grid-column: 1 / span 10;
-      grid-row: 3;
-  }
-  .navigation {
-    width: 100%;
+    max-width: 900px;
     margin: auto;
-  }
-  /* FLEX BOX */
-  nav ul {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-      text-align: left;
-  }
-  .item1 {
-      order: 1;
-      flex-grow: 20;
-  }
-  .item2 {
-      order: 2;
-      flex-grow: 1;
-      text-align: center;
-
-  }
-  .item3 {
-      order: 3;
-      flex-grow: 1;
-      text-align: center;
-  }
-  .item4 {
-    order: 4;
-    flex-grow: 1;
-    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 }
-
-/***
--- POSTCARD ___
-***/
-
 
 /* ----------------------------
   --- HOME PAGE ---------------
   ---------------------------- */
+
 .section {
   margin-bottom: 30px;
 }
@@ -243,11 +124,11 @@ a:hover {
   margin-bottom: 1em;
 }
 
-
 /* ----------------------------
   --- POST LIST PAGE ----------
   ---------------------------- */
-.article  {
+
+.article {
   padding: 16px;
   border: 1px solid rgba(0,0,0,.08);
   background-color: #fff;
@@ -255,9 +136,10 @@ a:hover {
   border-radius: 12px;
   transition: box-shadow .3s linear;
   margin-bottom: 25px;
+
   & .article-title {
-    font-family: 'Oxygen', 'sans-serif';
-    font-weight: 1000;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 900;
     color: black;
     margin: 0 0 0.3em 0;
   }
@@ -272,25 +154,13 @@ a:hover {
   margin: 0;
   font-size: 12px;
   line-height: 1em;
-} 
-/*
-.section .list p {
-  line-height: 1.5rem;
-  color: #8A817C;
-  font-size: 1.4rem;
 }
-.content .post p {
-  font-size: 1.5rem;
-  line-height: 3.1rem;
-  margin-bottom: 10px;
-}
-.content .post h1, h2 {
-  margin: 20px 0px;
-}*/
 
-/*------ POST ------ */
+/* ------ POST ------ */
+
 .post-title {
   margin: 2em 0;
+
   & h1 {
     margin-bottom: 0.3em;
   }
@@ -302,14 +172,15 @@ a:hover {
 
 .post {
   margin: 4em 0;
+
   & p {
-  display: block;
-  font-weight: bold;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+
   & ul {
     display: block;
     list-style-type: disc;
@@ -319,11 +190,12 @@ a:hover {
     margin-inline-end: 0px;
     padding-inline-start: 40px;
   }
-} 
+}
 
 /* ---------------------------------------------------------------------- */
 /* ------------- CODE STYLING ------------------------------------------- */
 /* ---------------------------------------------------------------------- */
+
 pre {
   font-size: 100%;
 }
@@ -339,12 +211,9 @@ code {
   font-size: 120%;
 }
 
-.code .comment {
-  color:gray;
-}
-
-
-/*----- BANNER ********/
+/* ---------------------------------------------------------------------- */
+/* ------------- BANNER ------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
 
 .banner {
   display: flex;
@@ -355,7 +224,7 @@ code {
 
 .banner-text {
   max-width: 50%;
-  
+
   & .banner-header {
     margin-bottom: 2.1em;
   }
@@ -382,8 +251,6 @@ code {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Responsive Design */
 @media (max-width: 768px) {
   .banner {
     flex-direction: column;
@@ -393,11 +260,9 @@ code {
   .banner-text {
     max-width: 100%;
   }
-  .banner-image {
-    max-width: 90%;
-  }
 
   .banner-image {
+    max-width: 90%;
     margin-top: 20px;
   }
 }
@@ -417,10 +282,11 @@ code {
 }
 
 /* ------- BOOTSTRAP OVERRIDES ----------- */
+
 .btn, .btn-primary, .btn-lg {
   background-color: #6b3a4f;
   font-size: 16px;
-  font-weight: 1000;
+  font-weight: 900;
   line-height: 1;
   color: #c9abb9;
   --padding: 20px;

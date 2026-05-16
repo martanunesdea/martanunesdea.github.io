@@ -1,9 +1,7 @@
 ---
-title: Git notes
-description: This is a summary of git commands I've used
-tags: ['post', 'dog']
+title: Git CLI commands 101
+description: A summary of git commands I've used
 date: 2019-06-11
-layout: post.njk
 ---
 ## Branching
 ```
@@ -42,16 +40,16 @@ git rm -r --cached folder
 ```
 
 ## Stashing
-This command comes in useful when you're not ready to commit changes but also don't want to revert them.
-````
+This command comes in useful when you're not ready to commit changes but also don't want to revert them. It allows you to 'stash' away your changes, so that your working copy remains effectively clean and you can checkout other branches or commits that could have merging conflicts.
+```
 git stash
 ```
-will allow you to stash the changes on a branch, so that your working copy remains effectively clean and you can checkout different branches, etc.
+
+
+To retrieve your changes from memory and apply them to whichever branch you're working on.
 ```
 git stash pop
 ```
-will retrieve your saved changes from memory and apply them to whichever branch you're working on.
-
 
 ## Rebase
 ```

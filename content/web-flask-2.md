@@ -1,9 +1,7 @@
 ---
 title: Flask and MongoDB
 description: A short summary on integration
-tags: ['post', 'web']
-date: 2021-10-12
-layout: post.njk
+date: 2021-01-22
 ---
 ## Adding a DB to Flask
 Flask is a great little web-server framework in Python. It is very simple and straightforward. 

@@ -1,9 +1,7 @@
 ---
 title: Getting set up with ESP32
-description: Simple tutorial for a starting up on development with ESP32
-tags: ['post']
+description: Simple tutorial for starting up on development with ESP32
 date: 2022-05-20
-layout: post.njk
 ---
 # Getting set up with ESP32
 ## Project Rationale

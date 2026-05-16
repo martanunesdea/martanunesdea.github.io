@@ -1,8 +1,6 @@
 ---
 title: Three lessons after three months of working from home as a graduate
-tags: ['post']
 date: 2020-07-09
-layout: post.njk
 ---
 This globalised crisis has affected everyone differently. In these times of mind-consuming uncertainty, focusing on what we can’t control has become the most popular form of procrastination. Whilst I struggled with the persistent worrying and really missed my loved ones, I was also very lucky to keep on working Monday to Friday and having other things to think about other than a global pandemic.
 

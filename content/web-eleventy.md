@@ -1,9 +1,7 @@
 ---
 title: Setting up a website with EleventyJS
-description: This is a post on My Blog about agile frameworks.
-tags: ['post']
+description: Building a personal site with Eleventy and Nunjucks
 date: 2021-09-01
-layout: post.njk
 ---
 For a while, I've entertained the idea of building a very basic personal site with pure HTML and CSS. Given the practicalities of hosting a static website on Github Pages, I thought that would suffice my needs and spare me some time. 
 

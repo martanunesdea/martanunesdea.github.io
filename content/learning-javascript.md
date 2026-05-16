@@ -1,9 +1,7 @@
 ---
 title: Learning Javascript as a C developer
 description: Stepping into web development
-tags: ['post']
 date: 2020-09-29
-layout: post.njk
 ---
 # Getting started with Web Development
 

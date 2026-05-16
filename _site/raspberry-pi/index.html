@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Marta Nunes de Abreu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
     <link href="/index.css" rel="stylesheet">
-
   </head>
   <body>
     <div class="container">
       <div class="header">
-      <div class="brand">Marta Nunes de Abreu</div>
-      <nav>
-          <a href="../index">Home</a>
-          <a href="../post-list">Blog</a>
-          <a href="../about">About</a>
-      </nav>
-    </div>
+        <div class="brand">Marta Nunes de Abreu</div>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/post-list/">Blog</a>
+          <a href="/about/">About</a>
+        </nav>
+      </div>
 
-    <main class="tmpl-post">
-    <!-- BODY -->
-      <div class="content">
-        <div class="post-title">
+      <main class="tmpl-post">
+        <div class="content">
+          <div class="post-title">
 <h1>I&#39;ve finally starting testing out my Raspberry Pi</h1>
 <p>22 September 2022</p>
 </div>
@@ -52,7 +50,7 @@
 <p>I thought about writing all that I did in this post, but it probably merits a separate article. The first and most important thing is to change the password to something different. If using SSH then you probably want to prioritise getting the right security settings sooner rather than later. Depending on where you live too (remote Arctic living may not be as vulnerable to WLAN attacks).</p>
 <p>To change password from default:</p>
 <pre><code class="language-bash">ssh pi@192.168.0.56 -l pi
-// upon prompted with password i typed &quot;raspberry&quot;
+// upon prompted with password i typed a custom password
 // to change password:
 passwd
 </code></pre>
@@ -147,14 +145,12 @@ Guest ok = no
 
 </div>
 
-      </div>
+        </div>
+      </main>
 
-      
-    <!-- Footer -->
       <div class="footer">
-        <p>© Copyright 2020. All rights reversed.</p>
+        <p>&copy; Marta Nunes de Abreu</p>
       </div>
     </div>
-
   </body>
 </html>

@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Marta Nunes de Abreu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
     <link href="/index.css" rel="stylesheet">
-
   </head>
   <body>
     <div class="container">
       <div class="header">
-      <div class="brand">Marta Nunes de Abreu</div>
-      <nav>
-          <a href="../index">Home</a>
-          <a href="../post-list">Blog</a>
-          <a href="../about">About</a>
-      </nav>
-    </div>
+        <div class="brand">Marta Nunes de Abreu</div>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/post-list/">Blog</a>
+          <a href="/about/">About</a>
+        </nav>
+      </div>
 
-    <main class="tmpl-post">
-    <!-- BODY -->
-      <div class="content">
-        <div class="post-title">
-<h1>Speech processing with ESP32</h1>
+      <main class="tmpl-post">
+        <div class="content">
+          <div class="post-title">
+<h1>Getting set up with ESP32</h1>
 <p>20 May 2022</p>
 </div>
 <div class="post">
-<h1>Speech processing with ESP32</h1>
+<h1>Getting set up with ESP32</h1>
 <h2>Project Rationale</h2>
 <p>This project idea came to possibly in my second year of university and so many things have got in the way that I kept on postponing it. Perhaps the ambition behind the idea was a bit too big to simply start working on it during my down time. Perhaps not. In essence, I am hoping to connect a microphone to an esp32 board, perhaps do a bit of pre-processing from the board and then send the data wirelessly. Once the data is in a bit of a more powerful machine, I will try to use more advanced filtering and algorithms to process the audio. If all goes well, I will try to use the final speech output as the input for a future NLP project (this would be separately implemented to avoid complications, and to enable me to work on different things concurrently). Sounds simple, right? Well, let's get working then!</p>
 <h2>Development diaries</h2>
@@ -54,20 +52,15 @@
 Client and server roles</p>
 <p>The terminology for client and server is widely used around the Internet development sector. In the case of TCP/IP protocol, I'll be setting up the esp32 as the &quot;host&quot; that is providing information to the computer (which acts as the &quot;client&quot;.).</p>
 <p>To setup my computer as a client, I have to run either a python script or a couple of netcat commands to tune in to the correct address and listen to the port.</p>
-<pre><code class="language-c">/* main.c */
-printf(&quot;Hello world&quot;);
-</code></pre>
 
 </div>
 
-      </div>
+        </div>
+      </main>
 
-      
-    <!-- Footer -->
       <div class="footer">
-        <p>© Copyright 2020. All rights reversed.</p>
+        <p>&copy; Marta Nunes de Abreu</p>
       </div>
     </div>
-
   </body>
 </html>
