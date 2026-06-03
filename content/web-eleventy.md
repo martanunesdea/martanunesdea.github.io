@@ -62,7 +62,7 @@ title: My Rad Blog
     <title>{{ title }}</title>
   </head>
   <body>
-    {{ content | safe }}
+    {{ content }}
   </body>
 </html>
 ```
