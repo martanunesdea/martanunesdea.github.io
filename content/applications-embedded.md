@@ -8,21 +8,19 @@ I can’t help but feel like the internet has provided a foundation to a large p
 
 Here’s my attempt to explain embedded software applications.
 
-I’ll be splitting this article into a brief explanation of embedded software, followed by an introduction to the two main areas where embedded software is present. I will finish pointing to other areas where it is also essential, thought not as visible to the everyday consumer.
+I’ll be splitting this article into a brief explanation of embedded software, followed by an introduction to the two main areas where embedded software is present. I will finish pointing to other areas where it is also essential, though not as visible to the everyday consumer.
 
 ## Firmware: Where hardware and software meet
 
-Firmware is the software purposefully designed and implemented to interact with specific hardware design. Embedded software is commonly exchanged with firmware, although embedded tends to refer to software that is more agnostic of the hardware (ie. RTOS or Embedded Linux configurations). 
+Firmware is the software purposefully designed and implemented to interact with specific hardware design. Embedded software is commonly used interchangeably with firmware, although embedded tends to refer to software that is more agnostic of the hardware (ie. RTOS or Embedded Linux configurations). 
 
 A simple example: A smart speaker.
 
 Inside a smart speaker, there is a microprocessor inside, along with a hefty battery and other components, programmed to perform very specific tasks:
 
-a. Connect through Bluetooth
-
-b. Alert when batter is low
-
-c. Instruct the loudspeakers to play or stop as commanded by the user.
+1. Connect through Bluetooth
+2. Alert when battery is low
+3. Instruct the loudspeakers to play or stop as commanded by the user.
 
 What it boils down to is that embedded software has the responsibility to create an abstraction from the lower levels of electronic components and hardware to a human-friendly interface. This may come in different forms; as a complete operating system, if it’s a widely multi-purpose device, or through the implementation of a simple user interface with some buttons to get user input, if it is a single-purpose device only (e.g. a smart microwave).
 
@@ -52,10 +50,8 @@ I realize that categorizing all of these different types of software products in
 
 1) They are not a consumer-centric software product (B2B rather than B2C software), and therefore most people are oblivious of its existence and importance.
 
-2) They require high-level of reliability and need to comply which very strict standards (MISRA standards for aviation and automotive sectors, ISO standards for medical equipment, and many more). This is because their purpose and functionality is not to be consumed by an user, but to sustain the foundation of critical processes (such as transportation or saving lives). Thus ,they must prevail much more rigorous testing.
+2) They require high-level of reliability and need to comply with very strict standards (MISRA standards for aviation and automotive sectors, ISO standards for medical equipment, and many more). This is because their purpose and functionality is not to be consumed by a user, but to sustain the foundation of critical processes (such as transportation or saving lives). Thus ,they must undergo much more rigorous testing.
 
 ## Conclusion
 
 This article aims to reflect on the unseen and unspoken heroes within the world of software products: embedded software applications. As we’ve seen, a lot of the technologies we use are reliant on embedded software.
-
-In general, a lot of software exists in no small part thanks to embedded software engineering; as it abstracts away all the dependencies on the hardware. You may have heard that a lot of programming languages are based or built on C. This is because UNIX, one of the earliest operating systems, was entirely built on C, effectively bridging the gap between hardware and software. Once there was an OS written in C, other programs could interact with it in the same language. Since then, many compilers have been built to ensure that software written in C could be executed by the computers available.
