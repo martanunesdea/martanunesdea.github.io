@@ -24,8 +24,8 @@
       <main class="tmpl-post">
         <div class="content">
           <div class="post-title">
-<h1>Setting up a website with EleventyJS</h1>
-<p>01 September 2021</p>
+<h1>Web dev - Setting up a personal blog with EleventyJS</h1>
+<p>29 August 2021</p>
 </div>
 <div class="post">
 <p>For a while, I've entertained the idea of building a very basic personal site with pure HTML and CSS. Given the practicalities of hosting a static website on Github Pages, I thought that would suffice my needs and spare me some time.</p>
@@ -66,7 +66,7 @@ title: My Rad Blog
   &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;Setting up a website with EleventyJS&lt;/title&gt;
+    &lt;title&gt;Web dev - Setting up a personal blog with EleventyJS&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
     
@@ -150,6 +150,72 @@ templateClass: tmpl-homepage
 </code></pre>
 <p>Simple as that! Ok, so how did I manage to tackle feature n.1?</p>
 <h3>Creating nonjucks filters on Eleventy config</h3>
+<p>(I never finished writing this section at the time. The notes below pick up where this left off and describe how the site actually works today.)</p>
+<hr>
+<h2>Update: how this site works today</h2>
+<p>The site has evolved since the early experiments above. It still uses Eleventy and Nunjucks, but the layout is simpler and lives in this repository. The goal is unchanged: a minimal static site on GitHub Pages, without a heavy JavaScript framework.</p>
+<h3>Minimal by design</h3>
+<p>GitHub Pages serves plain files. There is no server to run at request time. Eleventy compiles Markdown and templates into HTML at build time; visitors get static HTML, CSS, and a few assets. Compared with tools like Gatsby, Eleventy stays out of the way: you choose your own folder structure and only enable features you need.</p>
+<h3>Project layout (current)</h3>
+<pre><code>content/              # Markdown pages (posts and static pages)
+_includes/layouts/    # Nunjucks layouts (base, homepage, post, postlist)
+_data/                # Global data (e.g. site metadata)
+index.css             # Site styles (copied to output as-is)
+eleventy.config.js    # Build configuration
+</code></pre>
+<p>Posts inherit defaults from <code>content/content.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;layout&quot;: &quot;post.njk&quot;,
+  &quot;tags&quot;: [&quot;post&quot;]
+}
+</code></pre>
+<p>A new article is usually a Markdown file with a title and date.</p>
+<h3>Basic setup</h3>
+<p>Prerequisites: <a href="https://nodejs.org/">Node.js</a> (CI uses Node 22).</p>
+<pre><code class="language-bash">npm install
+npm run dev    # local preview with reload
+npm run build  # writes HTML to _site/
+</code></pre>
+<p><code>package.json</code> lists Eleventy and <a href="https://moment.github.io/luxon/">Luxon</a> for date formatting. Deployment: on push to <code>master</code>, GitHub Actions runs <code>npm run build</code> and publishes <code>_site/</code> to GitHub Pages.</p>
+<h3>Eleventy features used now</h3>
+<p><strong>Layouts</strong>: The site is made of 4 possible layouts. They chain with a <code>layout</code> key in front matter.</p>
+<ul>
+<li><code>base.njk</code> includes the header, nav, footer, links to Bootstrap (used lightly) and <code>/index.css</code>. The actual body comes from the Nunjucks <code>content</code> variable.</li>
+<li><code>homepage.njk</code> extends <code>base.njk</code>. Intro banner and “Latest in Blog” (three recent posts).</li>
+<li><code>post.njk</code> extends <code>base.njk</code>. Title, formatted date, article body.</li>
+<li><code>postlist.njk</code> extends <code>base.njk</code>. Full blog index, newest first.</li>
+</ul>
+<p><strong>Collections</strong>: Pages tagged <code>post</code> join <code>collections.post</code>. The homepage and blog list iterate with <code>reverse</code> so newest posts appear first.</p>
+<p><strong>Custom filters</strong>:</p>
+<ul>
+<li><code>limit</code> — First <em>n</em> items from an array. Homepage: <code>collections.post | reverse | limit(3)</code>.</li>
+<li><code>postDate</code> — Formats dates as <code>dd MMMM yyyy</code> via Luxon.</li>
+</ul>
+<pre><code class="language-javascript">eleventyConfig.addNunjucksFilter(&quot;limit&quot;, (arr, limit) =&gt; arr.slice(0, limit));
+
+eleventyConfig.addFilter(&quot;postDate&quot;, (dateObj) =&gt; {
+  return DateTime.fromJSDate(dateObj).toFormat(&quot;dd MMMM yyyy&quot;);
+});
+</code></pre>
+<p><strong>Directory paths</strong> in <code>eleventy.config.js</code>:</p>
+<pre><code class="language-javascript">dir: {
+  input: &quot;content&quot;,
+  includes: &quot;../_includes&quot;,
+  data: &quot;../_data&quot;,
+  output: &quot;_site&quot;,
+  layouts: &quot;../_includes/layouts&quot;
+}
+</code></pre>
+<h3>CSS and styling</h3>
+<p>One stylesheet linked from the base layout. Even this has been kept fairly minimal, mostly for:</p>
+<ul>
+<li>Typography</li>
+<li>Layout: Header and blog list</li>
+<li>Bootstrap: Loaded from a CDN. Mainly for the container grid and the homepage “See more” button.</li>
+</ul>
+<h3>Summary</h3>
+<p>Early on I learned Eleventy with a throwaway <code>eleventy-sample</code> folder and a <code>src/pages</code> layout. The live site consolidated into <code>content/</code> plus a short <code>eleventy.config.js</code>. That is enough for a homepage, dated posts, a blog index, and GitHub Pages hosting without shipping a large client bundle.</p>
+<p>For a current reference, see the <a href="https://www.11ty.dev/docs/getting-started/">Eleventy docs</a>.</p>
 
 </div>
 
