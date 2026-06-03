@@ -12,7 +12,7 @@ However, I soon realised that I needed a templating engine if I wanted to avoid 
 
 Python is best known for its practical automation programs, right? I thought I could easily write up a Python script that would take the HTML of an article and embed it within my base HTML file. I created this script and generated several HTML files and was very pleased. However, I soon realised that there was a few other functionalities that I wasn't going to have the time to program onto this template.
 
-Because I had used Flask and Ninja before, I was tempted to just borrow the Ninja functionality to generate my templates. 
+Because I had used Flask and Ninja before, I was tempted to just borrow the Jinja2 functionality to generate my templates. 
 
 I made a quick google search and soon got a bit overwhelmed with all the new Python static site generators that were out there. 
 
@@ -46,8 +46,8 @@ This will look for "templateable" files, e.g. markdown, html, etc. and generate 
 Looked simple enough!
 Ok, let's with a real HTML template.
 
-## Tested it with a nonjuncks template
-So I created a non-juncks file that served as a layout template, a bit like this: 
+## Tested it with a Nunjuncks template
+So I created a Nunjuncks file that served as a layout template, a bit like this: 
 ``` text/2-3
 <!-- template.njk -->
 ---
@@ -62,7 +62,7 @@ title: My Rad Blog
     <title>{{ title }}</title>
   </head>
   <body>
-    {{ content | raw }}
+    {{ content | safe }}
   </body>
 </html>
 ```
@@ -74,7 +74,7 @@ Then, I created a couple of markdown files that would borrow from this template:
 layout: template.njk
 my_title: My Rad Markdown Blog Post
 ---
-# { {  my_title_here }  }  
+# {{  my_title_here }}  
 ```
 
 Then checked what eleventy would produce, with this command:
@@ -125,22 +125,22 @@ layout: postlist.njk
 ---
 ```
 
-## Using nunjucks filters
+## Using Nunjucks filters
 I had mentioned that I didn't require much from a static site generator, however there were essentially two small things that I couldn't quite generate with my own Python template and those were the following: 
 - A 3-article list for my homepage, that gets updated as newer articles are written. 
-- A list of articles that is sorted by date.
+- A list of articles that is sorted by date, newest to oldest.
 
-Whilst trying to tackle the first one, I quickly found a way to implement the second one. This was because the only required existing nonjucks features. All I had to do, was add a tag on each of the mardown files that were posts. Like so:
+Whilst trying to tackle the first one, I quickly found a way to implement the second one. This was because it only required existing Eleventy and Nunjucks features. All I had to do, was add a tag on each of the markdown files that were posts. Like so:
 ```
 ---
 title: This is my first post
 description: Some description about my first post
 date: 2018-05-01
 tags: post
-layout: postlist.njk
+layout: post.njk
 ---
 ```
-This will generate a collection called "post" which nonjucks will be able to iterate over.
+This will generate a collection called "post" which Nunjucks will be able to iterate over.
 
 ```
 ---
@@ -149,16 +149,16 @@ templateClass: tmpl-homepage
 ---
 <h1>All articles</h1>
 <hr>
-{- for post in collections.post | reverse -}
+{% for post in collections.post | reverse %}
   <a href="{{post.url}}">
     <h3>{{ post.data.title }}</h3>
   </a>
   <hr>
-{- endfor -}
+{% endfor %}
 ```
 Simple as that! Ok, so how did I manage to tackle feature n.1?
 
-### Creating nonjucks filters on Eleventy config
+### Creating Nunjucks filters on Eleventy config
 
 (I never finished writing this section at the time. The notes below pick up where this left off and describe how the site actually works today.)
 
@@ -214,7 +214,7 @@ npm run build  # writes HTML to _site/
 - `post.njk` extends `base.njk`. Title, formatted date, article body.
 - `postlist.njk` extends `base.njk`. Full blog index, newest first.
 
-**Collections**: Pages tagged `post` join `collections.post`. The homepage and blog list iterate with `reverse` so newest posts appear first.
+**Collections**: Pages tagged `post` join `collections.post`. The homepage and blog list iterate with `reverse` so newest posts appear first. Eleventy sorts collections by date; `reverse` flips that order. Only `limit` needed a custom filter.
 
 **Custom filters**:
 
