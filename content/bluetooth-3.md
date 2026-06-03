@@ -1,6 +1,6 @@
 ---
 title: Getting BLE to work - Sharing
-date: 2021-06-05
+date: 2021-10-05
 ---
 
 So how do you go about sending data on BLE? It is highly encouraged that data is sent through the ATT protocol. GATT sits on top of ATT and defines how that data is grouped into services and characteristics.

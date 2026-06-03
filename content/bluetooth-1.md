@@ -1,6 +1,6 @@
 ---
-title: A short summary on Bluetooth
-date: 2021-04-09
+title: Bluetooth - A short summary
+date: 2021-09-07
 ---
 Bluetooth is defined in the Core standards as: "Bluetooth wireless technology is a short-range communications system intended to replace the cable(s) connecting portable and/or fixed electronic devices."
 

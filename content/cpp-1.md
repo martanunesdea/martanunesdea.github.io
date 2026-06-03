@@ -1,6 +1,6 @@
 ---
 title: Parsing in C++
-date: 2020-07-28
+date: 2020-05-28
 ---
 # Processing text in C++
 ## Project Rationale

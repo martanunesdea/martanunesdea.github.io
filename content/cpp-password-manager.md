@@ -1,7 +1,7 @@
 ---
 title: Password manager with C++ and MySQL
 description: Designing a simple storage system for passwords with C++ and MySQL
-date: 2020-08-24
+date: 2020-06-14
 ---
 # Processing text in C++
 ## Project Rationale

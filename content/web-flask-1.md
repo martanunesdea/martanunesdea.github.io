@@ -1,19 +1,21 @@
 ---
-title: Back end development and Flask
+title: Web dev 101 - Back end development and Flask
 date: 2020-11-10
 ---
-## Back end development and Flask
-
-Flask is a very lightweight server side library built in Python. The plus side to the "lightweight" characteristic is that it is very quick to get it up and running. The downside is that, it effectively builds with the barebones and you have to sort out the rest. Which is a relatively good thing in cases where the website or web app doesn't require many features.
+# Quick intro to Flask
+Flask is a very lightweight Python web framework that allows back-end development. The plus side to the "lightweight" characteristic is that it is very quick to get it up and running. The downside is that it effectively builds with the barebones and you are left to manage the rest. Which is a relatively good thing in cases where the website or web app doesn't require many features.
 
 In this case, I am using Flask precisely because:
-1. I didn't want to go through the hassle of learning Django
-2. The use of lightweight server library will be useful when I start with sending data to servers from microprocessors or embedded systems. So a win/win for my learning journey.
+1. Flask was easy to pick up from reading the documents and following the example demo.
+2. The use of lightweight framework will be useful when I start with sending data to servers from microprocessors or embedded systems. So a win/win for my learning journey.
 
-Since Flask is built in Python, it comes with integration to SQLite as part of the sqlite3 package. That's also one less thing to worry about, since I have already built my database handler around sqlite3. 
+Since Flask is built in Python, it integrates well with Python's standard library sqlite3 package. That's also one less thing to worry about, since I have already built my database handler around sqlite3. 
 
-Making calls to routes specified within Flask is fairly straightforward. Understanding the relation between templates, javascript add-ons, and then the flask source file is a little bit trickier. I found myself particularly stuck when attempting to make calls from the javascript functions onto flask, until I realised that it all revolves around HTTP requests.
+## Routing HTTP requests
+Making calls to routes specified within Flask is fairly straightforward. Understanding the relation between templates, client-side JavaScript, and then the routes in app.py is a little bit trickier. I found myself particularly stuck when attempting to make calls from the Javascript functions onto Flask, until I realised that it all revolves around HTTP requests.
 
-Essentially, when integrating dynamic javascript onto your site, you will have to perform requests, which will then re-direct you to the routes defined within the flask source file. Now, the choice of library responsible for performing these HTTP requests is down to the programmer. When searching for a way to approach this problem, I found most people where recurring to AJAX and jQuery as the solution. However, the downside to this is that other web development frameworks don't support jQuery (or they do, but it presents additional work). When reading through Flask's documentation, I found they actually present their AJAX example with two other formats: plain XHR and fetch. Again, there are upsides and downsides to either, and many posts cover this in detail. Essentially, Fetch API is meant to be the new way of making requests but not everyone seems to think it's the most straightforward way. 
+When integrating dynamic JavaScript onto your site, you will have to perform requests, which will then call the routes defined within the Flask app module. Now, the choice of library responsible for performing these HTTP requests is down to the programmer. 
 
-As for me, I will pick XHR for now since this seems to be compatible with all browsers, and gives me the flexibility to at some point, use it with React if I decide to incorporate it on other projects.
+When searching for a solution to this problem, it looked like AJAX and jQuery were the popular options. But I also found that jQuery can often require additional work to ensure compability with modern web frameworks, so I skipped it for this project. Flask’s documentation shows the same idea with plain XHR and Fetch API. Plenty of posts compare them; there are upsides and downsides to either, so it was more of a case of picking the one that suited me best.
+
+I went with plain XHR for now: it matched Flask’s documentation, behaved consistently in the browsers I cared about, and felt close enough to patterns I might reuse if I try React later. With this decision, I felt like we had resolved the mystery of how to wire JavaScript to the routes in the Flask app. So, now that the browser was now htting my Flask routes reliably, next step is to  give these routes something persistent to read and write (covered in the MongoDB post).

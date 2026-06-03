@@ -1,6 +1,6 @@
 ---
 title: Getting BLE to work - Connecting
-date: 2021-05-02
+date: 2021-09-14
 ---
 Bluetooth can be a multi-client network but the simplest network only requires two devices: a server, providing the information and a client, requesting it. 
 

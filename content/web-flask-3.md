@@ -1,6 +1,6 @@
 ---
-title: I wrote a web app and it was so slow
-date: 2021-12-18
+title: Web dev 101 - I wrote a web app and it was so slow
+date: 2021-06-18
 ---
 With so many accessible web frameworks in a variety of programming languages, one would be quick to assume that making a web app should be no trouble at all, right? Well, I managed to mess it up somehow
 
@@ -24,7 +24,7 @@ I am still unsure. I will have a look at the architecture of the project, and re
 I am tempted to say that the combination of Flask and MongoDB is not the best. I shall do some research about where to go from here.
 
 # Update
-I made the switch from MongoDB to SQLite and it made a significant difference in behaviour. It makes intuitive sense, removing one less network connection in the chain will improve performance. I also have unverified suspicions that the SQLite library in Python is likely to be more performante the MongoDB python library I was using.
+I made the switch from MongoDB to SQLite and it made a significant difference in behaviour. It makes intuitive sense, removing one less network connection in the chain will improve performance. I also have unverified suspicions that the SQLite library in Python is likely to be more performant than the MongoDB python library that I was using.
 The switch over to SQLite wasn't actually as painful, since the DB access was nicely encapsulated. The main thing was ensuring the SQL queries were written correctly and parameterised such that the input parameters were correctly parsed. After making the necessary changes, I could quickly see the searching operations were dramatically quicker. This improvement in performance also opened the door to create a word search option which was the main thing I was looking for when implementing this website. E.g. Type in the word of an ingredient, and all the recipes using that ingredient show up. While on this winning streak, I also implemented some quick filters based on cuisine and type of meal.
 
 # Conclusion
