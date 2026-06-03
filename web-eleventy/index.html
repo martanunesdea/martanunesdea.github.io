@@ -32,7 +32,7 @@
 <p>However, I soon realised that I needed a templating engine if I wanted to avoid having to implement 1 small change across multiple files.</p>
 <h2>Template engines</h2>
 <p>Python is best known for its practical automation programs, right? I thought I could easily write up a Python script that would take the HTML of an article and embed it within my base HTML file. I created this script and generated several HTML files and was very pleased. However, I soon realised that there was a few other functionalities that I wasn't going to have the time to program onto this template.</p>
-<p>Because I had used Flask and Ninja before, I was tempted to just borrow the Ninja functionality to generate my templates.</p>
+<p>Because I had used Flask and Ninja before, I was tempted to just borrow the Jinja2 functionality to generate my templates.</p>
 <p>I made a quick google search and soon got a bit overwhelmed with all the new Python static site generators that were out there.</p>
 <p>I quickly stumbled onto EleventyJS, and soon realised this was all I needed.</p>
 <p>Even though EleventyJS is a static site generator, it offers a very simple and minimal approach (unlike GatsbyJS, etc.).</p>
@@ -54,8 +54,8 @@ npx @11ty/eleventy
 <p>This will look for &quot;templateable&quot; files, e.g. markdown, html, etc. and generate them into their own html file.</p>
 <p>Looked simple enough!
 Ok, let's with a real HTML template.</p>
-<h2>Tested it with a nonjuncks template</h2>
-<p>So I created a non-juncks file that served as a layout template, a bit like this:</p>
+<h2>Tested it with a Nunjuncks template</h2>
+<p>So I created a Nunjuncks file that served as a layout template, a bit like this:</p>
 <pre><code class="language-text/2-3">&lt;!-- template.njk --&gt;
 ---
 title: My Rad Blog
@@ -79,7 +79,7 @@ title: My Rad Blog
 layout: template.njk
 my_title: My Rad Markdown Blog Post
 ---
-# { {  my_title_here }  }  
+#   
 </code></pre>
 <p>Then checked what eleventy would produce, with this command:</p>
 <pre><code>npx @11ty/eleventy --serve
@@ -119,37 +119,107 @@ date: 2018-05-01
 layout: postlist.njk
 ---
 </code></pre>
-<h2>Using nunjucks filters</h2>
+<h2>Using Nunjucks filters</h2>
 <p>I had mentioned that I didn't require much from a static site generator, however there were essentially two small things that I couldn't quite generate with my own Python template and those were the following:</p>
 <ul>
 <li>A 3-article list for my homepage, that gets updated as newer articles are written.</li>
-<li>A list of articles that is sorted by date.</li>
+<li>A list of articles that is sorted by date, newest to oldest.</li>
 </ul>
-<p>Whilst trying to tackle the first one, I quickly found a way to implement the second one. This was because the only required existing nonjucks features. All I had to do, was add a tag on each of the mardown files that were posts. Like so:</p>
+<p>Whilst trying to tackle the first one, I quickly found a way to implement the second one. This was because it only required existing Eleventy and Nunjucks features. All I had to do, was add a tag on each of the markdown files that were posts. Like so:</p>
 <pre><code>---
 title: This is my first post
 description: Some description about my first post
 date: 2018-05-01
 tags: post
-layout: postlist.njk
+layout: post.njk
 ---
 </code></pre>
-<p>This will generate a collection called &quot;post&quot; which nonjucks will be able to iterate over.</p>
+<p>This will generate a collection called &quot;post&quot; which Nunjucks will be able to iterate over.</p>
 <pre><code>---
 layout: base.njk
 templateClass: tmpl-homepage
 ---
 &lt;h1&gt;All articles&lt;/h1&gt;
 &lt;hr&gt;
-{- for post in collections.post | reverse -}
-  &lt;a href=&quot;&quot;&gt;
-    &lt;h3&gt;&lt;/h3&gt;
+
+  &lt;a href=&quot;/applications-embedded/&quot;&gt;
+    &lt;h3&gt;Applications of embedded software&lt;/h3&gt;
   &lt;/a&gt;
   &lt;hr&gt;
-{- endfor -}
+
+  &lt;a href=&quot;/cpp-1/&quot;&gt;
+    &lt;h3&gt;Parsing in C++&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/cpp-password-manager/&quot;&gt;
+    &lt;h3&gt;Password manager with C++ and MySQL&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/remote-working/&quot;&gt;
+    &lt;h3&gt;Three lessons after three months of working from home as a graduate&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/web-flask-1/&quot;&gt;
+    &lt;h3&gt;Web dev 101 - Back end development and Flask&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/web-flask-2/&quot;&gt;
+    &lt;h3&gt;Web dev 101 - Flask and MongoDB&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/web-flask-3/&quot;&gt;
+    &lt;h3&gt;Web dev 101 - I wrote a web app and it was so slow&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/web-eleventy/&quot;&gt;
+    &lt;h3&gt;Web dev - Setting up a personal blog with EleventyJS&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/bluetooth-1/&quot;&gt;
+    &lt;h3&gt;Bluetooth - A short summary&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/bluetooth-2/&quot;&gt;
+    &lt;h3&gt;Getting BLE to work - Connecting&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/bluetooth-3/&quot;&gt;
+    &lt;h3&gt;Getting BLE to work - Sharing&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/esp32/&quot;&gt;
+    &lt;h3&gt;Getting set up with ESP32&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/raspberry-pi/&quot;&gt;
+    &lt;h3&gt;I've finally starting testing out my Raspberry Pi&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/raspberry-pi-security/&quot;&gt;
+    &lt;h3&gt;Securing my raspberry pi wireless connection&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
+  &lt;a href=&quot;/data-viz-1/&quot;&gt;
+    &lt;h3&gt;A curious dip into data visualization&lt;/h3&gt;
+  &lt;/a&gt;
+  &lt;hr&gt;
+
 </code></pre>
 <p>Simple as that! Ok, so how did I manage to tackle feature n.1?</p>
-<h3>Creating nonjucks filters on Eleventy config</h3>
+<h3>Creating Nunjucks filters on Eleventy config</h3>
 <p>(I never finished writing this section at the time. The notes below pick up where this left off and describe how the site actually works today.)</p>
 <hr>
 <h2>Update: how this site works today</h2>
@@ -185,7 +255,7 @@ npm run build  # writes HTML to _site/
 <li><code>post.njk</code> extends <code>base.njk</code>. Title, formatted date, article body.</li>
 <li><code>postlist.njk</code> extends <code>base.njk</code>. Full blog index, newest first.</li>
 </ul>
-<p><strong>Collections</strong>: Pages tagged <code>post</code> join <code>collections.post</code>. The homepage and blog list iterate with <code>reverse</code> so newest posts appear first.</p>
+<p><strong>Collections</strong>: Pages tagged <code>post</code> join <code>collections.post</code>. The homepage and blog list iterate with <code>reverse</code> so newest posts appear first. Eleventy sorts collections by date; <code>reverse</code> flips that order. Only <code>limit</code> needed a custom filter.</p>
 <p><strong>Custom filters</strong>:</p>
 <ul>
 <li><code>limit</code> — First <em>n</em> items from an array. Homepage: <code>collections.post | reverse | limit(3)</code>.</li>
